@@ -1,31 +1,14 @@
-
-#expandme a {
-   
+.container {
+    border: 1px solid blue;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content:space-evenly;
 }
 
-#expandme {
-    background-color: #fae1dd;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-.navbar-nav {
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    text-align: center;
-}
-
-.nav-link {
-    margin-left: 2rem;
-    margin-right: 2rem;
-    
+.container a {
+    border: 1px solid black;
+    margin: 3px;
+    padding: 3px;
 }
 
 body {
