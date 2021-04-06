@@ -1,18 +1,26 @@
 .container {
-    border: 1px solid blue;
     display: flex;
     flex-direction: row;
     justify-content:space-evenly;
 }
 
 .container a {
-    border: 1px solid black;
     margin: 3px;
     padding: 3px;
+    line-height: 200px;
+    max-height: 200px;
+}
+
+#logo {
+    line-height: 100px;
 }
 
 body {
     background-color: #f8edeb;  
     font-family: 'Amatic SC', cursive;
     font-size: 2em; 
+}
+
+#carouselItem {
+    height: 15em;
 }
