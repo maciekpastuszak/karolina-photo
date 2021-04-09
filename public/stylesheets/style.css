@@ -36,6 +36,28 @@ max-height: 120px;
 }
 }
 
+@media (max-width:992px) {
+    .nav-item, #navbarDropdownMenu {
+        font-size: 0.8rem;
+}
+#logo {
+    max-height: 100px;
+}
+}
+
+@media (max-width:576px){
+#logo {
+    display:none;
+}
+.navbar {
+   min-height: 5rem;
+    background-image: url('/images/logoKP-trans.png');
+    background-size:200px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+}
+
 #carousel {
     width: 85%;
 }
