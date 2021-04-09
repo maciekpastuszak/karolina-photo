@@ -25,19 +25,32 @@ max-height: 120px;
     font-size: 1.2rem;
 }
 
+.dropdown-menu {
+    border-radius: 0.5rem;
+    background-color: rgba(250, 225, 221, 0.8);
+}
+
+/* .dropdown-menu li {
+    background-color: rgba(250, 225, 221, 0.4);
+} */
+
+.dropdown-menu:hover {
+    background-color: #fae1dd;
+}
+
 @media (max-width:1400px) {
-    .nav-item, #navbarDropdownMenu {
+    .nav-item, #navbarDropdownMenu, .dropdown-item {
         font-size: 1rem;
 }
 }
 @media (max-width:1200px) {
-    .nav-item, #navbarDropdownMenu {
+    .nav-item, #navbarDropdownMenu, .dropdown-item {
         font-size: 0.9rem;
 }
 }
 
 @media (max-width:992px) {
-    .nav-item, #navbarDropdownMenu {
+    .nav-item, #navbarDropdownMenu, .dropdown-item {
         font-size: 0.8rem;
 }
 #logo {
@@ -49,6 +62,7 @@ max-height: 120px;
 #logo {
     display:none;
 }
+
 .navbar {
    min-height: 5rem;
     background-image: url('/images/logoKP-trans.png');
