@@ -1,26 +1,42 @@
-.container {
-    display: flex;
-    flex-direction: row;
-    justify-content:space-evenly;
-}
-
-.container a {
-    margin: 3px;
-    padding: 3px;
-    line-height: 200px;
-    max-height: 200px;
+body {
+    background-color: #f8edeb;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 400;
 }
 
 #logo {
-    line-height: 100px;
+max-height: 120px;
 }
 
-body {
-    background-color: #f8edeb;  
-    font-family: 'Amatic SC', cursive;
-    font-size: 2em; 
+.navbar {
+    background-color: #fae1dd;
 }
 
-#carouselItem {
-    height: 15em;
+.navbar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    text-align: center;
 }
+
+.nav-item, #navbarDropdownMenu {
+    width: 120px;
+    font-size: 1.2rem;
+}
+
+@media (max-width:1400px) {
+    .nav-item, #navbarDropdownMenu {
+        font-size: 1rem;
+}
+}
+@media (max-width:1200px) {
+    .nav-item, #navbarDropdownMenu {
+        font-size: 0.9rem;
+}
+}
+
+#carousel {
+    width: 85%;
+}
+

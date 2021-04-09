@@ -1,27 +1,24 @@
 <nav class="navbar navbar-expand-sm navbar-light">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#expandme">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navContent"
+        aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="expandme">
-        <div class="container navbar-nav">
-            <a href="aboutMe" class="nav-item nav-link">O_mnie</a>
-            <a class="nav-item dropdown nav-link dropdown-toggle" href="portfolio" id="navbarDropdownMenuLink"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Portfolio
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Sesje lifestyle</a></li>
-                <li><a class="dropdown-item" href="#">Sesje ślubne</a></li>
-                <li><a class="dropdown-item" href="#">Sesje dzieci</a></li>
+    <div class="collapse navbar-collapse" id="navContent">
+        <div class="navbar-nav container">
+            <a class="nav-item nav-link mx-3 text-nowrap" href="aboutMe">O mnie</a>
+            <a class="nav-link dropdown-toggle mx-3" href="#" id="navbarDropdownMenu" data-bs-toggle="dropdown"
+                href="portfolio">Portfolio</a>
+            <ul class="dropdown-menu .dropdown-menu-end">
+                <li><a class="dropdown-item" type="button" href="#">Sesje lifestyle</a></li>
+                <li><a class="dropdown-item" type="button" href="#">Sesje ślubne</a></li>
+                <li><a class="dropdown-item" type="button" href="#">Sesje dzieci</a></li>
             </ul>
-            <a href="pakiety" class="nav-item nav-link">Pakiety</a>
-            <a class="navbar-brand" href="#" id="logo">
-                <img src="/images/logoKP-trans.png" class="img-fluid" alt="" width="360" height="240">
-            </a>
-            <a href="vouchery" class="nav-item nav-link">Vouchery</a>
-            <a href="beforeSession" class="nav-item nav-link">Przed_sesją</a>
-            <a href="contact" class="nav-item nav-link">Kontakt</a>
+            <a class="nav-item nav-link mx-3 text-nowrap" href="beforeSession">Przed sesją</a>
+            <a class="navbar-brand mx-3" href="/"><img src="images/logoKP-trans.png" class="img-fluid"
+                    alt="Karolina_photography_logo" id="logo"></a>
+            <a class="nav-item nav-link mx-3" href="vouchery">Vouchery</a>
+            <a class="nav-item nav-link mx-3" href="pakiety">Pakiety</a>
+            <a class="nav-item nav-link mx-3" href="contact">Kontakt</a>
         </div>
-    </div>
     </div>
 </nav>
