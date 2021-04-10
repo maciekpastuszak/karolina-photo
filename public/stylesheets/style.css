@@ -9,7 +9,7 @@ body {
 max-height: 120px;
 }
 
-.navbar {
+.navbar, .footer {
     background-color: #fae1dd;
 }
 
@@ -90,3 +90,6 @@ max-height: 120px;
     width: 85%;
 }
 
+.footer {
+text-align: center;
+}
