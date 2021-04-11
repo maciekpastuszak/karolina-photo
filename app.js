@@ -8,6 +8,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.static("node_modules/@fortawesome"));
 
 app.get('/', (req, res) => {
     res.render('home');
@@ -16,6 +17,7 @@ app.get('/', (req, res) => {
 app.get('/aboutMe', (req, res) => {
     res.render('aboutMe');
 })
+
 
 app.listen(3000, () => {
     console.log("LISTENING ON PORT 3000")
