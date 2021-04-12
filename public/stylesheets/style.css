@@ -84,12 +84,20 @@ max-height: 120px;
     .nav-item, .dropdown-item {
         font-size: 0.7rem;
 }
+.navbar-nav {
+ align-content: flex-start;
+
 }
-@media (max-width:576px){
-#logo {
-    display:none;
+.navbar-brand {
+    display: none;
 }
+
+
+
 }
+
+
+
 
 #carousel {
     width: 85%;
