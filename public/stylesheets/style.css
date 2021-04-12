@@ -12,16 +12,26 @@ max-height: 120px;
 .navbar {
     background-color: #fae1dd;
     box-shadow: 10px 5px 5px rgba(202, 178, 174, 0.5);
-}
-
-.navbar-nav {
-    display: flex;
+    width: 100%;
+    display:flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-end; 
     text-align: center;
 }
+
+#mainNav {
+    align-items: flex-end; 
+}
+
 .navbar-nav a {
     color: rgba(0, 0, 0, 0.5);
+}
+
+.nav-link {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -54,36 +64,30 @@ max-height: 120px;
 }
 
 @media (max-width:1400px) {
-    .nav-item, #navbarDropdownMenu, .dropdown-item {
-        font-size: 1rem;
+    .nav-item, .dropdown-item {
+        font-size: 1.2rem;
 }
 }
 @media (max-width:1200px) {
-    .nav-item, #navbarDropdownMenu, .dropdown-item {
-        font-size: 0.9rem;
+    .nav-item, .dropdown-item {
+        font-size: 1rem;
 }
 }
 
 @media (max-width:992px) {
-    .nav-item, #navbarDropdownMenu, .dropdown-item {
-        font-size: 0.8rem;
-}
-#logo {
-    min-width: 100px;
+    .nav-item, .dropdown-item {
+        font-size: 0.9rem;
 }
 }
 
+@media (max-width:768px) {
+    .nav-item, .dropdown-item {
+        font-size: 0.7rem;
+}
+}
 @media (max-width:576px){
 #logo {
     display:none;
-}
-
-.navbar {
-   min-height: 5rem;
-    background-image: url('/images/logoKP-trans.png');
-    background-size:200px;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 }
 
