@@ -1,18 +1,20 @@
 <nav class="navbar navbar-expand-md navbar-light">
-    <div class="container-fluid navbar-nav">
+    <div class="container-fluid">
         <button class="navbar-toggler mx-4" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="mainNav">
+        <div class="collapse navbar-collapse navbar-nav" id="mainNav">
             <a class="nav-link nav-item" aria-current="page" href="#">O mnie</a>
-            <a class="nav-link nav-item dropdown dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item nav-item" href="#">Sesje lifestyle</a>
-                <a class="dropdown-item nav-item" href="#">Sesje ślubne</a>
-                <a class="dropdown-item nav-item" href="#">Sesje dzieci</a>
-            </ul>
+            <div class="dropdown">
+                <a class="nav-link nav-item dropdown-toggle mx-auto" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">Portfolio</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" type="button" href="#">Sesje lifestyle</a></li>
+                    <li><a class="dropdown-item" type="button" href="#">Sesje ślubne</a></li>
+                    <li><a class="dropdown-item" type="button" href="#">Sesje dzieci</a></li>
+                </ul>
+            </div>
             <a class="nav-link nav-item text-nowrap" href="#">Przed sesją</a>
             <a class="navbar-brand" href="/"><img src="images/logoKP-trans.png" class="img-fluid"
                     alt="Karolina_photography_logo" id="logo"></a>
