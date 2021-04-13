@@ -18,6 +18,10 @@ app.get('/aboutMe', (req, res) => {
     res.render('aboutMe');
 })
 
+app.get('/pricing', (req, res) => {
+    res.render('pricing');
+})
+
 
 app.listen(3000, () => {
     console.log("LISTENING ON PORT 3000")
