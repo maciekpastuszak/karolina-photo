@@ -51,7 +51,7 @@ max-height: 120px;
 
 .dropdown-menu {
     border-radius: 0.5rem;
-    background-color: rgba(250, 225, 221, 0.8);
+    background-color: rgba(250, 225, 221, 0.9);
     
 }
 
@@ -77,13 +77,13 @@ max-height: 120px;
 }
 }
 @media (max-width:1200px) {
-    .nav-item, .dropdown-item {
+    .nav-item, .dropdown-item, #aboutMeText {
         font-size: 1rem;
 }
 }
 
 @media (max-width:992px) {
-    .nav-item, .dropdown-item {
+    .nav-item, .dropdown-item, #aboutMeText {
         font-size: 0.9rem;
 }
 }
@@ -101,7 +101,7 @@ margin-top: 0.7rem;
 margin-left: 1rem;
 background-image: url("/images/logoKP-trans.png");
 background-size: 50%;
-background-position: right 15% bottom 75%;
+background-position: right 15% bottom 80%;
 background-repeat: no-repeat;
 /* display: inline;
 vertical-align:baseline;
@@ -124,6 +124,9 @@ align-items:center; */
 
 #portfolio {
     align-self: flex-start;
+}
+#aboutMeText {
+    font-size: 0.7rem;
 }
 
 }
