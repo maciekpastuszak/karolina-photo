@@ -16,8 +16,8 @@ max-height: 120px;
     display:flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-end; 
-    text-align: center;
+    align-items: center; 
+    text-align: left;
 }
 
 #mainNav {
@@ -99,6 +99,10 @@ max-height: 120px;
 .navbar-nav {
 margin-top: 0.7rem;
 margin-left: 1rem;
+background-image: url("/images/logoKP-trans.png");
+background-size: 50%;
+background-position: right 15% bottom 75%;
+background-repeat: no-repeat;
 /* display: inline;
 vertical-align:baseline;
 align-items: flex-start;
@@ -122,10 +126,6 @@ align-items:center; */
     align-self: flex-start;
 }
 
-/* .dropdown-menu {
-    position:relative;
-} */
-
 }
 
 
@@ -143,13 +143,14 @@ box-shadow: 10px -5px 5px rgba(202, 178, 174, 0.5);
 
 #socialIcons {
     color: rgba(0, 0, 0, 0.5);
-    margin-right: 2em;
-    padding-bottom: 20px;
+    margin: 0;
+    padding-bottom: 2rem;
 }
 
 #socialIcons a {
     text-decoration: none;
     color: rgba(0, 0, 0, 0.5);
+    display: inline;
 }
 
 #socialIcons a:hover {
