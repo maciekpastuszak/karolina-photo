@@ -71,7 +71,14 @@ padding-bottom: 0;
 }
 
 #mainNav {
-    align-items: flex-end; 
+    position: relative;
+    top: 20px;
+
+}
+
+.navbar-brand {
+    position: relative;
+    top:-17px;
 }
 
 .navbar-nav a {
@@ -105,9 +112,9 @@ padding-bottom: 0;
     
 }
 
-#portfolio {
-    align-self: flex-end;
-}
+/* #portfolio {
+    align-self: flex-start;
+} */
 
 /* .dropdown-menu li {
     background-color: rgba(250, 225, 221, 0.4);
@@ -198,6 +205,9 @@ box-shadow: 10px -5px 5px rgba(202, 178, 174, 0.5);
     color: rgba(0, 0, 0, 0.5);
     margin: 0;
     padding-bottom: 2rem;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 #socialIcons a {
@@ -221,6 +231,10 @@ div svg {
 
 #aboutMeText {
     line-height: 1.5;
+}
+
+#contact-photo {
+    max-width: 400px;
 }
 /* 
 .fancy-border {
