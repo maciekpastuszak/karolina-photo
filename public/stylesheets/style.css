@@ -19,8 +19,8 @@ time, mark, audio, video {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
-	font: inherit;
+	/* font-size: 100%; */
+	/* font: inherit; */
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -52,6 +52,10 @@ body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
+}
+
+main {
+    align-items: center;
 }
 
 #logo {
@@ -129,26 +133,26 @@ padding-bottom: 0;
 }
 
 @media (max-width:1400px) {
-    .nav-item, .dropdown-item, #aboutMeText {
+    .nav-item, .dropdown-item, #aboutMeText, p, li {
         font-size: 1rem;
 }
 
 }
 @media (max-width:1200px) {
-    .nav-item, .dropdown-item, #aboutMeText {
+    .nav-item, .dropdown-item, #aboutMeText, p, li {
         font-size: 0.9rem;
 }
 }
 
 @media (max-width:992px) {
-    .nav-item, .dropdown-item, #aboutMeText {
+    .nav-item, .dropdown-item, #aboutMeText, p, li {
         font-size: 0.8rem;
 }
 
 }
 
 @media (max-width:768px) {
-    .nav-item, .dropdown-item, #navbarDropdownMenuLink {
+    .nav-item, .dropdown-item, #navbarDropdownMenuLink, p, li {
         font-size: 0.7rem;
         margin-left: 0;
         text-align: left;
@@ -250,10 +254,14 @@ div svg {
     margin: 5px;
 }
 
-#aboutMeText {
+#about-me-text {
     line-height: 1.5;
     /* font-size: 1.1rem; */
     text-align: justify;
+}
+
+#about-me-text h5 {
+    margin-bottom: 1rem;
 }
 
 #about-me-photo {
@@ -273,17 +281,54 @@ div svg {
     margin-left: 1rem;
 } */
 
-#before-p-s-img {
+#before-pshoot-img {
     width: 100%;
     max-width: 1114px;
     height: 15vw;
     object-fit: cover;
 }
 
-#before-p-s-card {
+#before-pshoot-card {
     max-width: 1114px;
+    border: none;
 }
 
-main {
-    align-items: center;
+#before-pshoot-card h4 {
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    text-align: center;
+}
+.card-body {
+    padding-bottom: 25px;
+    line-height: 1.5;
+}
+.card-body h6 {
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+    text-align: center;
+}
+
+.card-body p {
+   
+    text-align: justify;
+}
+
+#before-pshoot-card {
+    margin-inline: 10%;
+    background-color: rgb(255, 255, 255, 0.7);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.fade_rule {
+    height: 1px;
+    background-color: #E6E6E6;
+    width: 50%;
+    margin: 0 auto;
+    background-image: linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -o-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -moz-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -webkit-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -ms-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -webkit-gradient( linear, left bottom, right bottom, color-stop(0.02, white), color-stop(0.5, gray), color-stop(0.98, white) );
 }
