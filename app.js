@@ -18,6 +18,10 @@ app.get('/aboutMe', (req, res) => {
     res.render('aboutMe');
 })
 
+app.get('/beforePhotoShoot', (req, res) => {
+    res.render('beforePhotoShoot');
+})
+
 app.get('/pricing', (req, res) => {
     res.render('pricing');
 })

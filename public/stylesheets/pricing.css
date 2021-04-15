@@ -75,11 +75,13 @@ body {
 }
 
 .photo-package {
-  border-bottom: 1px solid #e1f1ff;
-  border-right: 1px solid #e1f1ff;
+  /* border-bottom: 1px solid #fae1dd; */
+  border-right: 1px solid #fae1dd;
+  margin-left: 5px;
 }
 .photo-package:last-child {
   border-bottom: none;
+  border-right: none;
 }
 
 .pricing-img {
@@ -107,11 +109,11 @@ body {
   font-size: 0.9rem;
   line-height: 1.5;
   padding: 15px 0;
-  border-top: 1px solid #e1f1ff;
+  border-top: 1px solid #fae1dd;
 }
 
 .package-features-item:last-child{
-  border-bottom: 1px solid #e1f1ff;
+  border-bottom: 1px solid #fae1dd;
 }
 
 .package-price {
