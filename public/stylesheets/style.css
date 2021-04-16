@@ -56,6 +56,8 @@ body {
 
 main {
     align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 #logo {
@@ -314,7 +316,7 @@ div svg {
     text-align: justify;
 }
 
-#before-pshoot-card {
+#before-pshoot-card  {
     margin-inline: 10%;
     background-color: rgb(255, 255, 255, 0.6);
     color: rgba(0, 0, 0, 0.7);
@@ -342,6 +344,14 @@ div svg {
 
 #contact-card {
 align-items: center;
+background-color: rgb(255, 255, 255, 0.6);
 margin-right: 0px;
 }
 
+#map {
+width: 300px; height: 200px
+}
+
+#contact-card-text {
+    line-height: 1.5;
+}
