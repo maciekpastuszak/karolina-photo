@@ -316,7 +316,7 @@ div svg {
 
 #before-pshoot-card {
     margin-inline: 10%;
-    background-color: rgb(255, 255, 255, 0.7);
+    background-color: rgb(255, 255, 255, 0.6);
     color: rgba(0, 0, 0, 0.7);
 }
 
@@ -332,3 +332,16 @@ div svg {
     background-image: -ms-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
     background-image: -webkit-gradient( linear, left bottom, right bottom, color-stop(0.02, white), color-stop(0.5, gray), color-stop(0.98, white) );
 }
+
+#contact-photo {
+    width: 100%;
+    max-width: 1114px;
+    height: 15vw;
+    object-fit: cover;
+}
+
+#contact-card {
+align-items: center;
+margin-right: 0px;
+}
+

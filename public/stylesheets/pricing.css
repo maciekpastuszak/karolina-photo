@@ -116,15 +116,6 @@ body {
   border-bottom: 1px solid #fae1dd;
 }
 
-.package-price {
-  color: rgba(0,0,0, 0.5); 
-  display: block;
-  margin-bottom: 10px;
-  font-size: 1.6rem;
-  font-weight: 400;
-}
-
-
 
 @media (min-width: 992px){
   .panel {
@@ -142,8 +133,19 @@ body {
   .package-features-item {
     font-size: 0.8rem;
   }
-  
 
- 
+}
 
+
+
+.package-price {
+  color: rgba(0,0,0, 0.5); 
+  display: block;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.photo-package span {
+  font-weight: 800;
 }
