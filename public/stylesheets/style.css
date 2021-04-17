@@ -151,6 +151,8 @@ padding-bottom: 0;
         font-size: 0.8rem;
 }
 
+
+
 }
 
 @media (max-width:768px) {
@@ -194,21 +196,27 @@ align-items:center; */
 #portfolio {
     align-self: flex-start;
 }
-#aboutMeText {
-    /* max-width: 400px; */
+#about-me-text {
     font-size: 0.7rem;
     text-align: justify;
     margin-top: 1rem;
     max-width: 400px;
 }
 
-#about-me {
+#about-me-photo {
+    max-width: 400px;
+}
+
+#about-me, #contact-page, #voucher-card {
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
     justify-content: center;
-   
+}
+
+#voucher-card {
+    flex-direction: row;
 }
 
 }
@@ -270,6 +278,10 @@ div svg {
     max-width: 400px;
 }
 
+#voucher-img {
+max-width: 100%;
+}
+
 #contact-photo {
     max-width: 400px;
 }
@@ -290,9 +302,22 @@ div svg {
     object-fit: cover;
 }
 
-#before-pshoot-card {
+#before-pshoot-card, #voucher-card {
     max-width: 1114px;
     border: none;
+}
+
+#voucher-card {
+    max-width: 1114px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    background-color: rgb(255, 255, 255, 0.6);
+}
+
+#voucher-img {
+    max-width: 400px;
 }
 
 #before-pshoot-card h4 {
@@ -349,7 +374,8 @@ margin-right: 0px;
 }
 
 #map {
-width: 300px; height: 200px
+width: 300px; 
+height: 200px;
 }
 
 #contact-card-text {

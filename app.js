@@ -22,6 +22,10 @@ app.get('/beforePhotoShoot', (req, res) => {
     res.render('beforePhotoShoot');
 })
 
+app.get('/voucher', (req, res) => {
+    res.render('voucher');
+})
+
 app.get('/pricing', (req, res) => {
     res.render('pricing');
 })
