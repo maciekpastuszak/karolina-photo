@@ -152,7 +152,6 @@ padding-bottom: 0;
 }
 
 
-
 }
 
 @media (max-width:768px) {
@@ -316,8 +315,13 @@ max-width: 100%;
     background-color: rgb(255, 255, 255, 0.6);
 }
 
+#voucher-card2 {
+    background-color: rgb(255, 255, 255, 0.6);
+}
+
+
 #voucher-img {
-    max-width: 400px;
+    max-width: 470px;
 }
 
 #before-pshoot-card h4 {
