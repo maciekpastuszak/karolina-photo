@@ -1,25 +1,25 @@
 <% layout('layouts/boilerplate')%>
 
     <main class="container mb-5 fancy-border" id="carousel">
-        <div class="carousel slide carousel-fade my-0" data-bs-ride="carousel" id="carousel1">
-            <div class=" carousel-inner">
-                <div class="carousel-item active img-fluid" id="carouselItem">
-                    <img src="/images/photo1.jpeg" class="d-block w-100" alt="...">
+        <div id="carousel-home" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="/images/photo1.jpeg" class="d-block w-100" alt="carousel-photo-1">
                 </div>
-                <div class="carousel-item img-fluid" id="carouselItem">
-                    <img src=" /images/photo2.jpeg" class="d-block w-100" alt="...">
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="/images/photo2.jpeg" class="d-block w-100" alt="carousel-photo-2">
                 </div>
-                <div class="carousel-item img-fluid" id="carouselItem">
-                    <img src=" /images/photo3.jpeg" class="d-block w-100" alt="...">
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="/images/photo3.jpeg" class="d-block w-100" alt="carousel-photo-3">
                 </div>
             </div>
-            <a class="carousel-control-prev" href="#carousel1" role="button" data-slide="prev">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel-home" data-bs-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only"></span>
-            </a>
-            <a class="carousel-control-next" href="#carousel1" role="button" data-slide="next">
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel-home" data-bs-slide="next">
                 <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only"></span>
-            </a>
+                <span class="visually-hidden">Next</span>
+            </button>
         </div>
     </main>

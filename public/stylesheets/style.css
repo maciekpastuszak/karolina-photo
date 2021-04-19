@@ -52,6 +52,8 @@ body {
     margin: 0;
     font-family: 'Quicksand', sans-serif;
     font-weight: 400;
+    opacity: 0;
+   transition: opacity .5s;
 }
 
 main {
@@ -66,7 +68,7 @@ padding-bottom: 0;
 }
 
 .navbar {
-    background-color: #fae1dd;
+    background-color: rgb(250, 225, 221);
     box-shadow: 10px 5px 5px rgba(202, 178, 174, 0.5);
     width: 100%;
     display:flex;
@@ -135,19 +137,19 @@ padding-bottom: 0;
 }
 
 @media (max-width:1400px) {
-    .nav-item, .dropdown-item, #aboutMeText, p, li {
+    .nav-item, .dropdown-item, #aboutMeText, p, li, h5 {
         font-size: 1rem;
 }
 
 }
 @media (max-width:1200px) {
-    .nav-item, .dropdown-item, #aboutMeText, p, li {
+    .nav-item, .dropdown-item, #aboutMeText, p, li, h5 {
         font-size: 0.9rem;
 }
 }
 
 @media (max-width:992px) {
-    .nav-item, .dropdown-item, #aboutMeText, p, li {
+    .nav-item, .dropdown-item, #aboutMeText, p, li, h5 {
         font-size: 0.8rem;
 }
 
@@ -361,7 +363,7 @@ max-width: 100%;
     background-image: -moz-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
     background-image: -webkit-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
     background-image: -ms-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
-    background-image: -webkit-gradient( linear, left bottom, right bottom, color-stop(0.02, white), color-stop(0.5, gray), color-stop(0.98, white) );
+    background-image: -webkit-gradient( linear, left bottom, right bottom, color-stop(0.02, white), color-stop(0.5, rgb(250, 182, 170)), color-stop(0.98, white) );
 }
 
 #contact-photo {
@@ -378,10 +380,16 @@ margin-right: 0px;
 }
 
 #map {
-width: 300px; 
-height: 200px;
+width: auto; 
+height: 300px;
+border: 3px solid rgb(250, 225, 221);
 }
 
 #contact-card-text {
     line-height: 1.5;
+}
+
+.additional-info li {
+    list-style-type: circle;
+    margin-left: 1rem;
 }
