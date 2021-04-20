@@ -1,0 +1,59 @@
+
+#before-pshoot-img {
+    width: 100%;
+    max-width: 1114px;
+    height: 15vw;
+    object-fit: cover;
+}
+
+#before-pshoot-card, #voucher-card {
+    max-width: 1114px;
+    border: none;
+}
+
+
+
+#before-pshoot-card h4 {
+    padding: 1rem 1.5rem;
+    font-weight: 500;
+    text-align: center;
+}
+.card-body {
+    padding-bottom: 25px;
+    line-height: 1.5;
+}
+.card-body h6 {
+    font-style: italic;
+    font-weight: 600;
+    margin-bottom: 0.7rem;
+    text-align: center;
+}
+
+.card-body p {
+   
+    text-align: justify;
+}
+
+#before-pshoot-card  {
+    margin-inline: 10%;
+    background-color: rgb(255, 255, 255, 0.6);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.fade_rule {
+    height: 1px;
+    background-color: #E6E6E6;
+    width: 50%;
+    margin: 0 auto;
+    background-image: linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -o-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -moz-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -webkit-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -ms-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -webkit-gradient( linear, left bottom, right bottom, color-stop(0.02, white), color-stop(0.5, rgb(250, 182, 170)), color-stop(0.98, white) );
+}
+
+.additional-info li {
+    list-style-type: circle;
+    margin-left: 1rem;
+}

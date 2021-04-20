@@ -1,0 +1,17 @@
+
+#contact-card {
+    align-items: center;
+    background-color: rgb(255, 255, 255, 0.6);
+    margin-right: 0px;
+    }
+    
+    #map {
+    width: auto; 
+    height: 300px;
+    border: 3px solid rgb(250, 225, 221);
+    }
+    
+    #contact-card-text {
+        line-height: 1.5;
+    }
+    

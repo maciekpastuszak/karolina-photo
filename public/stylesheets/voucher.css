@@ -1,0 +1,18 @@
+#voucher-card {
+    max-width: 1114px;
+    border: none;
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    background-color: rgb(255, 255, 255, 0.6);
+}
+
+#voucher-card2 {
+    background-color: rgb(255, 255, 255, 0.6);
+}
+
+
+#voucher-img {
+    max-width: 470px;
+    max-width: 100%;
+}

@@ -1,0 +1,17 @@
+#about-me-text {
+    line-height: 1.5;
+    /* font-size: 1.1rem; */
+    text-align: justify;
+}
+
+#about-me-text h5 {
+    margin-bottom: 1rem;
+}
+
+#about-me-photo {
+    max-width: 400px;
+}
+
+#contact-photo {
+    max-width: 400px;
+}
