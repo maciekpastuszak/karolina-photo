@@ -19,8 +19,8 @@ app.get('/aboutMe', (req, res) => {
     res.render('aboutMe', { style: 'aboutMe' });
 })
 
-app.get('/beforePhotoShoot', (req, res) => {
-    res.render('beforePhotoShoot', { style: 'beforePhotoShoot' });
+app.get('/beforePS', (req, res) => {
+    res.render('beforePS', { style: 'beforePS' });
 })
 
 app.get('/voucher', (req, res) => {
