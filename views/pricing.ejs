@@ -1,7 +1,13 @@
 <% layout('layouts/boilerplate')%>
 
+    <div id="switch-cont">
+        <button class="switch-button switch-selected">MINI</button>
+        <button class="switch-button">STANDARD</button>
+        <button class="switch-button">PREMIUM</button>
+    </div>
+
     <div class="container d-flex my-3">
-        <div class="card">
+        <div class="card pricing-selected">
             <img class="card-img-top" src="/images/photo1.jpeg" alt="Card image cap">
             <div class="card-body">
                 <h4 class="card-title">Pakiet MINI</h4>
@@ -48,39 +54,4 @@
         </div>
     </div>
 
-    <!-- <div class="panel">
-        <div class="photo-package">
-            <h2 class="package-header">Pakiet MINI</h2>
-            <img src="/images/photo1.jpeg" alt="" class="pricing-img img-fluid">
-            <ul class="package-features">
-                <li class="package-features-item">10 zdjęć poddanych profesjonalnej obróbce przesłane w formie
-                    elektronicznej oraz w formie wydruków w formacie 15x21
-                </li>
-                <li class="package-features-item">czas sesji do <span> 45 minut </span></li>
-            </ul>
-            <p class="package-price">275 PLN</p>
-        </div>
-
-        <div class="photo-package">
-            <h2 class="package-header">Pakiet STANDARD</h2>
-            <img src="/images/photo2.jpeg" alt="" class="pricing-img img-fluid">
-            <ul class="package-features">
-                <li class="package-features-item">20 zdjęć poddanych profesjonalnej obróbce przesłane w formie
-                    elektronicznej oraz w formie wydruków w formacie 15x21</li>
-                <li class="package-features-item">czas sesji do <span> 1,5 godziny </span></li>
-            </ul>
-            <p class="package-price">400 PLN</p>
-        </div>
-
-        <div class="photo-package">
-            <h2 class="package-header">Pakiet PREMIUM</h2>
-            <img src="/images/photo3.jpeg" alt="" class="pricing-img img-fluid">
-            <ul class="package-features">
-                <li class="package-features-item">30 zdjęć poddanych profesjonalnej obróbce przesłane w formie
-                    elektronicznej oraz w formie wydruków w formacie 15x21</li>
-                <li class="package-features-item">czas sesji do <span> 2,5 godziny </span></li>
-            </ul>
-            <p class="package-price">550 PLN</p>
-        </div>
-
-    </div> -->
+    <script src="/javascripts/pricing.js"></script>

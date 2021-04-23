@@ -87,7 +87,7 @@ main {
     font-size: 1.2rem;
 }
   
-#mainNav a:hover {
+#mainNav a:hover, #socialIcons a:hover {
     color: white;
     text-shadow:5px 5px 10px white;
     -moz-transition: all 0.2s ease-in;
@@ -106,6 +106,42 @@ main {
     background-color:transparent;
 }
 
+
+#socialIcons {
+    color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#socialIcons a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+    display: inline;
+    margin-right: 0.5rem;
+}
+
+  .fade_rule {
+    height: 1px;
+    background-color: #E6E6E6;
+    width: 50%;
+    margin: 0 auto;
+    background-image: linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -o-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -moz-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -webkit-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -ms-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
+    background-image: -webkit-gradient( linear, left bottom, right bottom, color-stop(0.02, white), color-stop(0.5, rgb(250, 182, 170)), color-stop(0.98, white) );
+}
+
+@media (max-width:1200px) {
+    .nav-item, .dropdown-item, #aboutMeText, p, li, h5 {
+        font-size: 0.9rem;
+}
+
+}
+
+/* 
 @media (max-width:1400px) {
     .nav-item, .dropdown-item, #aboutMeText, p, li, h5 {
         font-size: 1rem;
@@ -182,42 +218,6 @@ background-repeat: no-repeat;
     flex-direction: row;
 }
 
-}
+} */
 
 
-#socialIcons {
-    color: rgba(0, 0, 0, 0.5);
-    margin: 0;
-    padding-bottom: 2rem;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-
-#socialIcons a {
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.5);
-    display: inline;
-}
-
-#socialIcons a:hover {
-    color: white;
-    text-shadow:5px 5px 10px white;
-    -moz-transition: all 0.2s ease-in;
-    -o-transition: all 0.2s ease-in;
-    -webkit-transition: all 0.2s ease-in;
-    transition: all 0.2s ease-in;
-  }
-
-  .fade_rule {
-    height: 1px;
-    background-color: #E6E6E6;
-    width: 50%;
-    margin: 0 auto;
-    background-image: linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
-    background-image: -o-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
-    background-image: -moz-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
-    background-image: -webkit-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
-    background-image: -ms-linear-gradient(left , white 2%, #E6E6E6 50%, white 98%);
-    background-image: -webkit-gradient( linear, left bottom, right bottom, color-stop(0.02, white), color-stop(0.5, rgb(250, 182, 170)), color-stop(0.98, white) );
-}

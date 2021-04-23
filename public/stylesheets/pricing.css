@@ -29,7 +29,57 @@ h4 {
   margin-bottom: 0;
 }
 
+#switch-cont {
+  display: none;
+  width: 100%;
+  min-width: 270px;
+  text-align: center;
+  margin: 30px auto;
+  position: relative;
+}
+#switch-cont button {
+  display: inline-block;
+  width: 25%;
+  max-width: 100px;
+  min-width: 80px;
+  margin: 0 0.5%;
+  height: 40px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  background: white;
+  font-size: 0.8rem;
+  color: rgba(0, 0, 0, 0.7);;
+}
+#switch-cont button.switch-selected {
+  background: #fae1dd;
+  color: white;
+}
+#switch-cont button:focus {
+  outline: none;
+}
+#switch-cont button:hover {
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.7);;
+}
+#switch-cont button:not(.switch-selected):hover {
+  background: #eee;
+}
 
+
+@media (max-width: 750px) {
+  #switch-cont {
+    display: block;
+  }
+
+  .card {
+    width: 100%;
+    display: none;
+    margin: auto;
+  }
+  .card.pricing-selected {
+    display: block;
+  }
+}
 
 /* .card-img-top {
   max-height: 200px;
