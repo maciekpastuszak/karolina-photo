@@ -19,6 +19,7 @@ const app = express();
 const ejsMate = require('ejs-mate');
 const { urlencoded } = require('express');
 const { fileLoader } = require('ejs');
+const photoshoot = require('./models/photoshoot');
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
@@ -50,11 +51,18 @@ app.get('/contact', (req, res) => {
     res.render('contact', { style: 'contact' });
 })
 
-app.get('/makephotoshoot', async (req, res) => {
-    const pshoot = new Photoshoot({ title: 'Sesja lifestyle', description: 'Moja pierwsza sesja' });
-    await pshoot.save();
-    res.send(pshoot)
+app.get('/kids', async (req, res) => {
+    const shoots = await Photoshoot.find({});
+    res.render('./pshoots/kids', { shoots });
 })
+
+app.get('/kids/:id', async (req, res) => {
+    // const { id } = req.params;
+    const shoot = await Photoshoot.findById(req.params.id)
+    res.render('./pshoots/show', { shoot })
+
+})
+
 app.listen(3000, () => {
     console.log("LISTENING ON PORT 3000")
 })
