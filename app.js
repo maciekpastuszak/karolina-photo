@@ -26,44 +26,55 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
 
 app.use(express.static(__dirname + '/public'));
+app.use(express.urlencoded({ extended: true }))
 
 app.get('/', (req, res) => {
     res.render('home', { style: 'app' });
-})
+});
 
 app.get('/aboutMe', (req, res) => {
     res.render('aboutMe', { style: 'aboutMe' });
-})
+});
 
 app.get('/beforePS', (req, res) => {
     res.render('beforePS', { style: 'beforePS' });
-})
+});
 
 app.get('/voucher', (req, res) => {
     res.render('voucher', { style: 'voucher' });
-})
+});
 
 app.get('/pricing', (req, res) => {
     res.render('pricing', { style: 'pricing' });
-})
+});
 
 app.get('/contact', (req, res) => {
     res.render('contact', { style: 'contact' });
-})
+});
 
 app.get('/kids', async (req, res) => {
     const shoots = await Photoshoot.find({});
     res.render('./pshoots/kids', { shoots });
+});
+
+app.get('/kids/new', (req, res) => {
+    res.render('./pshoots/new');
+});
+
+app.post('/kids', async (req, res) => {
+    const pshoot = await Photoshoot(req.body.kids);
+    await pshoot.save();
+    res.redirect(`./kids/${pshoot._id}`)
+
 })
 
 app.get('/kids/:id', async (req, res) => {
     // const { id } = req.params;
-    const shoot = await Photoshoot.findById(req.params.id)
-    res.render('./pshoots/show', { shoot })
-
-})
+    const pshoot = await Photoshoot.findById(req.params.id)
+    res.render('./pshoots/show', { pshoot })
+});
 
 app.listen(3000, () => {
     console.log("LISTENING ON PORT 3000")
-})
+});
 
