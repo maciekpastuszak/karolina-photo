@@ -14,10 +14,10 @@
         <a href="/kids/new">Dodaj sesję</a>
     </div>
     <ul>
-        <% for (let shoot of shoots) { %>
+        <% for (let kid of kids) { %>
             <li>
-                <a href="/kids/<%= shoot._id %>">
-                    <%= shoot.title %>
+                <a href="/kids/<%= kid._id %>">
+                    <%= kid.title %>
                 </a>
             </li>
             <% } %>

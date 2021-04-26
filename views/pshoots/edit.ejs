@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edytuj sesję</title>
+</head>
+
+<body>
+    <h1>Edytuj sesję</h1>
+    <form action="/kids/<%= kids._id%>?_method=PUT " method="POST">
+        <div>
+            <label for="title">Nazwa sesji</label>
+            <input type="text" id="title" name="kids[title]" value="<%= kids.title %> ">
+        </div>
+        <div>
+            <label for="description">Opis sesji</label>
+            <input type="text" id="description" name="kids[description]" value="<%= kids.description %>">
+        </div>
+        <button>
+            edytuj sesję
+        </button>
+    </form>
+    <a href=" /kids/<% kids._id %> ">wróć do sesji</a>
+</body>
+
+</html>

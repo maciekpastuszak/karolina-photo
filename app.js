@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
+const methodOverride = require('method-override')
 const Photoshoot = require('./models/photoshoot');
 
 mongoose.connect('mongodb://localhost:27017/karolina-photo', {
@@ -8,6 +9,7 @@ mongoose.connect('mongodb://localhost:27017/karolina-photo', {
     useCreateIndex: true,
     useUnifiedTopology: true
 });
+mongoose.set('useFindAndModify', false);
 
 const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
@@ -27,6 +29,7 @@ app.set('views', path.join(__dirname, '/views'));
 
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }))
+app.use(methodOverride('_method'));
 
 app.get('/', (req, res) => {
     res.render('home', { style: 'app' });
@@ -53,8 +56,8 @@ app.get('/contact', (req, res) => {
 });
 
 app.get('/kids', async (req, res) => {
-    const shoots = await Photoshoot.find({});
-    res.render('./pshoots/kids', { shoots });
+    const kids = await Photoshoot.find({});
+    res.render('./pshoots/kids', { kids });
 });
 
 app.get('/kids/new', (req, res) => {
@@ -62,17 +65,28 @@ app.get('/kids/new', (req, res) => {
 });
 
 app.post('/kids', async (req, res) => {
-    const pshoot = await Photoshoot(req.body.kids);
-    await pshoot.save();
-    res.redirect(`./kids/${pshoot._id}`)
+    const kids = await Photoshoot(req.body.kids);
+    await kids.save();
+    res.redirect(`./${kids._id}`)
 
 })
 
 app.get('/kids/:id', async (req, res) => {
     // const { id } = req.params;
-    const pshoot = await Photoshoot.findById(req.params.id)
-    res.render('./pshoots/show', { pshoot })
+    const kids = await Photoshoot.findById(req.params.id)
+    res.render('./pshoots/show', { kids })
 });
+
+app.get('/kids/:id/edit', async (req, res) => {
+    const kids = await Photoshoot.findById(req.params.id)
+    res.render('./pshoots/edit', { kids })
+});
+
+app.put('/kids/:id', async (req, res) => {
+    const { id } = req.params;
+    const kids = await Photoshoot.findByIdAndUpdate(id, { ...req.body.kids })
+    res.redirect(`./${kids._id}`)
+})
 
 app.listen(3000, () => {
     console.log("LISTENING ON PORT 3000")
