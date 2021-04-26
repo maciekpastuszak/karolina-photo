@@ -88,6 +88,12 @@ app.put('/kids/:id', async (req, res) => {
     res.redirect(`./${kids._id}`)
 })
 
+app.delete('/kids/:id', async (req, res) => {
+    const { id } = req.params;
+    await Photoshoot.findByIdAndDelete(id);
+    res.redirect('./')
+})
+
 app.listen(3000, () => {
     console.log("LISTENING ON PORT 3000")
 });
