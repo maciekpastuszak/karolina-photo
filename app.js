@@ -3,6 +3,7 @@ const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
 const Photoshoot = require('./models/photoshoot');
+const morgan = require('morgan')
 
 mongoose.connect('mongodb://localhost:27017/karolina-photo', {
     useNewUrlParser: true,
@@ -30,6 +31,7 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'));
+app.use(morgan('tiny'));
 
 app.get('/', (req, res) => {
     res.render('home', { style: 'app' });
@@ -93,6 +95,10 @@ app.delete('/kids/:id', async (req, res) => {
     await Photoshoot.findByIdAndDelete(id);
     res.redirect('./')
 })
+
+app.use((req, res) => {
+    res.status(404).send('NIE ZNALEZIONO TAKIEJ STRONY')
+});
 
 app.listen(3000, () => {
     console.log("LISTENING ON PORT 3000")
