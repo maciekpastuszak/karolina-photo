@@ -57,13 +57,18 @@ app.get('/contact', (req, res) => {
     res.render('contact', { style: 'contact' });
 });
 
-app.get('/kids', async (req, res) => {
+app.get('/category/kids', async (req, res) => {
     const kids = await Photoshoot.find({});
-    res.render('./pshoots/kids', { kids });
+    res.render('./pshoots/category/kids', { kids, style: 'app' });
+});
+
+app.get('/category/family', async (req, res) => {
+    const kids = await Photoshoot.find({});
+    res.render('./pshoots/category/family', { kids, style: 'app' });
 });
 
 app.get('/kids/new', (req, res) => {
-    res.render('./pshoots/new');
+    res.render('pshoots/new', { style: 'app' });
 });
 
 app.post('/kids', async (req, res) => {
@@ -76,18 +81,18 @@ app.post('/kids', async (req, res) => {
 app.get('/kids/:id', async (req, res) => {
     // const { id } = req.params;
     const kids = await Photoshoot.findById(req.params.id)
-    res.render('./pshoots/show', { kids })
+    res.render('./pshoots/show', { kids, style: 'app' })
 });
 
 app.get('/kids/:id/edit', async (req, res) => {
     const kids = await Photoshoot.findById(req.params.id)
-    res.render('./pshoots/edit', { kids })
+    res.render('./pshoots/edit', { kids, style: 'app' })
 });
 
 app.put('/kids/:id', async (req, res) => {
     const { id } = req.params;
     const kids = await Photoshoot.findByIdAndUpdate(id, { ...req.body.kids })
-    res.redirect(`./${kids._id}`)
+    res.redirect(`./${kids._id}`, { style: 'contact' })
 })
 
 app.delete('/kids/:id', async (req, res) => {
