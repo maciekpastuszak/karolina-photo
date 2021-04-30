@@ -1,0 +1,17 @@
+<% layout('layouts/boilerplate')%>
+
+    <h1>Edytuj sesję</h1>
+    <form action="/kids/<%= kids._id%>?_method=PUT " method="POST">
+        <div>
+            <label for="title">Nazwa sesji</label>
+            <input type="text" id="title" name="kids[title]" value="<%= kids.title %> ">
+        </div>
+        <div>
+            <label for="description">Opis sesji</label>
+            <input type="text" id="description" name="kids[description]" value="<%= kids.description %>">
+        </div>
+        <button>
+            edytuj sesję
+        </button>
+    </form>
+    <a href=" /kids/<% kids._id %> ">wróć do sesji</a>

@@ -1,0 +1,14 @@
+<% layout('layouts/boilerplate')%>
+
+    <h2>Wszystkie sesje rodzinne</h2>
+    <div>
+        <a href="/families/new">Dodaj sesję</a>
+    </div>
+    <ul>
+        <% for (let family of families) { %>
+            <li> <a href="/family/<%= family._id %>">
+                    <%= family.title %>
+                </a>
+            </li>
+            <% } %>
+    </ul>

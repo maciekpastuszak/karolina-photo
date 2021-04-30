@@ -1,0 +1,16 @@
+<% layout('layouts/boilerplate')%>
+
+    <form action="/kids" method="POST">
+        <div>
+            <label for="title">Nazwa sesji</label>
+            <input type="text" id="title" name="kids[title]">
+        </div>
+        <div>
+            <label for="description">Opis sesji</label>
+            <input type="text" id="description" name="kids[description]">
+        </div>
+        <button>
+            dodaj sesję
+        </button>
+    </form>
+    <a href="/kids">sesje dziecięce</a>

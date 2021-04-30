@@ -2,7 +2,8 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override')
-const Photoshoot = require('./models/photoshoot');
+const { Kids } = require('./models/photoshoot');
+const { Family } = require('./models/photoshoot');
 const morgan = require('morgan')
 
 mongoose.connect('mongodb://localhost:27017/karolina-photo', {
@@ -57,49 +58,63 @@ app.get('/contact', (req, res) => {
     res.render('contact', { style: 'contact' });
 });
 
-app.get('/category/kids', async (req, res) => {
-    const kids = await Photoshoot.find({});
-    res.render('./pshoots/category/kids', { kids, style: 'app' });
-});
+// kids photoshoots
 
-app.get('/category/family', async (req, res) => {
-    const kids = await Photoshoot.find({});
-    res.render('./pshoots/category/family', { kids, style: 'app' });
+app.get('/kids', async (req, res) => {
+    const kids = await Kids.find({});
+    res.render('ps-kids/index', { kids, style: 'app' });
 });
 
 app.get('/kids/new', (req, res) => {
-    res.render('pshoots/new', { style: 'app' });
+    res.render('ps-kids/index', { style: 'app' });
 });
 
-app.post('/kids', async (req, res) => {
-    const kids = await Photoshoot(req.body.kids);
-    await kids.save();
-    res.redirect(`./${kids._id}`)
-
-})
-
 app.get('/kids/:id', async (req, res) => {
-    // const { id } = req.params;
-    const kids = await Photoshoot.findById(req.params.id)
-    res.render('./pshoots/show', { kids, style: 'app' })
+    const { id } = req.params;
+    const kids = await Kids.findById(id)
+    res.render('ps-kids/show', { kids, style: 'app' })
 });
 
 app.get('/kids/:id/edit', async (req, res) => {
-    const kids = await Photoshoot.findById(req.params.id)
-    res.render('./pshoots/edit', { kids, style: 'app' })
+    const kids = await Kids.findById(req.params.id)
+    res.render('ps-kids/edit', { kids, style: 'app' })
 });
+
 
 app.put('/kids/:id', async (req, res) => {
     const { id } = req.params;
-    const kids = await Photoshoot.findByIdAndUpdate(id, { ...req.body.kids })
+    const kids = await Kids.findByIdAndUpdate(id, { ...req.body.kids })
     res.redirect(`./${kids._id}`, { style: 'contact' })
 })
 
 app.delete('/kids/:id', async (req, res) => {
     const { id } = req.params;
-    await Photoshoot.findByIdAndDelete(id);
+    await Kids.findByIdAndDelete(id);
     res.redirect('./')
 })
+
+app.post('/kids', async (req, res) => {
+    const kids = await Kids(req.body.kids);
+    await kids.save();
+    res.redirect(`./${kids._id}`)
+})
+
+// family photoshoots
+
+app.get('/family', async (req, res) => {
+    const families = await Family.find({});
+    res.render('ps-family/index', { families, style: 'app' });
+});
+
+app.get('/family/new', (req, res) => {
+    res.render('family', { style: 'app' });
+});
+
+app.get('/family/:id', async (req, res) => {
+    const { id } = req.params;
+    const families = await Family.findById(id)
+    res.render('./pshoots/show', { families, style: 'app' })
+});
 
 app.use((req, res) => {
     res.status(404).send('NIE ZNALEZIONO TAKIEJ STRONY')
