@@ -66,8 +66,14 @@ app.get('/kids', async (req, res) => {
 });
 
 app.get('/kids/new', (req, res) => {
-    res.render('ps-kids/index', { style: 'app' });
+    res.render('ps-kids/new', { style: 'app' });
 });
+
+app.post('/kids', async (req, res) => {
+    const kids = new Kids(req.body.kids);
+    await kids.save();
+    res.redirect(`kids/${kids._id}`)
+})
 
 app.get('/kids/:id', async (req, res) => {
     const { id } = req.params;
@@ -76,7 +82,8 @@ app.get('/kids/:id', async (req, res) => {
 });
 
 app.get('/kids/:id/edit', async (req, res) => {
-    const kids = await Kids.findById(req.params.id)
+    const { id } = req.params;
+    const kids = await Kids.findById(id)
     res.render('ps-kids/edit', { kids, style: 'app' })
 });
 
@@ -84,7 +91,7 @@ app.get('/kids/:id/edit', async (req, res) => {
 app.put('/kids/:id', async (req, res) => {
     const { id } = req.params;
     const kids = await Kids.findByIdAndUpdate(id, { ...req.body.kids })
-    res.redirect(`./${kids._id}`, { style: 'contact' })
+    res.redirect(`${kids._id}`)
 })
 
 app.delete('/kids/:id', async (req, res) => {
@@ -93,28 +100,24 @@ app.delete('/kids/:id', async (req, res) => {
     res.redirect('./')
 })
 
-app.post('/kids', async (req, res) => {
-    const kids = await Kids(req.body.kids);
-    await kids.save();
-    res.redirect(`./${kids._id}`)
-})
 
 // family photoshoots
 
-app.get('/family', async (req, res) => {
-    const families = await Family.find({});
-    res.render('ps-family/index', { families, style: 'app' });
-});
 
-app.get('/family/new', (req, res) => {
-    res.render('family', { style: 'app' });
-});
+// app.get('/family', async (req, res) => {
+//     const families = await Family.find({});
+//     res.render('ps-family/index', { families, style: 'app' });
+// });
 
-app.get('/family/:id', async (req, res) => {
-    const { id } = req.params;
-    const families = await Family.findById(id)
-    res.render('./pshoots/show', { families, style: 'app' })
-});
+// app.get('/family/new', (req, res) => {
+//     res.render('family', { style: 'app' });
+// });
+
+// app.get('/family/:id', async (req, res) => {
+//     const { id } = req.params;
+//     const families = await Family.findById(id)
+//     res.render('./pshoots/show', { families, style: 'app' })
+// });
 
 app.use((req, res) => {
     res.status(404).send('NIE ZNALEZIONO TAKIEJ STRONY')
