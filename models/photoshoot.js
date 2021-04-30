@@ -1,9 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const PhotoshootSchema = new Schema({
+const photoShootSchema = new Schema({
     title: String,
     description: String
 });
 
-module.exports = mongoose.model('Photoshoot', PhotoshootSchema);
+const Family = mongoose.model('Family', photoShootSchema);
+const Kids = mongoose.model('Kids', photoShootSchema);
+
+module.exports = {
+    Family,
+    Kids
+}
