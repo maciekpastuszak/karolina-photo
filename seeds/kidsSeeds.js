@@ -16,27 +16,28 @@ db.once("open", () => {
 const kidsPshoots = [
     {
         title: 'Sesja Alka i Natana',
+        image: './images/kids-pshoot.jpeg',
         description: 'sesja na lotnisku'
     },
     {
         title: 'Sesja Majki i Kajki',
+        image: './images/kids-pshoot.jpeg',
         description: 'sesja indiańska'
     },
     {
         title: 'Sesja Adama i Ewy',
+        image: './images/kids-pshoot.jpeg',
         description: 'sesja w ogrodzie'
     },
     {
         title: 'Sesja Tosi i Tymka',
+        image: './images/kids-pshoot.jpeg',
         description: 'sesja na huśtawkach'
     },
     {
         title: 'Sesja Kasi i Tomka',
+        image: './images/kids-pshoot.jpeg',
         description: 'sesja małżeńska'
-    },
-    {
-        title: 'Sesja Maszy i Niedźwiedzia',
-        description: 'sesja w ogordzie'
     },
 ]
 

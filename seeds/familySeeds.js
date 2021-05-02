@@ -15,28 +15,29 @@ db.once("open", () => {
 
 const familyPshoots = [
     {
-        title: 'Sesja rodziny Kiepski',
-        description: 'sesja w studiu'
+        title: 'Sesja Alka i Natana',
+        image: 'https://source.unsplash.com/collection/73601861',
+        description: 'sesja na lotnisku'
     },
     {
-        title: 'Sesja rodziny Pastuszak',
-        description: 'sesja w studiu'
+        title: 'Sesja Majki i Kajki',
+        image: 'https://source.unsplash.com/collection/73601861',
+        description: 'sesja indiańska'
     },
     {
-        title: 'Sesja rodziny Frankenstein',
-        description: 'ssesja w studiu'
+        title: 'Sesja Adama i Ewy',
+        image: 'https://source.unsplash.com/collection/73601861',
+        description: 'sesja w ogrodzie'
     },
     {
-        title: 'Sesja rodziny Klaput',
-        description: 'sesja w studiu'
+        title: 'Sesja Tosi i Tymka',
+        image: 'https://source.unsplash.com/collection/73601861',
+        description: 'sesja na huśtawkach'
     },
     {
-        title: 'Sesja rodziny Kennedych',
-        description: 'sesja w studiu'
-    },
-    {
-        title: 'Sesja rodzny Kowalskich',
-        description: 'sesja w studiu'
+        title: 'Sesja Kasi i Tomka',
+        image: 'https://source.unsplash.com/collection/73601861',
+        description: 'sesja małżeńska'
     },
 ]
 
