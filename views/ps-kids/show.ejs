@@ -1,21 +1,24 @@
 <% layout('layouts/boilerplate') %>
 
-    <div id="kids-pshoot-header">
-        <h1>
-            <%= kids.title %>
-        </h1>
-        <section class="d-flex h-100">
-            <a class="btn btn-warning mx-2" href="/kids/<%=kids._id%>/edit">Edytuj sesję</a>
-            <form action="/kids/<%=kids._id%>?_method=DELETE" method="POST">
-                <a class="btn btn-danger" href="/kids/<%=kids._id%>/edit">Skasuj sesję</a>
-            </form>
-        </section>
-    </div>
-    <img src="<%=kids.image%>" alt="">
-    <h5>
-        <%= kids.description %>
-    </h5>
+    <div class="container">
+        <div id="kids-pshoot-header">
+            <h1>
+                <%= kids.title %>
+            </h1>
+            <section class="d-flex h-100">
+                <a class="btn btn-warning mx-2" href="/kids/<%=kids._id%>/edit">Edytuj sesję</a>
+                <form action="/kids/<%=kids._id%>?_method=DELETE" method="POST">
+                    <a class="btn btn-danger" href="/kids/<%=kids._id%>/edit">Skasuj sesję</a>
+                </form>
+            </section>
+        </div>
 
-    <footer>
-        <a href="/kids">Wszystkie sesje</a>
-    </footer>
+        <section id="gallery">
+
+        </section>
+
+        <footer>
+            <a href="/kids">Wszystkie sesje</a>
+        </footer>
+
+    </div>

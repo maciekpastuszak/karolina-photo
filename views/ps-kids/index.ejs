@@ -1,28 +1,29 @@
 <% layout('layouts/boilerplate')%>
 
-
-    <div id="kids-pshoot-header">
-        <h1>Sesje dziecięce</h1>
-        <a class="btn btn-warning pt-3" href="/kids/new">Dodaj sesję</a>
-    </div>
     <div class="container">
-        <div class="row justify-content-start">
-            <% for (let kid of kids) { %>
-                <div class="col-xs-12 col-md-6 col-xl-4 px-3">
-                    <div class="card mb-4" id="pshoot-card">
-                        <div class="card-body p-0">
-                            <a href="kids/<%=kid._id%>">
-                                <img class="card-img-top" src="<%=kid.image%>" alt="card-img" id="pshoot-img">
-                                <h5 class="card-title mx-2 my-2">
-                                    <%=kid.title%>
-                                </h5>
-                                <p class="card-text mx-2 pb-2">
-                                    <%=kid.description%>
-                                </p>
-                            </a>
+        <div id="kids-pshoot-header">
+            <h1>Sesje dziecięce</h1>
+            <a class="btn btn-warning pt-3" href="/kids/new">Dodaj sesję</a>
+        </div>
+        <div class="container">
+            <div class="row justify-content-start">
+                <% for (let kid of kids) { %>
+                    <div class="col-xs-12 col-md-6 col-xl-4 px-3">
+                        <div class="card mb-4" id="pshoot-card">
+                            <div class="card-body p-0">
+                                <a href="kids/<%=kid._id%>">
+                                    <img class="card-img-top" src="<%=kid.image%>" alt="card-img" id="pshoot-img">
+                                    <h5 class="card-title mx-2 my-2">
+                                        <%=kid.title%>
+                                    </h5>
+                                    <p class="card-text mx-2 pb-2">
+                                        <%=kid.description%>
+                                    </p>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <% } %>
+                    <% } %>
+            </div>
         </div>
     </div>
