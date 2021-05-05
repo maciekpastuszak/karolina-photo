@@ -22,9 +22,11 @@ db.once("open", () => {
 const app = express();
 const ejsMate = require('ejs-mate');
 const catchAsync = require('./utils/catchAsync');
+const ExpressError = require('./utils/ExpressError')
 const { urlencoded } = require('express');
 const { fileLoader } = require('ejs');
 const photoshoot = require('./models/photoshoot');
+const { error } = require('console');
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
@@ -71,6 +73,7 @@ app.get('/kids/new', (req, res) => {
 });
 
 app.post('/kids', catchAsync(async (req, res) => {
+    if (!req.body.kids) throw new ExpressError("Nie ma takiej sesji", 400)
     const kids = new Kids(req.body.kids);
     await kids.save();
     res.redirect(`/kids/${kids._id}`)
@@ -124,8 +127,14 @@ app.delete('/kids/:id', catchAsync(async (req, res) => {
 //     res.status(404).send('NIE ZNALEZIONO TAKIEJ STRONY')
 // });
 
+app.all('*', (req, res, next) => {
+    next(new ExpressError('Page NOt Found', 404))
+})
+
 app.use((err, req, res, next) => {
-    res.send("coś się zesrało")
+    const { statusCode = 500, message = 'coś nie zadziałało' } = err;
+    if (!err.message) err.message = "Coś się nie udało"
+    res.status(statusCode).render('../error', { err, style: 'app' })
 })
 
 app.listen(3000, () => {
