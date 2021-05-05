@@ -21,7 +21,8 @@ db.once("open", () => {
 
 const app = express();
 const ejsMate = require('ejs-mate');
-const Joi = require('joi')
+const Joi = require('joi');
+const { kidsSchema } = require('./schemas.js')
 const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError')
 const { urlencoded } = require('express');
@@ -37,6 +38,16 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
+
+const validateKids = (req, res, next) => {
+    const { error } = kidsSchema.validate(req.body);
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(msg, 400)
+    } else {
+        next()
+    }
+}
 
 app.get('/', (req, res) => {
     res.render('home', { style: 'app' });
@@ -73,20 +84,8 @@ app.get('/kids/new', (req, res) => {
     res.render('ps-kids/new', { style: 'app' });
 });
 
-app.post('/kids', catchAsync(async (req, res) => {
+app.post('/kids', validateKids, catchAsync(async (req, res) => {
     // if (!req.body.kids) throw new ExpressError("Nie ma takiej sesji", 400)
-    const kidsSchema = Joi.object({
-        kids: Joi.object({
-            title: Joi.string().required(),
-            description: Joi.string().required()
-        }).required()
-    })
-    const { error } = kidsSchema.validate(req.body);
-    if (error) {
-        const msg = error.details.map(el => el.message).join(',')
-        throw new ExpressError(msg, 400)
-    }
-    console.log(result);
     const kids = new Kids(req.body.kids);
     await kids.save();
     res.redirect(`/kids/${kids._id}`)
@@ -105,7 +104,7 @@ app.get('/kids/:id/edit', catchAsync(async (req, res) => {
 }));
 
 
-app.put('/kids/:id', catchAsync(async (req, res) => {
+app.put('/kids/:id', validateKids, catchAsync(async (req, res) => {
     const { id } = req.params;
     const kids = await Kids.findByIdAndUpdate(id, { ...req.body.kids })
     res.redirect(`${kids._id}`)
@@ -147,7 +146,7 @@ app.all('*', (req, res, next) => {
 app.use((err, req, res, next) => {
     const { statusCode = 500, message = 'coś nie zadziałało' } = err;
     if (!err.message) err.message = "Coś się nie udało"
-    res.status(statusCode).render('../error', { err, style: 'app' })
+    res.status(statusCode).render('error', { err, style: 'app' })
 })
 
 app.listen(3000, () => {
