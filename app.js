@@ -21,6 +21,7 @@ db.once("open", () => {
 
 const app = express();
 const ejsMate = require('ejs-mate');
+const Joi = require('joi')
 const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError')
 const { urlencoded } = require('express');
@@ -73,7 +74,19 @@ app.get('/kids/new', (req, res) => {
 });
 
 app.post('/kids', catchAsync(async (req, res) => {
-    if (!req.body.kids) throw new ExpressError("Nie ma takiej sesji", 400)
+    // if (!req.body.kids) throw new ExpressError("Nie ma takiej sesji", 400)
+    const kidsSchema = Joi.object({
+        kids: Joi.object({
+            title: Joi.string().required(),
+            description: Joi.string().required()
+        }).required()
+    })
+    const { error } = kidsSchema.validate(req.body);
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(msg, 400)
+    }
+    console.log(result);
     const kids = new Kids(req.body.kids);
     await kids.save();
     res.redirect(`/kids/${kids._id}`)
