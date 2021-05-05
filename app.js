@@ -72,7 +72,7 @@ app.get('/kids/new', (req, res) => {
 app.post('/kids', async (req, res) => {
     const kids = new Kids(req.body.kids);
     await kids.save();
-    res.redirect(`kids/${kids._id}`)
+    res.redirect(`/kids/${kids._id}`)
 })
 
 app.get('/kids/:id', async (req, res) => {
@@ -97,7 +97,7 @@ app.put('/kids/:id', async (req, res) => {
 app.delete('/kids/:id', async (req, res) => {
     const { id } = req.params;
     await Kids.findByIdAndDelete(id);
-    res.redirect('./')
+    res.redirect('/kids')
 })
 
 
