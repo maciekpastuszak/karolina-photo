@@ -21,6 +21,7 @@ db.once("open", () => {
 
 const app = express();
 const ejsMate = require('ejs-mate');
+const catchAsync = require('./utils/catchAsync');
 const { urlencoded } = require('express');
 const { fileLoader } = require('ejs');
 const photoshoot = require('./models/photoshoot');
@@ -60,45 +61,45 @@ app.get('/contact', (req, res) => {
 
 // kids photoshoots
 
-app.get('/kids', async (req, res) => {
+app.get('/kids', catchAsync(async (req, res) => {
     const kids = await Kids.find({});
     res.render('ps-kids/index', { kids, style: 'app' });
-});
+}));
 
 app.get('/kids/new', (req, res) => {
     res.render('ps-kids/new', { style: 'app' });
 });
 
-app.post('/kids', async (req, res) => {
+app.post('/kids', catchAsync(async (req, res) => {
     const kids = new Kids(req.body.kids);
     await kids.save();
     res.redirect(`/kids/${kids._id}`)
-})
+}))
 
-app.get('/kids/:id', async (req, res) => {
+app.get('/kids/:id', catchAsync(async (req, res) => {
     const { id } = req.params;
     const kids = await Kids.findById(id)
     res.render('ps-kids/show', { kids, style: 'app' })
-});
+}));
 
-app.get('/kids/:id/edit', async (req, res) => {
+app.get('/kids/:id/edit', catchAsync(async (req, res) => {
     const { id } = req.params;
     const kids = await Kids.findById(id)
     res.render('ps-kids/edit', { kids, style: 'app' })
-});
+}));
 
 
-app.put('/kids/:id', async (req, res) => {
+app.put('/kids/:id', catchAsync(async (req, res) => {
     const { id } = req.params;
     const kids = await Kids.findByIdAndUpdate(id, { ...req.body.kids })
     res.redirect(`${kids._id}`)
-})
+}))
 
-app.delete('/kids/:id', async (req, res) => {
+app.delete('/kids/:id', catchAsync(async (req, res) => {
     const { id } = req.params;
     await Kids.findByIdAndDelete(id);
     res.redirect('/kids')
-})
+}))
 
 
 // family photoshoots
@@ -119,9 +120,13 @@ app.delete('/kids/:id', async (req, res) => {
 //     res.render('./pshoots/show', { families, style: 'app' })
 // });
 
-app.use((req, res) => {
-    res.status(404).send('NIE ZNALEZIONO TAKIEJ STRONY')
-});
+// app.use((req, res) => {
+//     res.status(404).send('NIE ZNALEZIONO TAKIEJ STRONY')
+// });
+
+app.use((err, req, res, next) => {
+    res.send("coś się zesrało")
+})
 
 app.listen(3000, () => {
     console.log("LISTENING ON PORT 3000")
