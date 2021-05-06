@@ -1,10 +1,7 @@
 <% layout('layouts/boilerplate') %>
-
     <div class="container">
         <div id="kids-pshoot-header">
-            <h1>
-                <%= kids.title %>
-            </h1>
+            <h1><%= kids.title %></h1>
             <section class="d-flex h-100">
                 <a class="btn btn-warning mx-2" href="/kids/<%=kids._id%>/edit">Edytuj sesję</a>
                 <form action="/kids/<%=kids._id%>?_method=DELETE" method="POST">
@@ -12,91 +9,45 @@
                 </form>
             </section>
         </div>
-
-        <div class="container page-top">
-
-
-
-            <div class="row">
-
-
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                    <a href="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                        class="fancybox" rel="ligthbox">
-                        <img src="https://images.pexels.com/photos/62307/air-bubbles-diving-underwater-blow-62307.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                            class="zoom img-fluid " alt="">
-
-                    </a>
+        <section class="kids-gallery min-vh-100">
+            <div class="container-lg">
+                <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+                    <div class="col">
+                        <img src="/images/pic1.jpeg" class="gallery-item "alt="gallery">
+                    </div>
+                    <div class="col">
+                        <img src="/images/pic2.jpeg" class="gallery-item "alt="gallery">
+                    </div>
+                    <div class="col">
+                        <img src="/images/pic3.jpeg" class="gallery-item "alt="gallery">
+                    </div>
+                    <div class="col">
+                        <img src="/images/pic4.jpeg" class="gallery-item "alt="gallery">
+                    </div>
+                    <div class="col">
+                        <img src="/images/pic5.jpeg" class="gallery-item "alt="gallery">
+                    </div>
                 </div>
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                    <a href="https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                        class="fancybox" rel="ligthbox">
-                        <img src="https://images.pexels.com/photos/38238/maldives-ile-beach-sun-38238.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                            class="zoom img-fluid" alt="">
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                    <a href="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        class="fancybox" rel="ligthbox">
-                        <img src="https://images.pexels.com/photos/158827/field-corn-air-frisch-158827.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                            class="zoom img-fluid " alt="">
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                    <a href="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        class="fancybox" rel="ligthbox">
-                        <img src="https://images.pexels.com/photos/302804/pexels-photo-302804.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                            class="zoom img-fluid " alt="">
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                    <a href="https://images.pexels.com/photos/1038914/pexels-photo-1038914.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                        class="fancybox" rel="ligthbox">
-                        <img src="https://images.pexels.com/photos/1038914/pexels-photo-1038914.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                            class="zoom img-fluid " alt="">
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                    <a href="https://images.pexels.com/photos/414645/pexels-photo-414645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                        class="fancybox" rel="ligthbox">
-                        <img src="https://images.pexels.com/photos/414645/pexels-photo-414645.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                            class="zoom img-fluid " alt="">
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                    <a href="https://images.pexels.com/photos/56005/fiji-beach-sand-palm-trees-56005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        class="fancybox" rel="ligthbox">
-                        <img src="https://images.pexels.com/photos/56005/fiji-beach-sand-palm-trees-56005.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                            class="zoom img-fluid " alt="">
-                    </a>
-                </div>
-
-                <div class="col-lg-3 col-md-4 col-xs-6 thumb">
-                    <a href="https://images.pexels.com/photos/1038002/pexels-photo-1038002.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                        class="fancybox" rel="ligthbox">
-                        <img src="https://images.pexels.com/photos/1038002/pexels-photo-1038002.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-                            class="zoom img-fluid " alt="">
-                    </a>
-                </div>
-
-
-
-
             </div>
-
-
-
-
+        </section>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="gallery-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
-
+        <div class="modal-body">
+          <img src="/images/pic1.jpeg" class="modal-img" alt="modal-img">
+        </div>
+      </div>
+    </div>
+  </div>
+          
         <footer>
             <a href="/kids">Wszystkie sesje</a>
         </footer>
-
     </div>
+ 

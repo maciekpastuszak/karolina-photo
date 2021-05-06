@@ -6,21 +6,6 @@ const { Kids } = require('./models/photoshoot');
 const { Family } = require('./models/photoshoot');
 const morgan = require('morgan');
 const kids = require('./routes/kids');
-
-mongoose.connect('mongodb://localhost:27017/karolina-photo', {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-});
-mongoose.set('useFindAndModify', false);
-
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", () => {
-    console.log("KP Database connected");
-});
-
-const app = express();
 const ejsMate = require('ejs-mate');
 const Joi = require('joi');
 const { kidsSchema } = require('./schemas.js')
@@ -31,6 +16,21 @@ const { fileLoader } = require('ejs');
 const photoshoot = require('./models/photoshoot');
 const { error } = require('console');
 
+mongoose.connect('mongodb://localhost:27017/karolina-photo', {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+});
+
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", () => {
+    console.log("KP Database connected");
+});
+
+const app = express();
+
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/views'));
@@ -40,8 +40,6 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
 app.use('/kids', kids)
-
-
 
 app.get('/', (req, res) => {
     res.render('home', { style: 'app' });
@@ -67,10 +65,6 @@ app.get('/contact', (req, res) => {
     res.render('contact', { style: 'contact' });
 });
 
-// kids photoshoots
-
-
-
 
 // family photoshoots
 
@@ -90,9 +84,7 @@ app.get('/contact', (req, res) => {
 //     res.render('./pshoots/show', { families, style: 'app' })
 // });
 
-// app.use((req, res) => {
-//     res.status(404).send('NIE ZNALEZIONO TAKIEJ STRONY')
-// });
+
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page NOt Found', 404))
