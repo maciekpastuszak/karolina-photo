@@ -1,10 +1,11 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const methodOverride = require('method-override')
+const methodOverride = require('method-override');
 const { Kids } = require('./models/photoshoot');
 const { Family } = require('./models/photoshoot');
-const morgan = require('morgan')
+const morgan = require('morgan');
+const kids = require('./routes/kids');
 
 mongoose.connect('mongodb://localhost:27017/karolina-photo', {
     useNewUrlParser: true,
@@ -38,16 +39,9 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'));
 app.use(morgan('tiny'));
+app.use('/kids', kids)
 
-const validateKids = (req, res, next) => {
-    const { error } = kidsSchema.validate(req.body);
-    if (error) {
-        const msg = error.details.map(el => el.message).join(',')
-        throw new ExpressError(msg, 400)
-    } else {
-        next()
-    }
-}
+
 
 app.get('/', (req, res) => {
     res.render('home', { style: 'app' });
@@ -75,46 +69,7 @@ app.get('/contact', (req, res) => {
 
 // kids photoshoots
 
-app.get('/kids', catchAsync(async (req, res) => {
-    const kids = await Kids.find({});
-    res.render('ps-kids/index', { kids, style: 'app' });
-}));
 
-app.get('/kids/new', (req, res) => {
-    res.render('ps-kids/new', { style: 'app' });
-});
-
-app.post('/kids', validateKids, catchAsync(async (req, res) => {
-    // if (!req.body.kids) throw new ExpressError("Nie ma takiej sesji", 400)
-    const kids = new Kids(req.body.kids);
-    await kids.save();
-    res.redirect(`/kids/${kids._id}`)
-}))
-
-app.get('/kids/:id', catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const kids = await Kids.findById(id)
-    res.render('ps-kids/show', { kids, style: 'app' })
-}));
-
-app.get('/kids/:id/edit', catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const kids = await Kids.findById(id)
-    res.render('ps-kids/edit', { kids, style: 'app' })
-}));
-
-
-app.put('/kids/:id', validateKids, catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const kids = await Kids.findByIdAndUpdate(id, { ...req.body.kids })
-    res.redirect(`${kids._id}`)
-}))
-
-app.delete('/kids/:id', catchAsync(async (req, res) => {
-    const { id } = req.params;
-    await Kids.findByIdAndDelete(id);
-    res.redirect('/kids')
-}))
 
 
 // family photoshoots
