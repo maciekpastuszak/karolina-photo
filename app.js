@@ -8,6 +8,7 @@ const morgan = require('morgan');
 const kids = require('./routes/kids');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
+const flash = require('connect-flash');
 const Joi = require('joi');
 const { kidsSchema } = require('./schemas.js')
 const catchAsync = require('./utils/catchAsync');
@@ -49,7 +50,15 @@ const sessionConfig = {
         maxAge: 1000 * 60 * 60 *24 * 7
     }
 }
-app.use(session(sessionConfig))
+app.use(session(sessionConfig));
+app.use(flash());
+
+app.use((req,res,next) => {
+    res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
+    next();
+});
+
 app.use(morgan('tiny'));
 app.use('/kids', kids)
 

@@ -22,6 +22,9 @@
 <body class="d-flex flex-column vh-100">
     <%- include('../partials/navbar')%>
         <main class='container-fluid'>
+            <section class="container">
+            <%- include('../partials/flash')%> 
+        </section>
             <%- body %>
         </main>
         <%- include('../partials/footer')%>
