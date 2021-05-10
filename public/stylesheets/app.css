@@ -151,6 +151,10 @@ main {
   );
 }
 
+#carousel {
+  max-width: 80%;
+}
+
 @media (max-width: 1200px) {
   .nav-item,
   .dropdown-item,
@@ -246,7 +250,7 @@ background-repeat: no-repeat;
     min-height: 240px;
 } */
 
-#kids-pshoot-header {
+#pshoot-header {
   color: rgba(0, 0, 0, 0.6);
   font-weight: lighter;
   margin: 1rem 1rem;
@@ -255,21 +259,6 @@ background-repeat: no-repeat;
   justify-content: space-between;
   align-content: center;
   /* vertical-align: center; */
-}
-
-#kids-pshoot-header h1 {
-  font-family: "Allura", cursive;
-  align-self: center;
-}
-
-#pshoot-card {
-  box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.2);
-}
-
-#pshoot-card a,
-h5 {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.6);
 }
 
 /* .card {
@@ -326,22 +315,3 @@ h5 {
           .modal-footer{
             display:none;  
           } */
-
-img {
-  max-width: 100%;
-}
-.kids-gallery {
-  padding: 80px 0;
-}
-
-.kids-gallery img {
-  background-color: rgba(255, 255, 255, 0.7);
-  padding: 15px;
-  width: 100%;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-  cursor: pointer;
-}
-
-#gallery-modal .modal-img {
-  width: 100%;
-}

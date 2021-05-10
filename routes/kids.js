@@ -17,7 +17,7 @@ const validateKids = (req, res, next) => {
 
 router.get('/', catchAsync(async (req, res) => {
     const kids = await Kids.find({});
-    res.render('ps-kids/index', { kids, style: 'app' });
+    res.render('ps-kids/index', { kids, style: 'photo-gallery' });
 }));
 
 router.get('/new', (req, res) => {
@@ -34,7 +34,7 @@ router.post('/', validateKids, catchAsync(async (req, res) => {
 router.get('/:id', catchAsync(async (req, res) => {
     const { id } = req.params;
     const kids = await Kids.findById(id)
-    res.render('ps-kids/show', { kids, style: 'app' })
+    res.render('ps-kids/show', { kids, style: 'photo-gallery' })
 }));
 
 router.get('/:id/edit', catchAsync(async (req, res) => {

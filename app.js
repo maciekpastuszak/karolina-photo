@@ -7,6 +7,7 @@ const { Family } = require('./models/photoshoot');
 const morgan = require('morgan');
 const kids = require('./routes/kids');
 const ejsMate = require('ejs-mate');
+const session = require('express-session');
 const Joi = require('joi');
 const { kidsSchema } = require('./schemas.js')
 const catchAsync = require('./utils/catchAsync');
@@ -38,6 +39,17 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'));
+const sessionConfig = {
+    secret: 'thisshouldbeabettersecret',
+    resave: false,
+    saveUninitialized: true,
+    cookie : {
+        httpOnly: true,
+        expires: Date.now() + 1000 * 60 * 60 *24 * 7,
+        maxAge: 1000 * 60 * 60 *24 * 7
+    }
+}
+app.use(session(sessionConfig))
 app.use(morgan('tiny'));
 app.use('/kids', kids)
 

@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate') %>
     <div class="container">
-        <div id="kids-pshoot-header">
+        <div id="pshoot-header">
             <h1><%= kids.title %></h1>
             <section class="d-flex h-100">
                 <a class="btn btn-warning mx-2" href="/kids/<%=kids._id%>/edit">Edytuj sesję</a>
@@ -9,7 +9,7 @@
                 </form>
             </section>
         </div>
-        <section class="kids-gallery min-vh-100">
+        <section class="gallery min-vh-100 pt-3">
             <div class="container-lg">
                 <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
                     <div class="col">
