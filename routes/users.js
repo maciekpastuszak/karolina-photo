@@ -14,8 +14,11 @@ router.post('/register',catchAsync(async(req, res) => {
     const {email, username, password} = req.body;
     const user = new User({ email, username})
     const registeredUser = await User.register(user, password);
-    req.flash('success','Witaj ponownie!');
-    res.redirect('/');
+    req.login(registeredUser, err => {
+        if(err) return next(err);
+        req.flash('success','Witaj ponownie!');
+        res.redirect('/');
+    })
 } catch(e) {
     req.flash('error', 'Użytkownik już istnieje');
     res.redirect('register');
@@ -28,8 +31,10 @@ router.get('/login', (req,res) => {
 });
 
 router.post('/login', passport.authenticate('local', {failureFlash: true, failureRedirect: '/login'}), (req, res) => {
-req.flash('success', 'Witaj ponownie')
-res.redirect('/')
+req.flash('success', 'Witaj ponownie');
+const redirectUrl = req.session.returnTo || '/';
+delete req.session.returnTo;
+res.redirect(redirectUrl);
 })
 
 router.get('/logout', (req, res) => {
