@@ -5,7 +5,8 @@ const methodOverride = require('method-override');
 const { Kids } = require('./models/photoshoot');
 const { Family } = require('./models/photoshoot');
 const morgan = require('morgan');
-const kids = require('./routes/kids');
+const kidsRoutes = require('./routes/kids');
+const usersRoutes = require('./routes/users');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -20,7 +21,7 @@ const { error } = require('console');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
-const user = require('./models/user');
+
 
 // connect to db
 mongoose.connect('mongodb://localhost:27017/karolina-photo', {
@@ -74,14 +75,10 @@ app.use((req,res,next) => {
     next();
 });
 
-app.get('/fakeuser', async (req,res) => {
-    const user = new User({email: 'abc@abc.pl', username: 'abc'})
-    const newUser = await User.register(user, 'abc');
-    res.send(newUser);
-})
 
 app.use(morgan('tiny'));
-app.use('/kids', kids)
+app.use('/', usersRoutes)
+app.use('/kids', kidsRoutes)
 
 app.get('/', (req, res) => {
     res.render('home', { style: 'app' });
