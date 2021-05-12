@@ -17,7 +17,12 @@ const { urlencoded } = require('express');
 const { fileLoader } = require('ejs');
 const photoshoot = require('./models/photoshoot');
 const { error } = require('console');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
+const User = require('./models/user');
+const user = require('./models/user');
 
+// connect to db
 mongoose.connect('mongodb://localhost:27017/karolina-photo', {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -31,6 +36,7 @@ db.once("open", () => {
     console.log("KP Database connected");
 });
 
+//set up app
 const app = express();
 
 app.engine('ejs', ejsMate);
@@ -40,6 +46,8 @@ app.set('views', path.join(__dirname, '/views'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'));
+
+//set up session
 const sessionConfig = {
     secret: 'thisshouldbeabettersecret',
     resave: false,
@@ -53,11 +61,24 @@ const sessionConfig = {
 app.use(session(sessionConfig));
 app.use(flash());
 
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 app.use((req,res,next) => {
     res.locals.success = req.flash('success');
     res.locals.error = req.flash('error');
     next();
 });
+
+app.get('/fakeuser', async (req,res) => {
+    const user = new User({email: 'abc@abc.pl', username: 'abc'})
+    const newUser = await User.register(user, 'abc');
+    res.send(newUser);
+})
 
 app.use(morgan('tiny'));
 app.use('/kids', kids)
