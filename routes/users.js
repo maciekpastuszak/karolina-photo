@@ -32,4 +32,11 @@ req.flash('success', 'Witaj ponownie')
 res.redirect('/')
 })
 
+router.get('/logout', (req, res) => {
+    req.logout();
+    req.flash('success', 'Zostałaś wylogowana');
+    res.redirect('/')
+})
+
+
 module.exports = router;
