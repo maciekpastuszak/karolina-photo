@@ -27,9 +27,11 @@
         </div>
     </div>
     <div id="socialIcons">
+       <% if(currentUser) { %> 
         <button class="btn btn-success">
             <a href="/logout">WYLOGUJ</a>
         </button>
+        <% } %> 
         <a href="http://instagram.com"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
                 fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
                 <path

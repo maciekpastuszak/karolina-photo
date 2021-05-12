@@ -3,7 +3,9 @@
     <div class="container">
         <div id="pshoot-header">
             <h1>Sesje dziecięce</h1>
+            <% if(currentUser) { %> 
             <a class="btn btn-warning pt-3" href="/kids/new">Dodaj sesję</a>
+            <% } %> 
         </div>
         <div class="container">
             <div class="row justify-content-start">
