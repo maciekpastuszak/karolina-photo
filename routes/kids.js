@@ -26,8 +26,8 @@ router.get('/new', isLoggedIn, (req, res) => {
 });
 
 router.post('/', isLoggedIn, validateKids, catchAsync(async (req, res) => {
-    // if (!req.body.kids) throw new ExpressError("Nie ma takiej sesji", 400)
     const kids = new Kids(req.body.kids);
+    kids.owner = req.user._id;
     await kids.save();
         req.flash('success', 'Stworzyłaś nową sesję dziecięcą');
     res.redirect(`/kids/${kids._id}`)
@@ -35,7 +35,8 @@ router.post('/', isLoggedIn, validateKids, catchAsync(async (req, res) => {
 
 router.get('/:id', catchAsync(async (req, res) => {
     const { id } = req.params;
-    const kids = await Kids.findById(id);
+    const kids = await Kids.findById(id).populate('owner');
+    console.log(kids)
     if(!kids) {
         req.flash('error', 'Nie mogę znaleźć takiej sesji');
         return res.redirect('/kids');

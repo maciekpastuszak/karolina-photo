@@ -4,7 +4,11 @@ const Schema = mongoose.Schema;
 const photoShootSchema = new Schema({
     title: String,
     image: String,
-    description: String
+    description: String,
+    owner: {
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }
 });
 
 const Family = mongoose.model('Family', photoShootSchema);

@@ -17,27 +17,32 @@ const kidsPshoots = [
     {
         title: 'Sesja Alka i Natana',
         image: './images/kids-pshoot.jpeg',
-        description: 'sesja na lotnisku'
+        description: 'sesja na lotnisku',
+        owner: '609b85e05603612ee1d276ff'
     },
     {
         title: 'Sesja Majki i Kajki',
         image: './images/kids-pshoot.jpeg',
-        description: 'sesja indiańska'
+        description: 'sesja indiańska',
+        owner: '609b85e05603612ee1d276ff'
     },
     {
         title: 'Sesja Adama i Ewy',
         image: './images/kids-pshoot.jpeg',
-        description: 'sesja w ogrodzie'
+        description: 'sesja w ogrodzie',
+        owner: '609b85e05603612ee1d276ff'
     },
     {
         title: 'Sesja Tosi i Tymka',
         image: './images/kids-pshoot.jpeg',
-        description: 'sesja na huśtawkach'
+        description: 'sesja na huśtawkach',
+        owner: '609b85e05603612ee1d276ff'
     },
     {
         title: 'Sesja Kasi i Tomka',
         image: './images/kids-pshoot.jpeg',
-        description: 'sesja małżeńska'
+        description: 'sesja małżeńska',
+        owner: '609b85e05603612ee1d276ff'
     },
 ]
 
