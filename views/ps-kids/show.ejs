@@ -3,7 +3,7 @@
         <div id="pshoot-header">
             <h1><%= kids.title %></h1>
             <section class="d-flex h-100">
-                <% if(currentUser) { %> 
+                <% if(currentUser && kids.owner.equals(currentUser._id)) { %> 
                     <a class="btn btn-warning mx-2" href="/kids/<%=kids._id%>/edit">Edytuj sesję</a>
                 <form action="/kids/<%=kids._id%>?_method=DELETE" method="POST">
                     <button class="btn btn-danger">Skasuj sesję</button>

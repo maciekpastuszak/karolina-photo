@@ -51,19 +51,34 @@ router.get('/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
         req.flash('error', 'Nie mogę znaleźć takiej sesji');
         return res.redirect('/kids');
     }
+    if (!kids.owner.equals(req.user._id)) {
+        req.flash ('error', 'nie możesz tego zrobić - nie jesteś właścicielem')
+        return res.redirect(`/kids/${kids._id}`);
+    }
+   
     res.render('ps-kids/edit', { kids, style: 'app' })
 }));
 
 
 router.put('/:id', isLoggedIn, validateKids, catchAsync(async (req, res) => {
     const { id } = req.params;
-    const kids = await Kids.findByIdAndUpdate(id, { ...req.body.kids });
+    const kids = await Kids.findById(id)
+    if (!kids.owner.equals(req.user._id)) {
+    req.flash ('error', 'nie możesz tego zrobić - nie jesteś właścicielem')
+    return res.redirect(`/kids/${kids._id}`);
+}
+    const kidsShoot = await Kids.findByIdAndUpdate(id, { ...req.body.kids });
     req.flash('success', 'Zaktualizowałaś sesję dziecięcą')
     res.redirect(`${kids._id}`)
 }));
 
 router.delete('/:id', isLoggedIn, catchAsync(async (req, res) => {
     const { id } = req.params;
+    const kids = await Kids.findById(id)
+    if (!kids.owner.equals(req.user._id)) {
+    req.flash ('error', 'nie możesz tego zrobić - nie jesteś właścicielem')
+    return res.redirect(`/kids/${kids._id}`);
+}
     await Kids.findByIdAndDelete(id);
     req.flash('success', 'Usunęłaś sesję dziecięcą')
     res.redirect('/kids')
