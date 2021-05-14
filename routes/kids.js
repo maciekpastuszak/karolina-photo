@@ -1,20 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const catchAsync = require('../utils/catchAsync');
-const ExpressError = require('../utils/ExpressError');
 const { Kids } = require('../models/photoshoot');
-const { kidsSchema } = require('../schemas.js');
-const {isLoggedIn} = require('../middleware');
-
-const validateKids = (req, res, next) => {
-    const { error } = kidsSchema.validate(req.body);
-    if (error) {
-        const msg = error.details.map(el => el.message).join(',')
-        throw new ExpressError(msg, 400)
-    } else {
-        next()
-    }
-}
+const {isLoggedIn, isOwner, validateKids} = require('../middleware');
 
 router.get('/', catchAsync(async (req, res) => {
     const kids = await Kids.find({});
@@ -44,41 +32,26 @@ router.get('/:id', catchAsync(async (req, res) => {
     res.render('ps-kids/show', { kids, style: 'photo-gallery' })
 }));
 
-router.get('/:id/edit', isLoggedIn, catchAsync(async (req, res) => {
+router.get('/:id/edit', isLoggedIn, isOwner, catchAsync(async (req, res) => {
     const { id } = req.params;
     const kids = await Kids.findById(id);
     if(!kids) {
         req.flash('error', 'Nie mogę znaleźć takiej sesji');
         return res.redirect('/kids');
     }
-    if (!kids.owner.equals(req.user._id)) {
-        req.flash ('error', 'nie możesz tego zrobić - nie jesteś właścicielem')
-        return res.redirect(`/kids/${kids._id}`);
-    }
-   
     res.render('ps-kids/edit', { kids, style: 'app' })
 }));
 
 
-router.put('/:id', isLoggedIn, validateKids, catchAsync(async (req, res) => {
+router.put('/:id', isLoggedIn, isOwner, validateKids, catchAsync(async (req, res) => {
     const { id } = req.params;
-    const kids = await Kids.findById(id)
-    if (!kids.owner.equals(req.user._id)) {
-    req.flash ('error', 'nie możesz tego zrobić - nie jesteś właścicielem')
-    return res.redirect(`/kids/${kids._id}`);
-}
-    const kidsShoot = await Kids.findByIdAndUpdate(id, { ...req.body.kids });
+    const kids = await Kids.findByIdAndUpdate(id, { ...req.body.kids });
     req.flash('success', 'Zaktualizowałaś sesję dziecięcą')
     res.redirect(`${kids._id}`)
 }));
 
-router.delete('/:id', isLoggedIn, catchAsync(async (req, res) => {
+router.delete('/:id', isLoggedIn, isOwner, catchAsync(async (req, res) => {
     const { id } = req.params;
-    const kids = await Kids.findById(id)
-    if (!kids.owner.equals(req.user._id)) {
-    req.flash ('error', 'nie możesz tego zrobić - nie jesteś właścicielem')
-    return res.redirect(`/kids/${kids._id}`);
-}
     await Kids.findByIdAndDelete(id);
     req.flash('success', 'Usunęłaś sesję dziecięcą')
     res.redirect('/kids')
