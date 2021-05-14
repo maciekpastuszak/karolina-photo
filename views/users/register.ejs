@@ -1,6 +1,36 @@
 <% layout('layouts/boilerplate') %>
 
-<h1>Rejestracja</h1>
+
+<main class="form-signin">
+    <fform action="/register" method="POST" class="validated-form" novalidate>
+      <img class="mb-4" src="./images/Karolina photo_logo.png" alt="" width="72" height="57">
+      <h3 class="h3 mb-3 fw-normal">Zarejestruj się:</h3>
+      <div class="form-floating">
+        <label class="form-label" for="username">Użytkownik</label>
+        <input class="form-control" type="text" id="username" name="username" required>
+            <div class="valid-feedback">
+                Jest OK!
+            </div>
+      </div>
+      <div class="form-floating">
+        <label class="form-label" for="email">E-mail</label>
+        <input class="form-control" type="email" id="email" name="email" required>
+            <div class="valid-feedback">
+                Jest OK!
+            </div>
+      </div>
+      <div class="form-floating">
+        <label class="form-label" for="password">Hasło</label>
+        <input class="form-control" type="password" id="password" name="password" required>
+            <div class="valid-feedback">
+                Jest OK!
+            </div>
+      </div>
+      <button class="w-100 btn btn-lg btn-primary" type="submit">Utwórz profil</button>
+    </form>
+  </main>
+  
+<!-- <h1>Rejestracja</h1>
 <form action="/register" method="POST" class="validated-form" novalidate>
     <div class="mb-3">
         <label class="form-label" for="username">Użytkownik</label>
@@ -27,4 +57,4 @@
         Jest OK!
     </div>
     <button class="btn btn-success">Zarejestruj</button>
-</form>
+</form> -->

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light">
+<nav class="navbar navbar-expand-md navbar-light sticky-top">
     <div class="container-fluid mx-4 mt-2">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,8 +28,8 @@
     </div>
     <div id="socialIcons">
        <% if(currentUser) { %> 
-        <button class="btn btn-success">
-            <a href="/logout">WYLOGUJ</a>
+        <button class="btn" id="logoutButton">
+            <a class="mx-0" href="/logout">wyloguj</a>
         </button>
         <% } %> 
         <a href="http://instagram.com"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"

@@ -88,7 +88,8 @@ main {
 }
 
 #mainNav a:hover,
-#socialIcons a:hover {
+#socialIcons a:hover,
+.loginButton a:hover {
   color: white;
   text-shadow: 5px 5px 10px white;
   -moz-transition: all 0.2s ease-in;
@@ -261,57 +262,41 @@ background-repeat: no-repeat;
   /* vertical-align: center; */
 }
 
-/* .card {
-    color: rgba(0, 0, 0, 0.7);
-    text-decoration: none; 
-    padding: 0;
-    margin: 0.2rem 0.7rem;
-    box-shadow: 0px 2px 15px 3px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  } */
-/* 
-  #pshoot-img {
-      max-height: 374px;
-       max-width: 562px; */
+#logoutButton {
+  border: 1px solid rgb(168, 168, 168);
+  padding: 3px 10px;
+  margin-right: 10px;
+  font-size: 0.9rem;
+}
 
-/* .green{
-        background-color:#6fb936;
-      }
-              .thumb{
-                  margin-bottom: 30px;
-              }
-              
-              .page-top{
-                  margin-top:85px;
-              }
-      
-         
-      img.zoom {
-          width: 100%;
-          height: 200px;
-          border-radius:5px;
-          object-fit:cover;
-          transition: 3s ease-in-out;
-          -webkit-transition: all .3s ease-in-out;
-          -moz-transition: all .3s ease-in-out;
-          -o-transition: all .3s ease-in-out;
-          -ms-transition: all .3s ease-in-out;
-      }
-              
-       
-      .transition {
-          -webkit-transform: scale(1.2); 
-          -moz-transform: scale(1.2);
-          -o-transform: scale(1.2);
-          transform: scale(1.2);
-      }
-          .modal-header {
-         
-           border-bottom: none;
-      }
-          .modal-title {
-              color:#000;
-          }
-          .modal-footer{
-            display:none;  
-          } */
+.loginButton a {
+  color: #fae1dd;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  text-align: center;
+}
+
+.form-signin .checkbox {
+  font-weight: 400;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
