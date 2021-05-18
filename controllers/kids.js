@@ -1,4 +1,5 @@
 const { Kids } = require('../models/photoshoot');
+const {cloudinary} = require("../cloudinary");
 
 module.exports.index = async (req, res) => {
     const kids = await Kids.find({});
@@ -41,10 +42,18 @@ module.exports.renderEditPshoot = async (req, res) => {
 
 module.exports.editKidsPshoot = async (req, res) => {
     const { id } = req.params;
+    console.log(req.body)
     const kids = await Kids.findByIdAndUpdate(id, { ...req.body.kids });
-    const imgs = req.files.map(f => ({url: f.path, filename: f.filename}))
+    const imgs = req.files.map(f => ({url: f.path, filename: f.filename}));
     kids.images.push(...imgs);
     await kids.save();
+    if (req.body.deleteImages) {
+        for(let filename of req.body.deleteImages){
+            await cloudinary.uploader.destroy(filename);
+        }
+        await kids.updateOne({$pull: {images: {filename: {$in: req.body.deleteImages}}}})
+        console.log(kids) 
+    }
     req.flash('success', 'Dobra robota! Zaktualizowałaś tą sesję')
     res.redirect(`${kids._id}`)
 };
