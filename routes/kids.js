@@ -10,11 +10,7 @@ const upload = multer({ storage });
 
 router.route('/')
     .get(catchAsync(kids.index))
-    // .post(isLoggedIn, validateKids, catchAsync(kids.createKidsPshoot));
-    .post(upload.array('image'), (req,res) => {
-        console.log(req.body, req.files);
-        res.send("IT WOKRED!")
-    })
+    .post(isLoggedIn, upload.array('image'), validateKids, catchAsync(kids.createKidsPshoot));
 
 router.get('/new', isLoggedIn, kids.renderNewPshoot);
 

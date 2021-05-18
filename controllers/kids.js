@@ -7,9 +7,11 @@ module.exports.index = async (req, res) => {
 
 module.exports.createKidsPshoot = async (req, res) => {
     const kids = new Kids(req.body.kids);
+    kids.images = req.files.map(f => ({url: f.path, filename: f.filename}));
     kids.owner = req.user._id;
     await kids.save();
-        req.flash('success', 'Stworzyłaś nową sesję dziecięcą');
+    console.log(kids);
+    req.flash('success', 'Stworzyłaś nową sesję dziecięcą');
     res.redirect(`/kids/${kids._id}`)
 };
 

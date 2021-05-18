@@ -14,21 +14,12 @@
         <section class="gallery min-vh-100 pt-3">
             <div class="container-lg">
                 <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
-                    <div class="col">
-                        <img src="/images/pic1.jpeg" class="gallery-item "alt="gallery">
-                    </div>
-                    <div class="col">
-                        <img src="/images/pic2.jpeg" class="gallery-item "alt="gallery">
-                    </div>
-                    <div class="col">
-                        <img src="/images/pic3.jpeg" class="gallery-item "alt="gallery">
-                    </div>
-                    <div class="col">
-                        <img src="/images/pic4.jpeg" class="gallery-item "alt="gallery">
-                    </div>
-                    <div class="col">
-                        <img src="/images/pic5.jpeg" class="gallery-item "alt="gallery">
-                    </div>
+                    <% for(let img of kids.images) { %> 
+                        <div class="col">
+                            <img src="<%= img.url %> " alt="" class="gallery-item "alt="gallery">
+                        </div>
+                    <% } %> 
+                        
                 </div>
             </div>
         </section>

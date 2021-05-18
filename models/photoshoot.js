@@ -3,7 +3,11 @@ const Schema = mongoose.Schema;
 
 const photoShootSchema = new Schema({
     title: String,
-    image: String,
+    images: [
+        {
+            url: String,
+            filename: String}
+    ],
     description: String,
     owner: {
         type: Schema.Types.ObjectId,
