@@ -2,7 +2,7 @@
 
     <div class="container">
         <div id="pshoot-header">
-            <h1>Sesje dziecięce</h1>
+            <h2>Sesje dziecięce</h2>
             <% if(currentUser) { %> 
             <a class="btn btn-warning pt-3" href="/kids/new">Dodaj sesję</a>
             <% } %> 
@@ -14,13 +14,10 @@
                         <div class="card mb-4" id="pshoot-card">
                             <div class="card-body p-0">
                                 <a href="kids/<%=kid._id%>">
-                                    <img class="card-img-top" src="<%=kid.image%>" alt="card-img" id="pshoot-img">
+                                    <img class="card-img-top" src="<%=kid.images[0].url%>" alt="card-img" id="pshoot-img">
                                     <h5 class="card-title mx-2 my-2">
                                         <%=kid.title%>
                                     </h5>
-                                    <p class="card-text mx-2 pb-2">
-                                        <%=kid.description%>
-                                    </p>
                                 </a>
                             </div>
                         </div>

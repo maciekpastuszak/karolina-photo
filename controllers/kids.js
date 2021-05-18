@@ -11,7 +11,7 @@ module.exports.createKidsPshoot = async (req, res) => {
     kids.owner = req.user._id;
     await kids.save();
     console.log(kids);
-    req.flash('success', 'Stworzyłaś nową sesję dziecięcą');
+    req.flash('success', 'Brawo! Stworzyłaś nową sesję dziecięcą. Przepiękna!!');
     res.redirect(`/kids/${kids._id}`)
 };
 
@@ -23,7 +23,7 @@ module.exports.showKidsPshoot = async (req, res) => {
     const { id } = req.params;
     const kids = await Kids.findById(id).populate('owner');
     if(!kids) {
-        req.flash('error', 'Nie mogę znaleźć takiej sesji');
+        req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/kids');
     }
     res.render('ps-kids/show', { kids, style: 'photo-gallery' })
@@ -33,7 +33,7 @@ module.exports.renderEditPshoot = async (req, res) => {
     const { id } = req.params;
     const kids = await Kids.findById(id);
     if(!kids) {
-        req.flash('error', 'Nie mogę znaleźć takiej sesji');
+        req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/kids');
     }
     res.render('ps-kids/edit', { kids, style: 'app' })
@@ -42,14 +42,17 @@ module.exports.renderEditPshoot = async (req, res) => {
 module.exports.editKidsPshoot = async (req, res) => {
     const { id } = req.params;
     const kids = await Kids.findByIdAndUpdate(id, { ...req.body.kids });
-    req.flash('success', 'Zaktualizowałaś sesję dziecięcą')
+    const imgs = req.files.map(f => ({url: f.path, filename: f.filename}))
+    kids.images.push(...imgs);
+    await kids.save();
+    req.flash('success', 'Dobra robota! Zaktualizowałaś tą sesję')
     res.redirect(`${kids._id}`)
 };
 
 module.exports.deleteKidsPshoot = async (req, res) => {
     const { id } = req.params;
     await Kids.findByIdAndDelete(id);
-    req.flash('success', 'Usunęłaś sesję dziecięcą')
+    req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
     res.redirect('/kids')
 };
 

@@ -8,7 +8,7 @@ const photoShootSchema = new Schema({
             url: String,
             filename: String}
     ],
-    description: String,
+    // description: String,
     owner: {
         type: Schema.Types.ObjectId,
         ref: 'User'

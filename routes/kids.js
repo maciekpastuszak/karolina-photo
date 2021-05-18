@@ -16,7 +16,7 @@ router.get('/new', isLoggedIn, kids.renderNewPshoot);
 
 router.route('/:id')
     .get(catchAsync(kids.showKidsPshoot))
-    .put(isLoggedIn, isOwner, validateKids, catchAsync(kids.editKidsPshoot))
+    .put(isLoggedIn, isOwner, upload.array('image'), validateKids, catchAsync(kids.editKidsPshoot))
     .delete(isLoggedIn, isOwner, catchAsync(kids.deleteKidsPshoot));
 
 router.get('/:id/edit', isLoggedIn, isOwner, catchAsync(kids.renderEditPshoot));
