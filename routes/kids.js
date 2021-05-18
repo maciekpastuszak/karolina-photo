@@ -4,10 +4,16 @@ const kids = require('../controllers/kids');
 const catchAsync = require('../utils/catchAsync');
 const { Kids } = require('../models/photoshoot');
 const {isLoggedIn, isOwner, validateKids} = require('../middleware');
+const multer  = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
 router.route('/')
     .get(catchAsync(kids.index))
-    .post(isLoggedIn, validateKids, catchAsync(kids.createKidsPshoot));
+    // .post(isLoggedIn, validateKids, catchAsync(kids.createKidsPshoot));
+    .post(upload.array('image'), (req,res) => {
+        console.log(req.body, req.files);
+        res.send("IT WOKRED!")
+    })
 
 router.get('/new', isLoggedIn, kids.renderNewPshoot);
 
