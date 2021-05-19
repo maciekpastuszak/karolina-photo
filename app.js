@@ -131,7 +131,7 @@ app.get('/contact', (req, res) => {
 
 
 app.all('*', (req, res, next) => {
-    next(new ExpressError('Page NOt Found', 404))
+    next(new ExpressError('Ups, nie ma takiej strony. Spróbuj ponownie', 404))
 })
 
 app.use((err, req, res, next) => {
