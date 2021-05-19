@@ -4,7 +4,7 @@
         <div id="pshoot-header">
             <h2>Sesje dziecięce</h2>
             <% if(currentUser) { %> 
-            <a class="btn btn-warning pt-3" href="/kids/new">Dodaj sesję</a>
+            <a class="btn btn-warning align-text-middle" href="/kids/new">Dodaj sesję</a>
             <% } %> 
         </div>
         <div class="container">
@@ -15,7 +15,7 @@
                             <div class="card-body p-0">
                                 <a href="kids/<%=kid._id%>">
                                  <% if(kid.images.length) {%> 
-                                <img class="card-img-top" src="<%=kid.images[0].url%>" alt="card-img" id="pshoot-img">
+                                <img class="card-img-top" src="<%= kid.images[0].url %>" alt="card-img" id="pshoot-img">
                                 <% } else {%> 
                                 <img class="card-img-top" src="https://res.cloudinary.com/dqcadja0y/image/upload/v1617459271/sample.jpg" alt="card-img" id="pshoot-img">
                                 <% } %> 

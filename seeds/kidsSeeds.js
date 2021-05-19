@@ -16,32 +16,14 @@ db.once("open", () => {
 const kidsPshoots = [
     {
         title: 'Sesja Alka i Natana',
-        image: './images/kids-pshoot.jpeg',
+        image: 'https://res.cloudinary.com/dqcadja0y/image/upload/v1621372113/KarolinaPhoto/vr8wdqaxoooba3fcjgn0.jpg',
         description: 'sesja na lotnisku',
         owner: '609b85e05603612ee1d276ff'
     },
     {
         title: 'Sesja Majki i Kajki',
-        image: './images/kids-pshoot.jpeg',
+        image: 'https://res.cloudinary.com/dqcadja0y/image/upload/v1621372113/KarolinaPhoto/vr8wdqaxoooba3fcjgn0.jpg',
         description: 'sesja indiańska',
-        owner: '609b85e05603612ee1d276ff'
-    },
-    {
-        title: 'Sesja Adama i Ewy',
-        image: './images/kids-pshoot.jpeg',
-        description: 'sesja w ogrodzie',
-        owner: '609b85e05603612ee1d276ff'
-    },
-    {
-        title: 'Sesja Tosi i Tymka',
-        image: './images/kids-pshoot.jpeg',
-        description: 'sesja na huśtawkach',
-        owner: '609b85e05603612ee1d276ff'
-    },
-    {
-        title: 'Sesja Kasi i Tomka',
-        image: './images/kids-pshoot.jpeg',
-        description: 'sesja małżeńska',
         owner: '609b85e05603612ee1d276ff'
     },
 ]

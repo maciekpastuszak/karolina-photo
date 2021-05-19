@@ -61,6 +61,13 @@ module.exports.editKidsPshoot = async (req, res) => {
 module.exports.deleteKidsPshoot = async (req, res) => {
     const { id } = req.params;
     await Kids.findByIdAndDelete(id);
+    if (req.body.deleteImages) {
+        for(let filename of req.body.deleteImages){
+            await cloudinary.uploader.destroy(filename);
+        }
+        await kids.updateOne({$pull: {images: {filename: {$in: req.body.deleteImages}}}})
+        console.log(kids) 
+    }
     req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
     res.redirect('/kids')
 };
