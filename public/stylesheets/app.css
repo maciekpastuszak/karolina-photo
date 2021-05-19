@@ -59,6 +59,7 @@ body {
 main {
   align-items: center;
   margin: 3% 20%;
+  max-width: 80%;
 }
 
 .navbar,
@@ -162,8 +163,7 @@ main {
   .dropdown-item,
   #aboutMeText,
   p,
-  li,
-  h5 {
+  li {
     font-size: 0.9rem;
   }
 }
@@ -300,4 +300,9 @@ background-repeat: no-repeat;
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+.loginButton {
+  position: absolute;
+  left: 95%;
 }

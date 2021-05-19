@@ -26,7 +26,7 @@ module.exports.renderLoginForm = (req,res) => {
 
 module.exports.loginUser = (req, res) => {
     req.flash('success', 'Witaj ponownie');
-    const redirectUrl = req.session.returnTo || '/';
+    const redirectUrl = req.session.returnTo || '/kids';
     delete req.session.returnTo;
     res.redirect(redirectUrl);
     };
