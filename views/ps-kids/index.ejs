@@ -3,14 +3,16 @@
     <div class="container">
         <div id="pshoot-header">
             <h2>Sesje dziecięce</h2>
+           <div>
             <% if(currentUser) { %> 
-            <a class="btn btn-warning align-text-middle" href="/kids/new">Dodaj sesję</a>
-            <% } %> 
+                <a class="btn btn-warning" href="/kids/new">Dodaj sesję</a>
+                <% } %> 
+           </div>
         </div>
         <div class="container">
             <div class="row justify-content-start">
                 <% for (let kid of kids) { %>
-                    <div class="col-xs-12 col-md-6 col-xl-4 px-3">
+                    <div class="col-xs-12 col-md-6 col-xl-4 px-3 py-3">
                         <div class="card mb-4" id="pshoot-card">
                             <div class="card-body p-0">
                                 <a href="kids/<%=kid._id%>">

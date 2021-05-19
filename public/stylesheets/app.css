@@ -152,9 +152,10 @@ main {
   );
 }
 
-#carousel {
-  max-width: 80%;
-}
+/* #carousel {
+  width: 100vw;
+  height: 100vh;
+} */
 
 @media (max-width: 1200px) {
   .nav-item,

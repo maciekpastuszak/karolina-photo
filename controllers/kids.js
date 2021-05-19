@@ -54,7 +54,7 @@ module.exports.editKidsPshoot = async (req, res) => {
         await kids.updateOne({$pull: {images: {filename: {$in: req.body.deleteImages}}}})
         console.log(kids) 
     }
-    req.flash('success', 'Dobra robota! Zaktualizowałaś tą sesję')
+    req.flash('success', 'Super! Zaktualizowałaś tą sesję')
     res.redirect(`${kids._id}`)
 };
 
