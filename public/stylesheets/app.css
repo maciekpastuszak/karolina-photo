@@ -69,24 +69,38 @@ main {
   color: rgba(0, 0, 0, 0.5);
   box-shadow: 10px 5px 5px rgba(202, 178, 174, 0.5);
   padding-top: 0;
-  justify-content: space-evenly;
   text-align: center;
+}
+
+#mainNav {
+  display: flex;
+  justify-content: center;
 }
 
 #logo {
   max-height: 100px;
+  min-width: 200px;
+  /* min-width: 200px; */
+  /* margin: 0 5%; */
   padding-bottom: 0;
-  position: relative;
+  /* position: relative; */
   top: 0.4rem;
 }
 
 .nav-item {
+  display: flex;
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
+  margin: 0 1em;
   width: auto;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
+  border: 1px solid black;
+  align-items: flex-end;
+  text-size-adjust: auto;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 #mainNav a:hover,
@@ -159,7 +173,7 @@ main {
   height: 100vh;
 } */
 
-@media (max-width: 1200px) {
+/* @media (max-width: 1200px) {
   .nav-item,
   .dropdown-item,
   #aboutMeText,
@@ -167,7 +181,9 @@ main {
   li {
     font-size: 0.9rem;
   }
-}
+} */
+
+
 
 /* 
 @media (max-width:1400px) {
