@@ -1,46 +1,50 @@
-<nav class="navbar navbar-expand-md navbar-light sticky-top pb-2">
-    <div class="container-fluid mx-4 mt-2">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="mainNav">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link text-nowrap" aria-current="page" href="/aboutMe">o mnie</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">portfolio</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" type="button" href="/kids">sesje dziecięce</a></li>
-                        <li><a class="dropdown-item" type="button" href="/family">sesje rodzinne</a></li>
-                        <li><a class="dropdown-item" type="button" href="#">sesje brzuszkowe</a></li>
-                        <li><a class="dropdown-item" type="button" href="#">sesje komunijne</a></li>
-                        <li><a class="dropdown-item" type="button" href="#">sesje poślubne</a></li>
-                        <li><a class="dropdown-item" type="button" href="#">sesje narzeczeńskie</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-nowrap" href="/beforePS">przed sesją</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link navbar-brand" href="/">
-                        <img src="/images/logoKP-trans.png" class="img-fluid" alt="Karolina_photography_logo" id="logo">
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/voucher">vouchery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/pricing">pakiety</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/contact">kontakt</a>
-                </li>
-            </ul>
-        </div>
+<nav class="navbar navbar-expand-lg navbar-light sticky-top pb-2 w-100">
+    <!-- <div class="container mx-4 mt-2"> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link text-nowrap" aria-current="page" href="/aboutMe">o mnie</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-bs-toggle="dropdown" aria-expanded="false">portfolio</a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <li><a class="dropdown-item" type="button" href="/kids">sesje dziecięce</a></li>
+                    <li><a class="dropdown-item" type="button" href="/family">sesje rodzinne</a></li>
+                    <li><a class="dropdown-item" type="button" href="#">sesje brzuszkowe</a></li>
+                    <li><a class="dropdown-item" type="button" href="#">sesje komunijne</a></li>
+                    <li><a class="dropdown-item" type="button" href="#">sesje poślubne</a></li>
+                    <li><a class="dropdown-item" type="button" href="#">sesje narzeczeńskie</a></li>
+                </ul>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-nowrap" href="/beforePS">przed sesją</a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link navbar-brand" href="/">
+                    <img src="/images/logoKP-trans.png" class="img-fluid" alt="Karolina_photography_logo" id="logo">
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/voucher">vouchery</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/pricing">pakiety</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/contact">kontakt</a>
+            </li>
+        </ul>
     </div>
+    <!-- </div> -->
     <div id="socialIcons">
         <% if(currentUser) { %>
             <button class="btn" id="logoutButton">

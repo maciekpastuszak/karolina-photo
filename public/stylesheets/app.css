@@ -74,8 +74,26 @@ main {
 
 #mainNav {
   display: flex;
+  align-items:flex-end;
   justify-content: center;
+  margin: 0 auto;
 }
+
+.nav-item {
+  /* display: flex; */
+  text-align: center;
+  margin: 0 1em;
+  /* width: auto; */
+  font-size: 1.2rem;
+  border: 1px solid black;
+  /* align-items: flex-end;
+  text-size-adjust: auto; */
+}
+
+/* .navbar-nav {
+  display: flex;
+  justify-content: space-evenly;
+} */
 
 #logo {
   max-height: 100px;
@@ -85,22 +103,6 @@ main {
   padding-bottom: 0;
   /* position: relative; */
   top: 0.4rem;
-}
-
-.nav-item {
-  display: flex;
-  text-align: center;
-  margin: 0 1em;
-  width: auto;
-  /* font-size: 1.2rem; */
-  border: 1px solid black;
-  align-items: flex-end;
-  text-size-adjust: auto;
-}
-
-.navbar-nav {
-  display: flex;
-  justify-content: space-evenly;
 }
 
 #mainNav a:hover,
