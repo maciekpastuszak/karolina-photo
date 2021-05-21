@@ -72,20 +72,22 @@ main {
   text-align: center;
 }
 
-#mainNav {
+#mainNavbar {
   display: flex;
-  align-items:flex-end;
   justify-content: center;
-  margin: 0 auto;
+  align-items:flex-end;
 }
 
+/* .navbar-nav {
+text-align: end;
+} */
+
 .nav-item {
-  /* display: flex; */
-  text-align: center;
-  margin: 0 1em;
+  display: flex;
+  /* text-align: center; */
+  margin: 0 0.8em;
   /* width: auto; */
   font-size: 1.2rem;
-  border: 1px solid black;
   /* align-items: flex-end;
   text-size-adjust: auto; */
 }
@@ -96,8 +98,8 @@ main {
 } */
 
 #logo {
-  max-height: 100px;
-  min-width: 200px;
+  max-width: 300px;
+  height: auto;
   /* min-width: 200px; */
   /* margin: 0 5%; */
   padding-bottom: 0;
@@ -105,7 +107,7 @@ main {
   top: 0.4rem;
 }
 
-#mainNav a:hover,
+#mainNavbar a:hover,
 #socialIcons a:hover,
 .loginButton a:hover {
   color: white;
@@ -169,7 +171,33 @@ main {
     color-stop(0.98, white)
   );
 }
+@media (max-width:1200px) {
+  .nav-item, .dropdown-item, #aboutMeText, p, li, h5 {
+      font-size: 1rem;
+}
+#logo {
+  max-width: 190px;
+}
+}
 
+@media (max-width:992px) {
+  #logo {
+    max-width: 200px;
+    /* position: absolute;
+    left: 70%;
+    top: 30%; */
+  }
+
+  .nav-item {
+    margin: 0;
+  }
+
+  #mainNav {
+    justify-content: flex-start;
+    align-items:flex-start
+  }
+  }
+    
 /* #carousel {
   width: 100vw;
   height: 100vh;
