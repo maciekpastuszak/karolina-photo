@@ -92,12 +92,16 @@ text-align: end;
   text-size-adjust: auto; */
 }
 
+.navUl {
+padding-bottom: 10px;
+}
+
 /* .navbar-nav {
   display: flex;
   justify-content: space-evenly;
 } */
 
-#logo {
+.navbar-brand {
   max-width: 300px;
   height: auto;
   /* min-width: 200px; */
@@ -176,8 +180,13 @@ text-align: end;
       font-size: 1rem;
 }
 #logo {
-  max-width: 190px;
+  max-width: 230px;
 }
+
+.navUl {
+  padding-bottom: 5px;
+}
+
 }
 
 @media (max-width:992px) {
@@ -186,6 +195,10 @@ text-align: end;
     /* position: absolute;
     left: 70%;
     top: 30%; */
+  }
+
+  .nav-item, .dropdown-item {
+    font-size: 0.9rem;
   }
 
   .nav-item {
