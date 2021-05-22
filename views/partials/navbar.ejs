@@ -12,7 +12,7 @@
                 <li class="nav-item dropdown" id="dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">portfolio</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown2">
                         <li><a class="dropdown-item" type="button" href="/kids">sesje dziecięce</a></li>
                         <li><a class="dropdown-item" type="button" href="/family">sesje rodzinne</a></li>
                         <li><a class="dropdown-item" type="button" href="#">sesje brzuszkowe</a></li>
@@ -90,5 +90,20 @@
 
     document.addEventListener('DOMContentLoaded', function (event) {
         document.querySelector('body').style.opacity = 1
-    })
+    });
+
+
+    const dropdownOff = document.querySelector('#dropdown');
+    dropdownOff.addEventListener('click', function () {
+        const dropdown2 = document.querySelector('#dropdown2');
+        const secondNav = document.querySelector('#secondNav');
+        if (document.body.clientWidth > 768) {
+            secondNav.style.display = 'none';
+        } else {
+            dropdown2.style.display = 'none';
+            secondNav.style.display = 'block';
+        }
+    });
+
+
 </script>
