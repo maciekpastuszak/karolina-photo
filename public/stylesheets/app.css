@@ -119,6 +119,12 @@ justify-content: space-evenly;
   top: 0.4rem;
 }
 
+#secondNav {
+  display: none;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: #fceae7;
+}
+
 #mainNavbar a:hover,
 #socialIcons a:hover,
 .loginButton a:hover {
@@ -227,6 +233,7 @@ justify-content: space-evenly;
   padding: 5px;
 }
 
+
 }
 
 @media (max-width:500px) {
@@ -234,8 +241,8 @@ justify-content: space-evenly;
   display: none;
 }
 
-
 }
+
 /* #carousel {
   width: 100vw;
   height: 100vh;
