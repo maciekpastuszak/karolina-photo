@@ -233,6 +233,15 @@ justify-content: space-evenly;
   padding: 5px;
 }
 
+#dropdown2 {
+  position: absolute;
+  bottom: -150px
+}
+
+#secondNav {
+ color: rgba(0, 0, 0, 0.5);
+}
+
 
 }
 

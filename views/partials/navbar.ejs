@@ -66,20 +66,20 @@
         </div>
     </div>
 </nav>
-<nav class="navbar container-flex navbar-expand-lg navbar-light pt-2" id="secondNav">
+<!-- <nav class="navbar container-flex navbar-expand-lg navbar-light pt-2" id="secondNav">
     <div class="navbar-nav row">
-        <a class="dropdown-item col-6" type="button" href="/kids">sesje dziecięce</a>
-        <a class="dropdown-item col-6" type="button" href="/family">sesje rodzinne</a>
+        <a class="dropdown-item col-6 col-sm-12" type="button" href="/kids">sesje dziecięce</a>
+        <a class="dropdown-item col-6 col-sm-12" type="button" href="/family">sesje rodzinne</a>
     </div>
     <div class="navbar-nav row">
-        <a class="dropdown-item col-6" type="button" href="#">sesje brzuszkowe</a>
-        <a class="dropdown-item col-6" type="button" href="#">sesje komunijne</a>
+        <a class="dropdown-item col-6 col-sm-12" type="button" href="#">sesje brzuszkowe</a>
+        <a class="dropdown-item col-6 col-sm-12" type="button" href="#">sesje komunijne</a>
     </div>
     <div class="navbar-nav row">
-        <a class="dropdown-item col-6" type="button" href="#">sesje poślubne</a>
-        <a class="dropdown-item col-6" type="button" href="#">sesje narzeczeńskie</a>
+        <a class="dropdown-item col-6 col-sm-12" type="button" href="#">sesje poślubne</a>
+        <a class="dropdown-item col-6 col-sm-12" type="button" href="#">sesje narzeczeńskie</a>
     </div>
-</nav>
+</nav> -->
 <script>
     window.transitionToPage = function (href) {
         document.querySelector('body').style.opacity = 0
@@ -93,17 +93,17 @@
     });
 
 
-    const dropdownOff = document.querySelector('#dropdown');
-    dropdownOff.addEventListener('click', function () {
-        const dropdown2 = document.querySelector('#dropdown2');
-        const secondNav = document.querySelector('#secondNav');
-        if (document.body.clientWidth > 768) {
-            secondNav.style.display = 'none';
-        } else {
-            dropdown2.style.display = 'none';
-            secondNav.style.display = 'block';
-        }
-    });
+    // const dropdownOff = document.querySelector('#dropdown');
+    // dropdownOff.addEventListener('click', function () {
+    //     const dropdown2 = document.querySelector('#dropdown2');
+    //     const secondNav = document.querySelector('#secondNav');
+    //     if (document.body.clientWidth > 768) {
+    //         secondNav.style.display = 'none';
+    //     } else {
+    //         dropdown2.style.display = 'none';
+    //         secondNav.style.display = 'block';
+    //     }
+    // });
 
 
 </script>
