@@ -1,18 +1,18 @@
-<nav class="navbar navbar-expand-md navbar-light sticky-top w-100">
+<nav class="navbar navbar-expand-md navbar-light sticky-top w-100 mb-4">
     <div class="container-fluid px-4">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
             aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="mainNavbar">
+        <div class="collapse navbar-collapse justify-content-center align-items-end" id="mainNavbar">
             <ul class="navUl navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link text-nowrap" aria-current="page" href="/aboutMe">o mnie</a>
                 </li>
-                <li class="nav-item dropdown" id="dropdown">
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">portfolio</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown2">
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="dropdown">
                         <li><a class="dropdown-item" type="button" href="/kids">sesje dziecięce</a></li>
                         <li><a class="dropdown-item" type="button" href="/family">sesje rodzinne</a></li>
                         <li><a class="dropdown-item" type="button" href="#">sesje brzuszkowe</a></li>
@@ -27,7 +27,7 @@
             </ul>
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link navbar-brand" href="/">
+                    <a class="nav-link navbar-brand me-0 pb-0" href="/">
                         <img src="/images/logoKP-trans.png" class="img-fluid" alt="Karolina_photography_logo" id="logo">
                     </a>
                 </li>
@@ -47,7 +47,7 @@
         <!--  -->
         <div id="socialIcons">
             <% if(currentUser) { %>
-                <button class="btn" id="logoutButton">
+                <button class="btn mx-3 my-0" id="logoutButton">
                     <a class="mx-0" href="/logout">wyloguj</a>
                 </button>
                 <% } %>

@@ -17,7 +17,7 @@ module.exports.createKidsPshoot = async (req, res) => {
 };
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('ps-kids/new', { style: 'app' });
+    res.render('ps-kids/new', { style: 'photo-gallery' });
 };
 
 module.exports.showKidsPshoot = async (req, res) => {
@@ -37,7 +37,7 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/kids');
     }
-    res.render('ps-kids/edit', { kids, style: 'app' })
+    res.render('ps-kids/edit', { kids, style: 'photo-gallery' })
 };
 
 module.exports.editKidsPshoot = async (req, res) => {

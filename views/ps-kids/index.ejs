@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplate')%>
-    <div class="container">
-        <div id="pshoot-header">
-            <h2>Sesje dziecięce</h2>
+    <div class="container pt-3">
+        <div class="d-flex justify-content-between">
+            <h2 class="pshoot-header">Sesje dziecięce</h2>
             <div>
                 <% if(currentUser) { %>
                     <a class="btn btn-warning" href="/kids/new">Dodaj sesję</a>
@@ -12,7 +12,7 @@
             <div class="row justify-content-start">
                 <% for (let kid of kids) { %>
                     <div class="col-xs-12 col-md-6 col-xl-4 px-3 py-3">
-                        <div class="card mb-4" id="pshoot-card">
+                        <div class="pshoot-card card mb-4">
                             <div class="card-body p-0">
                                 <a href="kids/<%=kid._id%>">
                                     <% if(kid.images.length) {%>
@@ -23,7 +23,7 @@
                                                 src="https://res.cloudinary.com/dqcadja0y/image/upload/v1617459271/sample.jpg"
                                                 alt="card-img" id="pshoot-img">
                                             <% } %>
-                                                <h5 class="card-title mx-2 my-2">
+                                                <h5 class="pshoot-header card-title mx-2 my-2">
                                                     <%=kid.title%>
                                                 </h5>
                                 </a>

@@ -1,7 +1,7 @@
 <% layout('layouts/boilerplate') %>
-    <div class="container">
-        <div id="pshoot-header">
-            <h2>
+    <div class="container pt-3">
+        <div class="d-flex justify-content-between">
+            <h2 class="pshoot-header">
                 <%= kids.title %>
             </h2>
             <section class="d-flex h-100">
@@ -17,7 +17,7 @@
             <div class="container-lg">
                 <!-- <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3"> -->
                 <% for(let img of kids.images) { %>
-                    <div class="col">
+                    <div class="col d-flex justify-content-center my-3 pe-2">
                         <img src="<%= img.url %> " alt="" class="gallery-item " alt="gallery">
                     </div>
                     <% } %>
@@ -38,7 +38,7 @@
                 </div>
             </div>
         </div>
-        <footer>
+        <footer class="footer my-3 py-2 text-center">
             <a href="/kids">Wróć do wszytkich sesji</a>
         </footer>
     </div>

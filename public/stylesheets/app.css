@@ -49,56 +49,19 @@ table {
 
 body {
   background-color: #f8edeb;
-  margin: 0;
   font-family: "Quicksand", sans-serif;
-  font-weight: 400;
-  opacity: 0;
-  animation: fadeIn 0.5s;
-  transition: opacity 0.5s;
 }
 
 main {
-  align-items: center;
-  margin: 3% 20%;
   max-width: 80%;
 }
 
 .navbar,
-.footer {
+.mainFooter {
   background-color: #fae1dd;
   color: rgba(0, 0, 0, 0.5);
+  font-size: 1.1rem;
   box-shadow: 10px 5px 5px rgba(202, 178, 174, 0.5);
-  padding-top: 0;
-  text-align: center;
-}
-
-#mainNavbar {
-  /* display: flex; */
-  justify-content: center;
-  align-items:flex-end;
-}
-
-.navbar-brand {
-  margin: 0;
-}
-
-#logo {
-  max-width: 260px;
-}
-/* .navbar-nav {
-text-align: end;
-} */
-
-.nav-item {
-  display: flex;
-  color: rgba(0, 0, 0, 0.5);
-  /* text-align: center; */
-  margin: 0 0.8em;
-  /* width: auto; */
-  font-size: 1.2rem;
-  /* align-items: flex-end;
-  text-size-adjust: auto; */
-
 }
 
 .navUl {
@@ -107,33 +70,13 @@ display: flex;
 justify-content: space-evenly;
 }
 
-
-
-.navbar-brand {
-  max-width: 400px;
-  height: auto;
-  /* min-width: 200px; */
-  /* margin: 0 5%; */
-  padding-bottom: 0;
-  /* position: relative; */
-  top: 0.4rem;
+.nav-link {
+  color: rgba(0, 0, 0, 0.5);
+  margin: 0 0.8em;
 }
 
-#secondNav {
-  display: none;
-  color: rgba(0, 0, 0, 0.6);
-  background-color: #fceae7;
-}
-
-#mainNavbar a:hover,
-#socialIcons a:hover,
-.loginButton a:hover {
-  color: white;
-  text-shadow: 5px 5px 10px white;
-  -moz-transition: all 0.2s ease-in;
-  -o-transition: all 0.2s ease-in;
-  -webkit-transition: all 0.2s ease-in;
-  transition: all 0.2s ease-in;
+#logo {
+  max-width: 260px; 
 }
 
 .dropdown-menu {
@@ -141,24 +84,32 @@ justify-content: space-evenly;
   background-color: rgba(250, 225, 221, 0.9);
 }
 
-.dropdown-item:hover {
-  background-color: transparent;
-}
-
 #socialIcons {
-  color: rgba(0, 0, 0, 0.5);
   position: absolute;
   top: 10px;
   right: 10px;
 }
 
-#socialIcons a,
-#kidsPshoot {
+#socialIcons a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.5);
-  display: inline;
   margin-right: 0.5rem;
 }
+
+#mainNavbar a:hover,
+#socialIcons a:hover,
+#loginButton a:hover,
+.footer a:hover {
+  color: white;
+  text-shadow: 5px 5px 10px white;
+  -moz-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  background-color: transparent;
+}
+
+/* horizontal line */
 
 .fade_rule {
   height: 1px;
@@ -189,223 +140,17 @@ justify-content: space-evenly;
     color-stop(0.98, white)
   );
 }
-@media (max-width:1200px) {
-  .nav-item, .dropdown-item, #aboutMeText, p, li, h5 {
-      font-size: 1rem;
-}
-#logo {
-  max-width: 230px;
-}
-
-.navUl {
-  padding-bottom: 9px;
-}
-
-}
-
-@media (max-width:992px) {
-
-
-  .nav-item, .dropdown-item {
-    font-size: 0.9rem;
-  }
-
-  .nav-item {
-    margin: 0;
-  }
-
- 
-}
-
-@media (max-width:768px) {
-
-.navbar-nav {
-  width: 33%;
-  float: left;
-  align-items: center
-}
-
-.navbar-toggler {
-  margin-top: 8px;
-}
-
-.nav-link {
-  padding: 5px;
-}
-
-#dropdown2 {
-  position: absolute;
-  bottom: -150px
-}
-
-#secondNav {
- color: rgba(0, 0, 0, 0.5);
-}
-
-
-}
-
-@media (max-width:500px) {
-#logo {
-  display: none;
-}
-
-}
-
-/* #carousel {
-  width: 100vw;
-  height: 100vh;
-} */
-
-/* @media (max-width: 1200px) {
-  .nav-item,
-  .dropdown-item,
-  #aboutMeText,
-  p,
-  li {
-    font-size: 0.9rem;
-  }
-} */
-
-
-
-/* 
-@media (max-width:1400px) {
-    .nav-item, .dropdown-item, #aboutMeText, p, li, h5 {
-        font-size: 1rem;
-}
-
-}
-@media (max-width:1200px) {
-    .nav-item, .dropdown-item, #aboutMeText, p, li, h5 {
-        font-size: 0.9rem;
-}
-}
-
-@media (max-width:992px) {
-    .nav-item, .dropdown-item, #aboutMeText, p, li, h5 {
-        font-size: 0.8rem;
-}
-
-
-}
-
-@media (max-width:768px) {
-    .nav-item, .dropdown-item, #navbarDropdownMenuLink, p, li {
-        font-size: 0.7rem;
-        margin-left: 0;
-        text-align: left;
-        min-width: 100px;
-}
-
-#mainNav {
-    position:unset;
-}
-
-.navbar-nav {
-margin-top: 0.7rem;
-margin-left: 1rem;
-background-image: url("/images/logoKP-trans.png");
-background-size: 50%;
-background-position: right 15% bottom 70%;
-background-repeat: no-repeat;
-
-
-}
-.navbar-brand {
-    display: none;
-}
-
-.dropdown-item {
-    min-width: auto;
-}
-
-#portfolio {
-    align-self: flex-start;
-}
-#about-me-text {
-    font-size: 0.7rem;
-    text-align: justify;
-    margin-top: 1rem;
-    max-width: 400px;
-}
-
-#about-me-photo {
-    max-width: 400px;
-}
-
-#about-me, #contact-page, #voucher-card {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-}
-
-#voucher-card {
-    flex-direction: row;
-}
-
-} */
-
-/* #pshoot-img {
-    min-width: 360px;
-    min-height: 240px;
-} */
-
-#pshoot-header {
-  color: rgba(0, 0, 0, 0.6);
-  font-weight: lighter;
-  margin: 1rem 1rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-content: center;
-  /* vertical-align: center; */
-}
 
 #logoutButton {
   border: 1px solid rgb(168, 168, 168);
-  padding: 3px 10px;
-  margin-right: 10px;
-  font-size: 0.9rem;
 }
-
-.loginButton a {
-  color: #fae1dd;
-}
-
-.form-signin {
-  width: 100%;
-  max-width: 330px;
-  padding: 15px;
-  margin: auto;
-  text-align: center;
-}
-
-.form-signin .checkbox {
-  font-weight: 400;
-}
-
-.form-signin .form-floating:focus-within {
-  z-index: 2;
-}
-
-.form-signin input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-.form-signin input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-
-.loginButton {
+#loginButton {
   position: absolute;
   left: 95%;
+}
+
+#loginButton a {
+  color: #fae1dd;
 }
 
 #alert {
@@ -413,4 +158,23 @@ background-repeat: no-repeat;
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+
+@media (max-width:500px) {
+  #logo { display: none; }
+}
+
+@media (max-width:768px) {
+  .navbar-nav {
+    width: 33%;
+    float: left;
+    align-items: center
+  }
+  #dropdown { position: absolute; }
+}
+
+@media (max-width:992px) {
+  .nav-item { margin: 0; }
+
 }

@@ -1,5 +1,4 @@
 <% layout('layouts/boilerplate')%>
-
     <div class="row">
         <h3 class="text-center">Dodaj nową sesję</h3>
         <div class="col-6 offset-3">
@@ -7,9 +6,7 @@
                 <div class="mb-3">
                     <label class="form-label" for="title">Nazwa sesji</label>
                     <input class="form-control" type="text" id="title" name="kids[title]" required>
-                    <div class="valid-feedback">
-                        Jest OK!
-                    </div>
+                    <div class="valid-feedback"> Jest OK! </div>
                 </div>
                 <div class="mb-2">
                     <label>Wgraj obrazy</label>
@@ -17,7 +14,7 @@
                 <div class="input-group mb-3">
                     <input type="file" class="form-control" name="images" id="images" multiple>
                     <label class="input-group-text" for="images">&#8593</label>
-                  </div>
+                </div>
                 <!-- <div class="mb-3">
                     <label class="form-label" for="description">Opis sesji</label>
                     <textarea class="form-control" type="text" id="description" name="kids[description]" required>
@@ -30,29 +27,8 @@
                     <button class="btn btn-success">Dodaj sesję</button>
                 </div>
             </form>
-            <a href="/kids">Wróć do sesji dziecięcych</a>
+            <div class="footer my-3 py-2">
+                <a href="/kids">Wróć do sesji dziecięcych</a>
+            </div>
         </div>
     </div>
-
-
-    <script>
-        (function () {
-            'use strict'
-
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            const forms = document.querySelectorAll('.validated-form')
-
-            // Loop over them and prevent submission
-            Array.from(forms)
-                .forEach(function (form) {
-                    form.addEventListener('submit', function (event) {
-                        if (!form.checkValidity()) {
-                            event.preventDefault()
-                            event.stopPropagation()
-                        }
-
-                        form.classList.add('was-validated')
-                    }, false)
-                })
-        })()
-    </script>
