@@ -64,10 +64,15 @@ main {
   box-shadow: 10px 5px 5px rgba(202, 178, 174, 0.5);
 }
 
+#mainNavbar {
+  justify-content: center;
+  align-items: flex-end;
+}
+
 .navUl {
 padding-bottom: 10px;
 display: flex;
-justify-content: space-evenly;
+justify-content: space-around;
 }
 
 .nav-link {
@@ -75,8 +80,8 @@ justify-content: space-evenly;
   margin: 0 0.8em;
 }
 
-#logo {
-  max-width: 260px; 
+.navbar-brand {
+  max-width: 260px;
 }
 
 .dropdown-menu {
@@ -160,9 +165,22 @@ justify-content: space-evenly;
   text-align: center;
 }
 
+@media (max-width:992px) {
+  .nav-item { 
+    margin: 0; 
+  }
 
-@media (max-width:500px) {
-  #logo { display: none; }
+  .navUl {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 205px;
+  }
+
+  #mainNavbar {
+    align-items:flex-start;
+  }
+
 }
 
 @media (max-width:768px) {
@@ -171,10 +189,15 @@ justify-content: space-evenly;
     float: left;
     align-items: center
   }
-  #dropdown { position: absolute; }
+  
+  #dropdown { 
+    position: absolute; 
+  }
+  
 }
 
-@media (max-width:992px) {
-  .nav-item { margin: 0; }
-
+@media (max-width:500px) {
+  #logo { 
+    display: none; 
+  }
 }
