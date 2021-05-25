@@ -1,10 +1,14 @@
 const { Kids } = require('../models/photoshoot');
 const {cloudinary} = require("../cloudinary");
 
+// Index page of photoshoot
+
 module.exports.index = async (req, res) => {
     const kids = await Kids.find({});
     res.render('ps-kids/index', { kids, style: 'photo-gallery' });
 };
+
+// Creating a new photoshoot
 
 module.exports.createKidsPshoot = async (req, res) => {
     const kids = new Kids(req.body.kids);
@@ -16,9 +20,13 @@ module.exports.createKidsPshoot = async (req, res) => {
     res.redirect(`/kids/${kids._id}`)
 };
 
+// Render a new photoshoot page
+
 module.exports.renderNewPshoot = (req, res) => {
     res.render('ps-kids/new', { style: 'photo-gallery' });
 };
+
+// Showing details of the photoshoot
 
 module.exports.showKidsPshoot = async (req, res) => {
     const { id } = req.params;
@@ -30,6 +38,8 @@ module.exports.showKidsPshoot = async (req, res) => {
     res.render('ps-kids/show', { kids, style: 'photo-gallery' })
 };
 
+// render update/edit photoshoot page
+
 module.exports.renderEditPshoot = async (req, res) => {
     const { id } = req.params;
     const kids = await Kids.findById(id);
@@ -39,6 +49,8 @@ module.exports.renderEditPshoot = async (req, res) => {
     }
     res.render('ps-kids/edit', { kids, style: 'photo-gallery' })
 };
+
+// update/edit photoshoot
 
 module.exports.editKidsPshoot = async (req, res) => {
     const { id } = req.params;
@@ -57,6 +69,8 @@ module.exports.editKidsPshoot = async (req, res) => {
     req.flash('success', 'Super! Zaktualizowałaś tą sesję')
     res.redirect(`${kids._id}`)
 };
+
+// delete photoshoot
 
 module.exports.deleteKidsPshoot = async (req, res) => {
     const { id } = req.params;

@@ -3,7 +3,8 @@
     'use strict'
     const forms = document.querySelectorAll('.validated-form')
 
-    // Loop over them and prevent submission
+    // Loop over forms and prevent submission
+    
     Array.from(forms)
         .forEach(function (form) {
             form.addEventListener('submit', function (event) {
