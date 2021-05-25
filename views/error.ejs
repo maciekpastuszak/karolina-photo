@@ -4,10 +4,14 @@
             <div class="col-6 offset-3">
                 <div class="alert alert-danger" role="alert" id="alert">
                     <img src="/images/sadcamera.png" alt="" width=200>
-                    <h4 class="alert-heading">Ups, jakiś problem ze stroną</h4>
-                    <p>
+                    <h4 class="alert-heading">
                         <%=err.message%>
-                    </p>
+                    </h4>
+                    <% if (process.env.NODE_ENV !=="production" ) { %>
+                        <p>
+                            <%=err.stack%>
+                        </p>
+                        <% } %>
                 </div>
             </div>
         </div>
