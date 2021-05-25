@@ -28,11 +28,12 @@ const User = require('./models/user');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const { contentSecurityPolicy } = require('helmet');
+const MongoStore = require('connect-mongo');
 
 // connect to db
-const dbUrl = process.env.DB_URL
-// mongoose.connect(dbUrl, {
-mongoose.connect('mongodb://localhost:27017/karolina-photo', { 
+const dbUrl = 'mongodb://localhost:27017/karolina-photo';
+// process.env.DB_URL
+mongoose.connect(dbUrl, { 
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -57,8 +58,21 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'));
 app.use(mongoSanitize());
 
+const store = MongoStore.create({
+    mongoUrl: dbUrl,
+    touchAfter: 24 * 60 * 60,
+    crypto: {
+        secret: 'thisshouldbeabettersecret'
+    }
+});
+
+store.on("error", function (e) {
+    console.log("SESSION STORE ERROR", e)
+});
+
 //set up session
 const sessionConfig = {
+    store,
     name: 'session',
     secret: 'thisshouldbeabettersecret',
     resave: false,
