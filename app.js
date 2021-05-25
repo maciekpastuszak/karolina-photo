@@ -29,10 +29,10 @@ const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const { contentSecurityPolicy } = require('helmet');
 
-
-
 // connect to db
-mongoose.connect('mongodb://localhost:27017/karolina-photo', {
+const dbUrl = process.env.DB_URL
+// mongoose.connect(dbUrl, {
+mongoose.connect('mongodb://localhost:27017/karolina-photo', { 
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
