@@ -1,8 +1,31 @@
-const Joi = require('joi');
+const baseJoi = require('joi');
+const sanitizeHtml = require('sanitize-html');
+
+const extension = (joi) => ({
+    type: 'string',
+    base: joi.string(),
+    messages: {
+        'string.escapeHTML': '{{#label}} nie może zawierać HTML!'
+    },
+    rules: {
+        escapeHTML: {
+            validate(value,helpers) {
+                const clean = sanitizeHtml(value, {
+                    allowedTags: [],
+                    allowedAttribiutes: {},
+                });
+                if (clean !== value) return helpers.error('string.escapeHTML', {value})
+                return clean;
+            }
+        }
+    }
+});
+
+const Joi = baseJoi.extend(extension)
 
 module.exports.kidsSchema = Joi.object({
     kids: Joi.object({
-        title: Joi.string().required(),
+        title: Joi.string().required().escapeHTML(),
     }).required(),
     deleteImages: Joi.array()
 });
