@@ -25,7 +25,10 @@ const { error } = require('console');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
+const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
+const { contentSecurityPolicy } = require('helmet');
+
 
 
 // connect to db
@@ -69,6 +72,7 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig));
 app.use(flash());
+app.use(helmet({contentSecurityPolicy: false}));
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -146,6 +150,6 @@ app.use((err, req, res, next) => {
 })
 
 app.listen(3000, () => {
-    console.log("LISTENING ON PORT 3000")
+    console.log("NASŁUCHUJĘ NA PORCIE 3000")
 });
 
