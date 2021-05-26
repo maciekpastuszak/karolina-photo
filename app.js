@@ -31,7 +31,7 @@ const { contentSecurityPolicy } = require('helmet');
 const MongoStore = require('connect-mongo');
 
 // connect to db
-const dbUrl = 'mongodb://localhost:27017/karolina-photo';
+const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/karolina-photo';
 // process.env.DB_URL
 mongoose.connect(dbUrl, { 
     useNewUrlParser: true,
@@ -58,11 +58,13 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'));
 app.use(mongoSanitize());
 
+const secret = process.env.SECRET || 'thisshouldbeabettersecret'
+
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     touchAfter: 24 * 60 * 60,
     crypto: {
-        secret: 'thisshouldbeabettersecret'
+        secret
     }
 });
 
@@ -74,7 +76,7 @@ store.on("error", function (e) {
 const sessionConfig = {
     store,
     name: 'session',
-    secret: 'thisshouldbeabettersecret',
+    secret,
     resave: false,
     saveUninitialized: true,
     cookie : {
