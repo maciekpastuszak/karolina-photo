@@ -32,7 +32,6 @@ const MongoStore = require('connect-mongo');
 
 // connect to db
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/karolina-photo';
-// process.env.DB_URL
 mongoose.connect(dbUrl, { 
     useNewUrlParser: true,
     useCreateIndex: true,
