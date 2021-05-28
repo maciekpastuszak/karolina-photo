@@ -52,8 +52,9 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
-main {
-  max-width: 80%;
+.mainDiv {
+  margin-bottom: 30px;
+  padding: 0 30px
 }
 
 .navbar,
@@ -177,10 +178,6 @@ justify-content: space-around;
     max-width: 205px;
   }
 
-  #mainNavbar {
-    align-items:flex-start;
-  }
-
 }
 
 @media (max-width:768px) {
@@ -199,5 +196,13 @@ justify-content: space-around;
 @media (max-width:500px) {
   #logo { 
     display: none; 
+  }
+  
+  .mainDiv {
+    padding: 0;
+  }
+
+  #map {
+    display: none;
   }
 }
