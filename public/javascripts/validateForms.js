@@ -1,3 +1,4 @@
+//JS for the client-side validation of forms
 
 (function () {
     'use strict'

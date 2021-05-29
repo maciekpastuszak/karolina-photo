@@ -15,7 +15,6 @@ module.exports.createKidsPshoot = async (req, res) => {
     kids.images = req.files.map(f => ({url: f.path, filename: f.filename}));
     kids.owner = req.user._id;
     await kids.save();
-    console.log(kids);
     req.flash('success', 'Brawo! Stworzyłaś nową sesję dziecięcą. Przepiękna!!');
     res.redirect(`/kids/${kids._id}`)
 };
@@ -38,7 +37,7 @@ module.exports.showKidsPshoot = async (req, res) => {
     res.render('ps-kids/show', { kids, style: 'photo-gallery' })
 };
 
-// render update/edit photoshoot page
+// Render update/edit photoshoot page
 
 module.exports.renderEditPshoot = async (req, res) => {
     const { id } = req.params;
@@ -50,11 +49,10 @@ module.exports.renderEditPshoot = async (req, res) => {
     res.render('ps-kids/edit', { kids, style: 'photo-gallery' })
 };
 
-// update/edit photoshoot
+// Update/edit photoshoot
 
 module.exports.editKidsPshoot = async (req, res) => {
     const { id } = req.params;
-    console.log(req.body)
     const kids = await Kids.findByIdAndUpdate(id, { ...req.body.kids });
     const imgs = req.files.map(f => ({url: f.path, filename: f.filename}));
     kids.images.push(...imgs);
@@ -70,7 +68,7 @@ module.exports.editKidsPshoot = async (req, res) => {
     res.redirect(`${kids._id}`)
 };
 
-// delete photoshoot
+// Delete photoshoot
 
 module.exports.deleteKidsPshoot = async (req, res) => {
     const { id } = req.params;

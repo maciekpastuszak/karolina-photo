@@ -1,8 +1,10 @@
-var pricingCardSwitcher = (function () {
+// Card switcher js for the pricing page for smaller devices
+
+const pricingCardSwitcher = (function () {
     // cache dom
-    var _switchCont = document.getElementById("switch-cont");
-    var _switchButtons = _switchCont.getElementsByClassName("switch-button");
-    var _pricingCards = document.getElementsByClassName("card");
+    const _switchCont = document.getElementById("switch-cont");
+    const _switchButtons = _switchCont.getElementsByClassName("switch-button");
+    const _pricingCards = document.getElementsByClassName("card");
 
     // event listeners
     _switchCont.addEventListener("click", function (e) {
@@ -15,7 +17,7 @@ var pricingCardSwitcher = (function () {
     // functions
     function switchPricingCard(e) {
         // loops through all buttons and hides / shows appropriate pricing card
-        for (var i = 0; i < _switchButtons.length; i++) {
+        for (const i = 0; i < _switchButtons.length; i++) {
             if (e == _switchButtons[i]) {
                 e.classList.add("switch-selected");
                 _pricingCards[i].classList.add("pricing-selected");

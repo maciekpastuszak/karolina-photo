@@ -1,4 +1,6 @@
 
+// Mapbox js for the contact page
+
 mapboxgl.accessToken = 'pk.eyJ1IjoicGFjaWVrZmx5IiwiYSI6ImNrbms2ZW54cjA3eXEycW54cTY5Y29xOWEifQ.giXUI96ja1Bv1iLe2XOcVQ';
 const map = new mapboxgl.Map({
     container: 'map', // container ID

@@ -52,13 +52,10 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
-.mainDiv {
-  margin-bottom: 30px;
-  padding: 0 30px
-}
+/* navbar */
 
 .navbar,
-.mainFooter {
+#footer {
   background-color: #fae1dd;
   color: rgba(0, 0, 0, 0.5);
   font-size: 1.1rem;
@@ -70,25 +67,31 @@ body {
   align-items: flex-end;
 }
 
-.navUl {
+.navMenuL {
 padding-bottom: 10px;
 display: flex;
-justify-content: space-around;
+align-items: right;
+
+}
+.navMenuR li {
+padding-bottom: 10px;
+align-items: left;
 }
 
 .nav-link {
-  color: rgba(0, 0, 0, 0.5);
   margin: 0 0.8em;
 }
 
 .navbar-brand {
-  max-width: 260px;
+  width: 240px;
 }
 
 .dropdown-menu {
-  border-radius: 0.5rem;
+  border-radius: 10px;
   background-color: rgba(250, 225, 221, 0.9);
 }
+
+/* facebook and instagram */
 
 #socialIcons {
   position: absolute;
@@ -99,13 +102,13 @@ justify-content: space-around;
 #socialIcons a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.5);
-  margin-right: 0.5rem;
+  margin-right: 15px;
 }
 
 #mainNavbar a:hover,
 #socialIcons a:hover,
 #loginButton a:hover,
-.footer a:hover {
+#footer a:hover {
   color: white;
   text-shadow: 5px 5px 10px white;
   -moz-transition: all 0.2s ease-in;
@@ -147,6 +150,8 @@ justify-content: space-around;
   );
 }
 
+/* user access icons */
+
 #logoutButton {
   border: 1px solid rgb(168, 168, 168);
 }
@@ -166,7 +171,7 @@ justify-content: space-around;
   text-align: center;
 }
 
-@media (max-width:992px) {
+/* @media (max-width:992px) {
   .nav-item { 
     margin: 0; 
   }
@@ -178,17 +183,26 @@ justify-content: space-around;
     max-width: 205px;
   }
 
-}
+} */
 
 @media (max-width:768px) {
   .navbar-nav {
-    width: 33%;
     float: left;
     align-items: center
   }
   
   #dropdown { 
     position: absolute; 
+  }
+
+  #mainNavbar {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  .navLogo {
+    display: none;
   }
   
 }

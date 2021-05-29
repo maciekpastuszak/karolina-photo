@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// image model
+// Image model
 
 const ImageSchema = new Schema({ 
         url: String,
@@ -12,7 +12,7 @@ ImageSchema.virtual('thumbnail').get(function() {
     return this.url.replace('/upload', '/upload/w_200');
 });
 
-//photoshoot model
+//Photoshoot model
 
 const photoShootSchema = new Schema({
     title: String,
@@ -24,7 +24,6 @@ const photoShootSchema = new Schema({
     }
 });
 
-// const Family = mongoose.model('Family', photoShootSchema);
 const Kids = mongoose.model('Kids', photoShootSchema);
 
 module.exports = {

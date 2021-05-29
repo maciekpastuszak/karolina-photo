@@ -1,12 +1,12 @@
 const User = require('../models/user');
 
-// render register user page
+// Render register user page
 
 module.exports.renderRegisterForm = (req, res) => {
     res.render('users/register', {style: 'app'});
 };
 
-// register user
+// Register user
 
 module.exports.userRegister = async(req, res, next) => {
     try {
@@ -24,13 +24,13 @@ module.exports.userRegister = async(req, res, next) => {
 }   
 };
 
-// render login form
+// Render login form
 
 module.exports.renderLoginForm = (req,res) => {
     res.render('users/login', {style: 'app'}) 
 };
 
-// login user
+// Login user
 
 module.exports.loginUser = (req, res) => {
     req.flash('success', 'Witaj ponownie');
@@ -39,7 +39,7 @@ module.exports.loginUser = (req, res) => {
     res.redirect(redirectUrl);
     };
 
-//logout user
+//Logout user
 
 module.exports.logoutUser = (req, res) => {
     req.logout();
