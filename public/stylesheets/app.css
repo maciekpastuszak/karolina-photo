@@ -52,8 +52,10 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
-main {
+#carousel {
   max-width: 80%;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar,
