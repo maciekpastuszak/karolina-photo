@@ -10,8 +10,8 @@ module.exports.renderRegisterForm = (req, res) => {
 
 module.exports.userRegister = async(req, res, next) => {
     try {
-    const {email, username, password} = req.body;
-    const user = new User({ email, username});
+    const { email, username, password } = req.body;
+    const user = new User({ email, username });
     const registeredUser = await User.register(user, password);
     req.login(registeredUser, err => {
         if(err) return next(err);
@@ -19,7 +19,7 @@ module.exports.userRegister = async(req, res, next) => {
         res.redirect('/');
     })
 } catch(e) {
-    req.flash('error', 'Użytkownik już istnieje');
+    req.flash('error', e.message);
     res.redirect('register');
 }   
 };
