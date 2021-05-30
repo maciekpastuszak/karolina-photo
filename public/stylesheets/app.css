@@ -52,7 +52,11 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
-/* navbar */
+#carousel {
+  max-width: 80%;
+  display: flex;
+  justify-content: center;
+}
 
 .navbar,
 #footer {

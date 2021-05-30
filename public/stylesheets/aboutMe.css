@@ -1,16 +1,17 @@
-#about-me-text {
+#aboutMeText {
     line-height: 1.5;
     text-align: justify;
-    background-color:rgb(255, 255, 255)
+    background-color:rgb(255, 255, 255);
+    padding-right: 20px;
 }
 
-#about-me-photo {
+#aboutMePhoto {
     max-width: 400px;
     padding: 0;
 }
 
 @media (max-width:768px) { 
-    #about-me-photo, #about-me-text  {
+    #aboutMePhoto, #aboutMeText  {
         max-width: 80%;
     }
 
