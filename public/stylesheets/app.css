@@ -52,11 +52,7 @@ body {
   font-family: "Quicksand", sans-serif;
 }
 
-#carousel {
-  max-width: 80%;
-  display: flex;
-  justify-content: center;
-}
+/* navbar & footer  */
 
 .navbar,
 #footer {
@@ -66,24 +62,12 @@ body {
   box-shadow: 10px 5px 5px rgba(202, 178, 174, 0.5);
 }
 
-#mainNavbar {
-  justify-content: center;
+
+.nav-item {
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
   align-items: flex-end;
-}
-
-.navMenuL {
-padding-bottom: 10px;
-display: flex;
-align-items: right;
-
-}
-.navMenuR li {
-padding-bottom: 10px;
-align-items: left;
-}
-
-.nav-link {
-  margin: 0 0.8em;
 }
 
 .navbar-brand {
@@ -109,7 +93,7 @@ align-items: left;
   margin-right: 15px;
 }
 
-#mainNavbar a:hover,
+#navbarNavAltMarkup a:hover,
 #socialIcons a:hover,
 #loginButton a:hover,
 #footer a:hover {
@@ -175,19 +159,21 @@ align-items: left;
   text-align: center;
 }
 
-/* @media (max-width:992px) {
-  .nav-item { 
-    margin: 0; 
-  }
+/* home page  */
 
-  .navUl {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    max-width: 205px;
-  }
+#carousel {
+  max-width: 80%;
+  display: flex;
+  justify-content: center;
+}
 
-} */
+/* @media */
+
+@media (max-width:992px) {
+  .nav-item {
+    font-size: 0.95rem;
+  }
+}
 
 @media (max-width:768px) {
   .navbar-nav {
