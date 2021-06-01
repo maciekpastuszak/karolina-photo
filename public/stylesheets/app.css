@@ -68,6 +68,7 @@ body {
   margin: 0 auto;
   justify-content: space-between;
   align-items: flex-end;
+  padding-bottom: 20px;
 }
 
 .navbar-brand {
@@ -176,28 +177,25 @@ body {
 }
 
 @media (max-width:768px) {
-  .navbar-nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-
-  }
   
-  .dropdown-menu { 
-    position: absolute; 
-    top: 30px;
-    left: 50px;
-
+  #dropdown { 
+    position: absolute;
+    top: 10px;
+    left:80px;
   }
 
-  #mainNavbar {
-    display: flex;
-    justify-content: center;
+  .nav-item {
+    position: relative;
+    left: -25%;
+    justify-content:space-around;
+    text-align: start;
     
   }
 
   .navbar-brand {
-    display: none;
     position: absolute;
+    top: 30%;
+    left: 45%;
   }
   
 }
@@ -207,11 +205,4 @@ body {
     display: none; 
   }
   
-  .mainDiv {
-    padding: 0;
-  }
-
-  #map {
-    display: none;
-  }
 }

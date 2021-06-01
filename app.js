@@ -31,7 +31,7 @@ const { contentSecurityPolicy } = require('helmet');
 const MongoStore = require('connect-mongo');
 
 // connect to db
-// const dbUrl = process.env.DB_URL;
+// const dbUrl = 'mongodb://pastuszak_photo:YF7aJcXkZSBCD8yFwh8wus2vEA9rXuqf@mongodb.pastuszak.nazwa.pl:4005/pastuszak_photo';
 const dbUrl = 'mongodb://localhost:27017/karolina-photo';
 mongoose.connect(dbUrl, { 
     useNewUrlParser: true,
