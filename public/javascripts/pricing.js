@@ -17,7 +17,7 @@ const pricingCardSwitcher = (function () {
     // functions
     function switchPricingCard(e) {
         // loops through all buttons and hides / shows appropriate pricing card
-        for (const i = 0; i < _switchButtons.length; i++) {
+        for (let i = 0; i < _switchButtons.length; i++) {
             if (e == _switchButtons[i]) {
                 e.classList.add("switch-selected");
                 _pricingCards[i].classList.add("pricing-selected");

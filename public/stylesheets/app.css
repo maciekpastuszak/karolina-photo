@@ -93,7 +93,7 @@ body {
   margin-right: 15px;
 }
 
-#navbarNavAltMarkup a:hover,
+#navbarNav a:hover,
 #socialIcons a:hover,
 #loginButton a:hover,
 #footer a:hover {
@@ -170,29 +170,34 @@ body {
 /* @media */
 
 @media (max-width:992px) {
-  .nav-item {
+  .nav-item, .dropdown-item {
     font-size: 0.95rem;
   }
 }
 
 @media (max-width:768px) {
   .navbar-nav {
-    float: left;
-    align-items: center
+    flex-direction: row;
+    flex-wrap: wrap;
+
   }
   
-  #dropdown { 
+  .dropdown-menu { 
     position: absolute; 
+    top: 30px;
+    left: 50px;
+
   }
 
   #mainNavbar {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    
   }
 
-  .navLogo {
+  .navbar-brand {
     display: none;
+    position: absolute;
   }
   
 }
