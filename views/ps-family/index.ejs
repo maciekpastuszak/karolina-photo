@@ -1,14 +1,36 @@
 <% layout('layouts/boilerplate')%>
-
-    <h2>Wszystkie sesje rodzinne</h2>
-    <div>
-        <a href="/families/new">Dodaj sesję</a>
+    <div class="container pt-3">
+        <div class="d-flex justify-content-between">
+            <h2 class="pshoot-header">Sesje rodzinne</h2>
+            <div>
+                <% if(currentUser) { %>
+                    <a class="btn btn-warning" href="/family/new">Dodaj sesję</a>
+                    <% } %>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-start">
+                <% for (let fam of family) { %>
+                    <div class="col-xs-12 col-md-6 col-xl-4 px-3 py-3">
+                        <div class="pshoot-card card mb-4">
+                            <div class="card-body p-0">
+                                <a href="family/<%=fam._id%>">
+                                    <% if(fam.images.length) {%>
+                                        <img class="card-img-top" src="<%= fam.images[0].url %>" alt="card-img"
+                                            id="pshoot-img">
+                                        <% } else {%>
+                                            <img class="card-img-top"
+                                                src="https://res.cloudinary.com/dqcadja0y/image/upload/v1617459271/sample.jpg"
+                                                alt="card-img" id="pshoot-img">
+                                            <% } %>
+                                                <h5 class="pshoot-header card-title mx-2 my-2">
+                                                    <%=fam.title%>
+                                                </h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
     </div>
-    <ul>
-        <% for (let family of families) { %>
-            <li> <a href="/family/<%= family._id %>">
-                    <%= family.title %>
-                </a>
-            </li>
-            <% } %>
-    </ul>

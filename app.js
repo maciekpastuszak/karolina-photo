@@ -6,16 +6,18 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const { Kids } = require('./models/photoshoot');
+const { Kid } = require('./models/photoshoot');
 const { Family } = require('./models/photoshoot');
 const morgan = require('morgan');
 const kidsRoutes = require('./routes/kids');
+const familyRoutes = require('./routes/family');
 const usersRoutes = require('./routes/users');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
 const Joi = require('joi');
-const { kidsSchema } = require('./schemas.js')
+// const { kidsSchema } = require('./schemas.js')
+// const { familySchema } = require('./schemas.js')
 const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError')
 const { urlencoded } = require('express');
@@ -159,6 +161,7 @@ app.use((req, res, next) => {
 app.use(morgan('tiny'));
 app.use('/', usersRoutes)
 app.use('/kids', kidsRoutes)
+app.use('/family', familyRoutes)
 
 app.get('/', (req, res) => {
     res.render('home', { style: 'app' });

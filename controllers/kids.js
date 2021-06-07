@@ -1,17 +1,17 @@
-const { Kids } = require('../models/photoshoot');
+const { Kid } = require('../models/photoshoot');
 const {cloudinary} = require("../cloudinary");
 
-// Index page of photoshoot
+// Index page of kids photoshoot
 
 module.exports.index = async (req, res) => {
-    const kids = await Kids.find({});
+    const kids = await Kid.find({});
     res.render('ps-kids/index', { kids, style: 'photo-gallery' });
 };
 
-// Creating a new photoshoot
+// Creating a new kids photoshoot
 
 module.exports.createKidsPshoot = async (req, res) => {
-    const kids = new Kids(req.body.kids);
+    const kids = new Kid(req.body.kids);
     kids.images = req.files.map(f => ({url: f.path, filename: f.filename}));
     kids.owner = req.user._id;
     await kids.save();
@@ -19,7 +19,7 @@ module.exports.createKidsPshoot = async (req, res) => {
     res.redirect(`/kids/${kids._id}`)
 };
 
-// Render a new photoshoot page
+// Render a new kids photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
     res.render('ps-kids/new', { style: 'photo-gallery' });
@@ -29,7 +29,7 @@ module.exports.renderNewPshoot = (req, res) => {
 
 module.exports.showKidsPshoot = async (req, res) => {
     const { id } = req.params;
-    const kids = await Kids.findById(id).populate('owner');
+    const kids = await Kid.findById(id).populate('owner');
     if(!kids) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/kids');
@@ -41,7 +41,7 @@ module.exports.showKidsPshoot = async (req, res) => {
 
 module.exports.renderEditPshoot = async (req, res) => {
     const { id } = req.params;
-    const kids = await Kids.findById(id);
+    const kids = await Kid.findById(id);
     if(!kids) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/kids');
@@ -53,7 +53,7 @@ module.exports.renderEditPshoot = async (req, res) => {
 
 module.exports.editKidsPshoot = async (req, res) => {
     const { id } = req.params;
-    const kids = await Kids.findByIdAndUpdate(id, { ...req.body.kids });
+    const kids = await Kid.findByIdAndUpdate(id, { ...req.body.kids });
     const imgs = req.files.map(f => ({url: f.path, filename: f.filename}));
     kids.images.push(...imgs);
     await kids.save();
@@ -72,7 +72,7 @@ module.exports.editKidsPshoot = async (req, res) => {
 
 module.exports.deleteKidsPshoot = async (req, res) => {
     const { id } = req.params;
-    const kids = await Kids.findByIdAndDelete(id);
+    const kids = await Kid.findByIdAndDelete(id);
         if (kids.images) {
           for (const img of kids.images) {
             await cloudinary.uploader.destroy(img.filename);

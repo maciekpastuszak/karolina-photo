@@ -1,16 +1,26 @@
 <% layout('layouts/boilerplate')%>
-
-    <form action="/kids" method="POST">
-        <div>
-            <label for="title">Nazwa sesji</label>
-            <input type="text" id="title" name="kids[title]">
+    <div class="row">
+        <h3 class="text-center">Dodaj nową sesję</h3>
+        <div class="col-6 offset-3">
+            <form action="/family" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
+                <div class="mb-3">
+                    <label class="form-label" for="title">Nazwa sesji</label>
+                    <input class="form-control" type="text" id="title" name="family[title]" required>
+                    <div class="valid-feedback"> Jest OK! </div>
+                </div>
+                <div class="mb-2">
+                    <label>Wgraj obrazy</label>
+                </div>
+                <div class="input-group mb-3">
+                    <input type="file" class="form-control" name="images" id="images" multiple>
+                    <label class="input-group-text" for="images">&#8593</label>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success">Dodaj sesję</button>
+                </div>
+            </form>
+            <div class="footer my-3 py-2">
+                <a href="/family">Wróć do sesji dziecięcych</a>
+            </div>
         </div>
-        <div>
-            <label for="description">Opis sesji</label>
-            <input type="text" id="description" name="kids[description]">
-        </div>
-        <button>
-            dodaj sesję
-        </button>
-    </form>
-    <a href="/kids">sesje dziecięce</a>
+    </div>

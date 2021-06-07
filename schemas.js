@@ -29,3 +29,10 @@ module.exports.kidsSchema = Joi.object({
     }).required(),
     deleteImages: Joi.array()
 });
+
+module.exports.familySchema = Joi.object({
+    family: Joi.object({
+        title: Joi.string().required().escapeHTML(),
+    }).required(),
+    deleteImages: Joi.array()
+});

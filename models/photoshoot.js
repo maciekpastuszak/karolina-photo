@@ -24,9 +24,10 @@ const photoShootSchema = new Schema({
     }
 });
 
-const Kids = mongoose.model('Kids', photoShootSchema);
+const Kid = mongoose.model('Kid', photoShootSchema);
+const Family = mongoose.model('Family', photoShootSchema);
 
 module.exports = {
-    // Family,
-    Kids
+    Kid,
+    Family
 }
