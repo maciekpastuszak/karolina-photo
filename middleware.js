@@ -1,5 +1,6 @@
 const { kidsSchema } = require('./schemas.js');
 const { familySchema } = require('./schemas.js');
+const { tummySchema } = require('./schemas.js');
 const ExpressError = require('./utils/ExpressError');
 const { Kid } = require('./models/photoshoot');
 
@@ -13,7 +14,27 @@ module.exports.isLoggedIn = (req,res,next) => {
 }
 
 module.exports.validateKids = (req, res, next) => {
+    const { error } = kidsSchema.validate(req.body);
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(msg, 400)
+    } else {
+        next()
+    }
+}
+
+module.exports.validateFamily = (req, res, next) => {
     const { error } = familySchema.validate(req.body);
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(msg, 400)
+    } else {
+        next()
+    }
+}
+
+module.exports.validateTummy = (req, res, next) => {
+    const { error } = tummySchema.validate(req.body);
     if (error) {
         const msg = error.details.map(el => el.message).join(',')
         throw new ExpressError(msg, 400)

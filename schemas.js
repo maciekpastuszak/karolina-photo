@@ -36,3 +36,10 @@ module.exports.familySchema = Joi.object({
     }).required(),
     deleteImages: Joi.array()
 });
+
+module.exports.tummySchema = Joi.object({
+    tummy: Joi.object({
+        title: Joi.string().required().escapeHTML(),
+    }).required(),
+    deleteImages: Joi.array()
+});
