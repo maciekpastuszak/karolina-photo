@@ -26,7 +26,7 @@ const photoShootSchema = new Schema({
 
 const Kid = mongoose.model('Kid', photoShootSchema);
 const Family = mongoose.model('Family', photoShootSchema);
-const Tummy = mongoose.model;('Tummy', photoShootSchema)
+const Tummy = mongoose.model('Tummy', photoShootSchema);
 
 module.exports = {
     Kid,
