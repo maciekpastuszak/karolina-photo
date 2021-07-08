@@ -11,6 +11,7 @@ const { Family } = require('./models/photoshoot');
 const morgan = require('morgan');
 const kidsRoutes = require('./routes/kids');
 const familyRoutes = require('./routes/family');
+const tummyRoutes = require('./routes/tummy');
 const usersRoutes = require('./routes/users');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
@@ -162,6 +163,7 @@ app.use(morgan('tiny'));
 app.use('/', usersRoutes)
 app.use('/kids', kidsRoutes)
 app.use('/family', familyRoutes)
+app.use('/tummy', tummyRoutes)
 
 app.get('/', (req, res) => {
     res.render('home', { style: 'app' });

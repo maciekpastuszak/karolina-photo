@@ -1,10 +1,8 @@
 const express = require('express');
 const router = express.Router();
-// const kids = require('../controllers/kids');
 const family = require('../controllers/family');
 const catchAsync = require('../utils/catchAsync');
 const { Families } = require('../models/photoshoot');
-// const { Kids } = require('../models/photoshoot');
 const {isLoggedIn, isOwner, validateKids} = require('../middleware');
 const multer  = require('multer');
 const {storage} = require('../cloudinary');

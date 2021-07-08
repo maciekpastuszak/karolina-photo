@@ -1,6 +1,7 @@
 .pshoot-header {
   font-family: "Allura", cursive;
   color: rgba(0, 0, 0, 0.6);
+  padding-left: 12px;
 }
 
 .pshoot-card {

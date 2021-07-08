@@ -5,9 +5,9 @@ const passport = require('passport');
 const catchAsync = require('../utils/catchAsync')
 const User = require('../models/user');
 
-router.route('/register')
-    .get(users.renderRegisterForm)
-    .post(catchAsync(users.userRegister));
+// router.route('/register')
+//     .get(users.renderRegisterForm)
+//     .post(catchAsync(users.userRegister));
 
 router.route('/login')
     .get(users.renderLoginForm)
