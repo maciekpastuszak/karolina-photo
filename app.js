@@ -34,7 +34,7 @@ const { contentSecurityPolicy } = require('helmet');
 const MongoStore = require('connect-mongo');
 
 // connect to db
-// const dbUrl = 'mongodb://pastuszak_photo:YF7aJcXkZSBCD8yFwh8wus2vEA9rXuqf@mongodb.pastuszak.nazwa.pl:4005/pastuszak_photo';
+// const dbUrl = 'mongodb://pastuszak_karolina:$4kwsZYv#IdSFbwWU,2$t&#Hj^+(QW@mongodb.pastuszak.nazwa.pl:4005/pastuszak_karolina';
 const dbUrl = 'mongodb://localhost:27017/karolina-photo';
 mongoose.connect(dbUrl, { 
     useNewUrlParser: true,
@@ -86,7 +86,7 @@ const sessionConfig = {
         httpOnly: true,
         // secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
-        maxAge: 1000 * 60 * 60 * 24 * 7
+        // maxAge: 1000 * 60 * 60 * 24 * 7
     }
 }
 app.use(session(sessionConfig));
@@ -101,6 +101,9 @@ const scriptSrcUrls = [
     "https://fonts.gstatic.com",
     "https://cdnjs.cloudflare.com/",
     "https://cdn.jsdelivr.net",
+    "https://www.googletagmanager.com",
+    "https://www.google-analytics.com",
+    "https://ssl.google-analytics.com",
 ];
 
 const styleSrcUrls = [
@@ -117,6 +120,7 @@ const connectSrcUrls = [
     "https://a.tiles.mapbox.com/",
     "https://b.tiles.mapbox.com/",
     "https://events.mapbox.com/",
+    "https://www.googletagmanager.com",
 ];
 const fontSrcUrls = [
     "https://fonts.gstatic.com",
@@ -124,10 +128,11 @@ const fontSrcUrls = [
 ];
 app.use(
     helmet.contentSecurityPolicy({
+        useDefaults: false,
         directives: {
-            defaultSrc: [],
+            defaultSrc: ["'self'"],
             connectSrc: ["'self'", ...connectSrcUrls],
-            scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
+            scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
             styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
             workerSrc: ["'self'", "blob:"],
             objectSrc: [],
@@ -137,6 +142,7 @@ app.use(
                 "data:",
                 "https://res.cloudinary.com/dqcadja0y/",
                 "https://images.unsplash.com/",
+                "https://www.google-analytics.com"
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
         },
@@ -161,19 +167,19 @@ app.use((req, res, next) => {
 
 app.use(morgan('tiny'));
 app.use('/', usersRoutes)
-app.use('/kids', kidsRoutes)
-app.use('/family', familyRoutes)
-app.use('/tummy', tummyRoutes)
+app.use('/dzieci', kidsRoutes)
+app.use('/rodzinne', familyRoutes)
+app.use('/brzuszkowe', tummyRoutes)
 
 app.get('/', (req, res) => {
     res.render('home', { style: 'app' });
 });
 
-app.get('/aboutMe', (req, res) => {
+app.get('/o_mnie', (req, res) => {
     res.render('aboutMe', { style: 'aboutMe' });
 });
 
-app.get('/beforePS', (req, res) => {
+app.get('/przed_sesja', (req, res) => {
     res.render('beforePS', { style: 'beforePS' });
 });
 
@@ -181,11 +187,11 @@ app.get('/voucher', (req, res) => {
     res.render('voucher', { style: 'voucher' });
 });
 
-app.get('/pricing', (req, res) => {
+app.get('/cennik', (req, res) => {
     res.render('pricing', { style: 'pricing' });
 });
 
-app.get('/contact', (req, res) => {
+app.get('/kontakt', (req, res) => {
     res.render('contact', { style: 'contact' });
 });
 

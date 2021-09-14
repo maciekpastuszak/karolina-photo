@@ -2,11 +2,11 @@
     <div class="row">
         <h3 class="text-center">Edytuj sesję</h3>
         <div class="col-6 offset-3">
-            <form action="/tummy/<%= tummy._id%>?_method=PUT " method="POST" novalidate class="validated-form"
+            <form action="/rodzinne/<%= family._id%>?_method=PUT " method="POST" novalidate class="validated-form"
                 enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="title">Nazwa sesji</label>
-                    <input class="form-control" type="text" id="title" name="tummy[title]" value="<%= tummy.title %>"
+                    <input class="form-control" type="text" id="title" name="family[title]" value="<%= family.title %>"
                         required>
                     <div class="valid-feedback"> Jest OK! </div>
                 </div>
@@ -16,7 +16,7 @@
                 </div>
                 <p>Usuń wybrane zdjęcia:</p>
                 <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
-                    <% tummy.images.forEach((image, i)=> { %> <div class="col">
+                    <% family.images.forEach((image, i)=> { %> <div class="col">
                             <div class="card">
                                 <img class="card-img" src="<%= image.thumbnail %>" alt="">
                                 <div class="card-img-overlay text-end pt-1 pe-2">
@@ -33,8 +33,8 @@
                 </div>
             </form>
             <div class="footer my-3 py-2">
-                <section> <a href=" /tummy/<%= tummy._id %> ">Wróć do sesji</a></section>
-                <section> <a href="/tummy">Wróć do wszystkich sesji ciążowych</a></section>
+                <section> <a href=" /rodzinne/<%= family._id %> ">Wróć do sesji</a></section>
+                <section> <a href="/rodzinne">Wróć do wszystkich sesji dziecięcych</a></section>
             </div>
         </div>
     </div>

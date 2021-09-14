@@ -2,7 +2,7 @@ const { kidsSchema } = require('./schemas.js');
 const { familySchema } = require('./schemas.js');
 const { tummySchema } = require('./schemas.js');
 const ExpressError = require('./utils/ExpressError');
-const { Kid } = require('./models/photoshoot');
+const { Kid, Family, Tummy } = require('./models/photoshoot');
 
 module.exports.isLoggedIn = (req,res,next) => {
     if(!req.isAuthenticated()){
@@ -43,12 +43,32 @@ module.exports.validateTummy = (req, res, next) => {
     }
 }
 
-module.exports.isOwner = async (req, res, next) => {
+module.exports.isOwnerKids = async (req, res, next) => {
     const {id} = req.params;
     const kids = await Kid.findById(id)
     if (!kids.owner.equals(req.user._id)) {
         req.flash ('error', 'nie możesz tego zrobić - nie jesteś właścicielem')
-        return res.redirect(`/kids/${kids._id}`);
+        return res.redirect(`/dzieci/${kids._id}`);
+}
+next()
+}
+
+module.exports.isOwnerFamily = async (req, res, next) => {
+    const {id} = req.params;
+    const family = await Family.findById(id)
+    if (!family.owner.equals(req.user._id)) {
+        req.flash ('error', 'nie możesz tego zrobić - nie jesteś właścicielem')
+        return res.redirect(`/rodzinne/${family._id}`);
+}
+next()
+}
+
+module.exports.isOwnerTummy = async (req, res, next) => {
+    const {id} = req.params;
+    const tummy = await Tummy.findById(id)
+    if (!tummy.owner.equals(req.user._id)) {
+        req.flash ('error', 'nie możesz tego zrobić - nie jesteś właścicielem')
+        return res.redirect(`/brzuszkowe/${tummy._id}`);
 }
 next()
 }

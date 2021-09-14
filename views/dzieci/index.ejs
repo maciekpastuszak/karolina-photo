@@ -1,22 +1,22 @@
 <% layout('layouts/boilerplate')%>
     <div class="container pt-3">
         <div class="d-flex justify-content-between">
-            <h2 class="pshoot-header">Sesje rodzinne</h2>
+            <h2 class="pshoot-header">Sesje dziecięce</h2>
             <div>
                 <% if(currentUser) { %>
-                    <a class="btn btn-warning" href="/family/new">Dodaj sesję</a>
+                    <a class="btn btn-warning" href="/dzieci/new">Dodaj sesję</a>
                     <% } %>
             </div>
         </div>
         <div class="container">
             <div class="row justify-content-start">
-                <% for (let fam of family) { %>
+                <% for (let kid of kids) { %>
                     <div class="col-xs-12 col-md-6 px-3 py-3">
                         <div class="pshoot-card card mb-4">
                             <div class="card-body p-0">
-                                <a href="family/<%=fam._id%>">
-                                    <% if(fam.images.length) {%>
-                                        <img class="card-img-top" src="<%= fam.images[0].url %>" alt="card-img"
+                                <a href="dzieci/<%=kid._id%>">
+                                    <% if(kid.images.length) {%>
+                                        <img class="card-img-top" src="<%= kid.images[0].url %>" alt="card-img"
                                             id="pshoot-img">
                                         <% } else {%>
                                             <img class="card-img-top"
@@ -24,7 +24,7 @@
                                                 alt="card-img" id="pshoot-img">
                                             <% } %>
                                                 <h5 class="pshoot-header card-title mx-2 my-2">
-                                                    <%=fam.title%>
+                                                    <%=kid.title%>
                                                 </h5>
                                 </a>
                             </div>

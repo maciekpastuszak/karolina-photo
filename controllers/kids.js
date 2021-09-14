@@ -5,7 +5,7 @@ const {cloudinary} = require("../cloudinary");
 
 module.exports.index = async (req, res) => {
     const kids = await Kid.find({});
-    res.render('ps-kids/index', { kids, style: 'photo-gallery' });
+    res.render('dzieci/index', { kids, style: 'photo-gallery' });
 };
 
 // Creating a new kids photoshoot
@@ -16,13 +16,13 @@ module.exports.createKidsPshoot = async (req, res) => {
     kids.owner = req.user._id;
     await kids.save();
     req.flash('success', 'Brawo! Stworzyłaś nową sesję dziecięcą. Przepiękna!!');
-    res.redirect(`/kids/${kids._id}`)
+    res.redirect(`/dzieci/${kids._id}`)
 };
 
 // Render a new kids photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('ps-kids/new', { style: 'photo-gallery' });
+    res.render('dzieci/new', { style: 'photo-gallery' });
 };
 
 // Showing details of the photoshoot
@@ -32,9 +32,9 @@ module.exports.showKidsPshoot = async (req, res) => {
     const kids = await Kid.findById(id).populate('owner');
     if(!kids) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/kids');
+        return res.redirect('/dzieci');
     }
-    res.render('ps-kids/show', { kids, style: 'photo-gallery' })
+    res.render('dzieci/show', { kids, style: 'photo-gallery' })
 };
 
 // Render update/edit photoshoot page
@@ -44,9 +44,9 @@ module.exports.renderEditPshoot = async (req, res) => {
     const kids = await Kid.findById(id);
     if(!kids) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/kids');
+        return res.redirect('/dzieci');
     }
-    res.render('ps-kids/edit', { kids, style: 'photo-gallery' })
+    res.render('dzieci/edit', { kids, style: 'photo-gallery' })
 };
 
 // Update/edit photoshoot
@@ -79,6 +79,6 @@ module.exports.deleteKidsPshoot = async (req, res) => {
           }
         };
     req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
-    res.redirect('/kids')
+    res.redirect('/dzieci')
 };
 

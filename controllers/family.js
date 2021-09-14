@@ -5,7 +5,7 @@ const {cloudinary} = require("../cloudinary");
 
 module.exports.indexFamily = async (req, res) => {
     const family = await Family.find({});
-    res.render('ps-family/index', { family, style: 'photo-gallery' });
+    res.render('rodzinne/index', { family, style: 'photo-gallery' });
 };
 
 // Creating a new family photoshoot
@@ -16,13 +16,13 @@ module.exports.createFamilyPshoot = async (req, res) => {
     family.owner = req.user._id;
     await family.save();
     req.flash('success', 'Brawo! Stworzyłaś rodzinną. Przepiękna!!');
-    res.redirect(`/family/${family._id}`)
+    res.redirect(`/rodzinne/${family._id}`)
 };
 
 // Render a new family photoshoot page
 
 module.exports.renderNewFamilyPshoot = (req, res) => {
-    res.render('ps-family/new', { style: 'photo-gallery' });
+    res.render('rodzinne/new', { style: 'photo-gallery' });
 };
 
 // Showing details of the photoshoot
@@ -32,9 +32,9 @@ module.exports.showFamilyPshoot = async (req, res) => {
     const family = await Family.findById(id).populate('owner');
     if(!family) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/family');
+        return res.redirect('/rodzinne');
     }
-    res.render('ps-family/show', { family, style: 'photo-gallery' })
+    res.render('rodzinne/show', { family, style: 'photo-gallery' })
 };
 
 // Render update/edit family photoshoot page
@@ -44,9 +44,9 @@ module.exports.renderEditFamilyPshoot = async (req, res) => {
     const family = await Family.findById(id);
     if(!family) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/family');
+        return res.redirect('/rodzinne');
     }
-    res.render('ps-family/edit', { family, style: 'photo-gallery' })
+    res.render('rodzinne/edit', { family, style: 'photo-gallery' })
 };
 
 // Update/edit family photoshoot
@@ -79,6 +79,6 @@ module.exports.deleteFamilyPshoot = async (req, res) => {
           }
         };
     req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
-    res.redirect('/family')
+    res.redirect('/rodzinne')
 };
 
