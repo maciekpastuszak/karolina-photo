@@ -5,7 +5,7 @@ const {cloudinary} = require("../cloudinary");
 
 module.exports.indexFamily = async (req, res) => {
     const family = await Family.find({});
-    res.render('rodzinne/index', { family, style: 'photo-gallery' });
+    res.render('rodzinne/index', { family, style: 'photo-gallery', title: "Sesje rodzinne" });
 };
 
 // Creating a new family photoshoot
@@ -15,14 +15,15 @@ module.exports.createFamilyPshoot = async (req, res) => {
     family.images = req.files.map(f => ({url: f.path, filename: f.filename}));
     family.owner = req.user._id;
     await family.save();
-    req.flash('success', 'Brawo! Stworzyłaś rodzinną. Przepiękna!!');
+    req.flash('success', 'Dodałaś zdjęcie!!');
+    // req.flash('success', 'Brawo! Stworzyłaś rodzinną. Przepiękna!!');
     res.redirect(`/rodzinne/${family._id}`)
 };
 
 // Render a new family photoshoot page
 
 module.exports.renderNewFamilyPshoot = (req, res) => {
-    res.render('rodzinne/new', { style: 'photo-gallery' });
+    res.render('rodzinne/new', { style: 'photo-gallery', title: "Sesje rodzinne"  });
 };
 
 // Showing details of the photoshoot
@@ -34,7 +35,7 @@ module.exports.showFamilyPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/rodzinne');
     }
-    res.render('rodzinne/show', { family, style: 'photo-gallery' })
+    res.render('rodzinne/show', { family, style: 'photo-gallery', title: "Sesje rodzinne"  })
 };
 
 // Render update/edit family photoshoot page
@@ -46,7 +47,7 @@ module.exports.renderEditFamilyPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/rodzinne');
     }
-    res.render('rodzinne/edit', { family, style: 'photo-gallery' })
+    res.render('rodzinne/edit', { family, style: 'photo-gallery', title: "Sesje rodzinne"  })
 };
 
 // Update/edit family photoshoot
@@ -78,7 +79,8 @@ module.exports.deleteFamilyPshoot = async (req, res) => {
             await cloudinary.uploader.destroy(img.filename);
           }
         };
-    req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
+    req.flash('success', 'Usunęłaś zdjęcie')
+    // req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
     res.redirect('/rodzinne')
 };
 

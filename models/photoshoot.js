@@ -15,7 +15,6 @@ ImageSchema.virtual('thumbnail').get(function() {
 //Photoshoot model
 
 const photoShootSchema = new Schema({
-    title: String,
     images: [ImageSchema],
     // description: String,
     owner: {
@@ -27,9 +26,11 @@ const photoShootSchema = new Schema({
 const Kid = mongoose.model('Kid', photoShootSchema);
 const Family = mongoose.model('Family', photoShootSchema);
 const Tummy = mongoose.model('Tummy', photoShootSchema);
+const Newborn = mongoose.model('Newborn', photoShootSchema);
 
 module.exports = {
     Kid,
     Family,
-    Tummy
+    Tummy,
+    Newborn
 }

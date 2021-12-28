@@ -1,13 +1,13 @@
 <% layout('layouts/boilerplate')%>
     <div class="row">
-        <h3 class="text-center">Dodaj nową sesję</h3>
+        <h3 class="text-center">Dodaj zdjęcie</h3>
         <div class="col-6 offset-3">
             <form action="/rodzinne" method="POST" novalidate class="validated-form" enctype="multipart/form-data">
-                <div class="mb-3">
+                <!-- <div class="mb-3">
                     <label class="form-label" for="title">Nazwa sesji</label>
                     <input class="form-control" type="text" id="title" name="family[title]" required>
                     <div class="valid-feedback"> Jest OK! </div>
-                </div>
+                </div> -->
                 <div class="mb-2">
                     <label>Wgraj obrazy</label>
                 </div>
@@ -16,11 +16,11 @@
                     <label class="input-group-text" for="images">&#8593</label>
                 </div>
                 <div class="mb-3">
-                    <button class="btn btn-success">Dodaj sesję</button>
+                    <button class="btn btn-success">Dodaj zdjęcie</button>
                 </div>
             </form>
-            <div class="footer my-3 py-2">
+            <!-- <div class="footer my-3 py-2">
                 <a href="/rodzinne">Wróć do sesji dziecięcych</a>
-            </div>
+            </div> -->
         </div>
     </div>

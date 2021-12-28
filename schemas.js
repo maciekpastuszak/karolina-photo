@@ -43,3 +43,10 @@ module.exports.tummySchema = Joi.object({
     }).required(),
     deleteImages: Joi.array()
 });
+
+module.exports.newbornSchema = Joi.object({
+    newborn: Joi.object({
+        title: Joi.string().required().escapeHTML(),
+    }).required(),
+    deleteImages: Joi.array()
+});

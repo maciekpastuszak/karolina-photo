@@ -2,11 +2,12 @@
   font-family: "Allura", cursive;
   color: rgba(0, 0, 0, 0.6);
   padding-left: 12px;
+  display: flex;
 }
 
 .pshoot-card {
   box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.2);
-  transition: 0.4s;
+  /* transition: 0.4s; */
 }
 
 .pshoot-card a {
@@ -14,9 +15,13 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-.pshoot-card:hover {
-  transform: scale(1.03);
+.card-text {
+  text-align: center;
 }
+
+/* .pshoot-card:hover {
+  transform: scale(1.03);
+} */
 
 .gallery img {
   background-color: rgba(255, 255, 255, 0.7);
@@ -31,9 +36,9 @@
   width: 100%;
 }
 
-.gallery img:hover {
+/* .gallery img:hover {
   transform: scale(1.01);
-}
+} */
 
 .footer a {
   text-decoration: none;

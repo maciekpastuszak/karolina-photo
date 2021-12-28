@@ -12,6 +12,7 @@ const morgan = require('morgan');
 const kidsRoutes = require('./routes/kids');
 const familyRoutes = require('./routes/family');
 const tummyRoutes = require('./routes/tummy');
+const newbornRoutes = require('./routes/newborn')
 const usersRoutes = require('./routes/users');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
@@ -33,8 +34,9 @@ const mongoSanitize = require('express-mongo-sanitize');
 const { contentSecurityPolicy } = require('helmet');
 const MongoStore = require('connect-mongo');
 
+// mongoose.Promise = global.Promise;
 // connect to db
-// const dbUrl = 'mongodb://pastuszak_karolina:$4kwsZYv#IdSFbwWU,2$t&#Hj^+(QW@mongodb.pastuszak.nazwa.pl:4005/pastuszak_karolina';
+// const dbUrl = 'mongodb://pastuszak_karolina:F19s6eb2iH@mongodb.pastuszak.nazwa.pl:4005/pastuszak_karolina';
 const dbUrl = 'mongodb://localhost:27017/karolina-photo';
 mongoose.connect(dbUrl, { 
     useNewUrlParser: true,
@@ -54,14 +56,15 @@ const app = express();
 
 app.engine('ejs', ejsMate)	
 app.set('view engine', 'ejs');	
-app.set('views', path.join(__dirname, 'views'))	
+app.set('views', path.join(__dirname, 'views'))
+
 app.use(express.urlencoded({ extended: true }));	
 app.use(methodOverride('_method'));	
 app.use(express.static(path.join(__dirname, 'public')))	
 app.use(mongoSanitize({	
     replaceWith: '_'	
 }))	
-const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
+const secret = 'thisshouldbeabettersecret!';
 
 const store = MongoStore.create({
     mongoUrl: dbUrl,
@@ -86,7 +89,7 @@ const sessionConfig = {
         httpOnly: true,
         // secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
-        // maxAge: 1000 * 60 * 60 * 24 * 7
+        maxAge: 1000 * 60 * 60 * 24 * 7
     }
 }
 app.use(session(sessionConfig));
@@ -166,33 +169,34 @@ app.use((req, res, next) => {
 
 
 app.use(morgan('tiny'));
-app.use('/', usersRoutes)
-app.use('/dzieci', kidsRoutes)
-app.use('/rodzinne', familyRoutes)
-app.use('/brzuszkowe', tummyRoutes)
+app.use('/', usersRoutes);
+app.use('/dzieci', kidsRoutes);
+app.use('/rodzinne', familyRoutes);
+app.use('/brzuszkowe', tummyRoutes);
+app.use('/noworodki', newbornRoutes);
 
 app.get('/', (req, res) => {
-    res.render('home', { style: 'app' });
+    res.render('home', { style: 'app', title: "Karolina Pastuszak Photography" });
 });
 
-app.get('/o_mnie', (req, res) => {
-    res.render('aboutMe', { style: 'aboutMe' });
+app.get('/studio', (req, res) => {
+    res.render('studio', { style: 'studio', title: "Studio fotograficzne" });
 });
 
 app.get('/przed_sesja', (req, res) => {
-    res.render('beforePS', { style: 'beforePS' });
+    res.render('beforePS', { style: 'beforePS', title: "Jak przygotować się do sesji zdjęciowej"});
 });
 
 app.get('/voucher', (req, res) => {
-    res.render('voucher', { style: 'voucher' });
+    res.render('voucher', { style: 'voucher', title: "Vouchery na sesje fotograficzne" });
 });
 
 app.get('/cennik', (req, res) => {
-    res.render('pricing', { style: 'pricing' });
+    res.render('pricing', { style: 'pricing', title: "Cennik sesji fotograficznych" });
 });
 
 app.get('/kontakt', (req, res) => {
-    res.render('contact', { style: 'contact' });
+    res.render('contact', { style: 'contact', title: "Dane kontaktowe Karolina Pastuszak Photography" });
 });
 
 
@@ -203,7 +207,7 @@ app.all('*', (req, res, next) => {
 app.use((err, req, res, next) => {
     const { statusCode = 500 } = err;
     if (!err.message) err.message = "Coś się nie udało"
-    res.status(statusCode).render('error', { err, style: 'app' })
+    res.status(statusCode).render('error', { err, style: 'app', title: "Error" })
 })
 
 const port = process.env.PORT || 3000;

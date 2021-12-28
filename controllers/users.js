@@ -3,7 +3,7 @@ const User = require('../models/user');
 // Render register user page
 
 module.exports.renderRegisterForm = (req, res) => {
-    res.render('users/register', {style: 'app'});
+    res.render('users/register', {style: 'app', title:"login" });
 };
 
 // Register user
@@ -27,14 +27,14 @@ module.exports.userRegister = async(req, res, next) => {
 // Render login form
 
 module.exports.renderLoginForm = (req,res) => {
-    res.render('users/login', {style: 'app'}) 
+    res.render('users/login', {style: 'app', title:"login" }) 
 };
 
 // Login user
 
 module.exports.loginUser = (req, res) => {
     req.flash('success', 'Witaj ponownie');
-    const redirectUrl = req.session.returnTo || '/kids';
+    const redirectUrl = req.session.returnTo || '/';
     delete req.session.returnTo;
     res.redirect(redirectUrl);
     };

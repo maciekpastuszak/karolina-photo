@@ -1,20 +1,37 @@
 <% layout('layouts/boilerplate')%>
     <div class="container pt-3">
         <div class="d-flex justify-content-between">
-            <h2 class="pshoot-header">Sesje brzuszkowe</h2>
+            <div></div>
+            <div>
+                <h2 class="pshoot-header">Sesje brzuszkowe</h2>
+            </div>
+           
+          
             <div>
                 <% if(currentUser) { %>
-                    <a class="btn btn-warning" href="/brzuszkowe/new">Dodaj sesję</a>
+                    <a class="btn btn-warning" href="/brzuszkowe/new">Dodaj zdjęcie</a>
                     <% } %>
             </div>
         </div>
+        <div class="fade_rule"></div>
+        <br>
+        <p class="card-text">Pięknie prezentują się również świeże kwiaty.
+
+            W przypadku zdjęć rodzinnych proszę zwrócić uwagę na outfity – styl i kolorystyka powinny być spójne.
+            
+            Jeśli przyszła mama chciałaby skorzystać z usług profesjonalnej wizażystki to jest taka możliwość. Współpracuję w tej kwestii z Anną Bier (link), która perfekcyjnie dobierze make-up do urody i stylu sesji.
+            </p>
+    
         <div class="container">
             <div class="row justify-content-start">
                 <% for (let tum of tummy) { %>
                     <div class="col-xs-12 col-md-6 px-3 py-3">
                         <div class="pshoot-card card mb-4">
                             <div class="card-body p-0">
-                                <a href="brzuszkowe/<%=tum._id%>">
+                                <% if(currentUser) { %>
+                                    <a href="brzuszkowe/<%=tum._id%>">link</a>
+                                    <% } %>
+                                <div>
                                     <% if(tum.images.length) {%>
                                         <img class="card-img-top" src="<%= tum.images[0].url %>" alt="card-img"
                                             id="pshoot-img">
@@ -23,10 +40,8 @@
                                                 src="https://res.cloudinary.com/dqcadja0y/image/upload/v1617459271/sample.jpg"
                                                 alt="card-img" id="pshoot-img">
                                             <% } %>
-                                                <h5 class="pshoot-header card-title mx-2 my-2">
-                                                    <%=tum.title%>
-                                                </h5>
-                                </a>
+                                            
+                                            </div>
                             </div>
                         </div>
                     </div>

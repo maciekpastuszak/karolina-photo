@@ -5,7 +5,7 @@ const {cloudinary} = require("../cloudinary");
 
 module.exports.index = async (req, res) => {
     const tummy = await Tummy.find({});
-    res.render('brzuszkowe/index', { tummy, style: 'photo-gallery' });
+    res.render('brzuszkowe/index', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe"  });
 };
 
 // Creating a new pregnant photoshoot
@@ -15,14 +15,14 @@ module.exports.createTummyPshoot = async (req, res) => {
     tummy.images = req.files.map(f => ({url: f.path, filename: f.filename}));
     tummy.owner = req.user._id;
     await tummy.save();
-    req.flash('success', 'Brawo! Stworzyłaś sesję brzuszkową. Przepiękna!!');
+    req.flash('success', 'Dodałaś zdjęcie');
     res.redirect(`/brzuszkowe/${tummy._id}`)
 };
 
 // Render a new pregnant photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('brzuszkowe/new', { style: 'photo-gallery' });
+    res.render('brzuszkowe/new', { style: 'photo-gallery', title:"sesje brzuszkowe" });
 };
 
 // Showing details of the pregnant photoshoot
@@ -34,7 +34,7 @@ module.exports.showTummyPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/brzuszkowe');
     }
-    res.render('brzuszkowe/show', { tummy, style: 'photo-gallery' })
+    res.render('brzuszkowe/show', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe" })
 };
 
 // Render update/edit pregnant photoshoot page
@@ -46,7 +46,7 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/brzuszkowe');
     }
-    res.render('brzuszkowe/edit', { tummy, style: 'photo-gallery' })
+    res.render('brzuszkowe/edit', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe" })
 };
 
 // Update/edit pregnant photoshoot
@@ -78,6 +78,6 @@ module.exports.deleteTummyPshoot = async (req, res) => {
             await cloudinary.uploader.destroy(img.filename);
           }
         };
-    req.flash('success', 'Usunęłaś sesję brzuszkową. I dobrze!')
+    req.flash('success', 'Usunęłaś zdjęcie!')
     res.redirect('/brzuszkowe')
 };

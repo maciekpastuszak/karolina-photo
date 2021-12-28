@@ -4,9 +4,9 @@ const { CloudinaryStorage } = require('multer-storage-cloudinary');
 // connection to Cloudinary for image upload
 
 cloudinary.config({
-    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-    api_key: process.env.CLOUDINARY_KEY,
-    api_secret: process.env.CLOUDINARY_SECRET
+    cloud_name: 'dqcadja0y',
+    api_key: '543624931585359',
+    api_secret: 'T87v7TD46Xq79d3y78mwLyB1mqY'
 });
 
 const storage = new CloudinaryStorage({

@@ -48,7 +48,11 @@ table {
 } */
 
 body {
-  background-color: #f8edeb;
+  /* background-color: #f8edeb; */
+  background-image: url('/images/background.png');
+  background-repeat: repeat;
+  /* background-size: contain; */
+  background-position: top;
   font-family: "Quicksand", sans-serif;
 }
 
@@ -70,10 +74,14 @@ body {
   align-items: flex-end;
   padding-bottom: 20px;
 }
-
-.navbar-brand {
-  width: 240px;
+.navbar-brand{
+display: none;
 }
+
+#logo {
+  width: 260px;
+}
+
 
 .dropdown-menu {
   border-radius: 10px;
@@ -144,6 +152,7 @@ body {
 #logoutButton {
   border: 1px solid rgb(168, 168, 168);
 }
+
 #loginButton {
   position: absolute;
   left: 95%;
@@ -162,17 +171,45 @@ body {
 
 /* home page  */
 
-#carousel {
-  max-width: 80%;
-  display: flex;
+.mainPage {
+  max-width: 60%;
+  display: flexbox;
+  flex-direction: column;
   justify-content: center;
 }
+
+#mainPageHeader {
+display:flex;
+justify-content: center;
+margin: 20px 0px;
+color: rgba(0, 0, 0, 0.5);
+font-family: 'Alex Brush', cursive;
+text-align: center;
+}
+
+/* o mnie */
+
+#aboutMeText {
+  line-height: 1.5;
+  text-align: justify;
+  background-color:rgb(255, 255, 255);
+  padding-right: 20px;
+}
+
+#aboutMePhoto {
+  padding: 0;
+}
+
 
 /* @media */
 
 @media (max-width:992px) {
   .nav-item, .dropdown-item {
     font-size: 0.95rem;
+  }
+
+  .mainPage {
+    max-width: 75%;
   }
 }
 
@@ -184,25 +221,59 @@ body {
     left:80px;
   }
 
+  #logoMale{
+    margin-top:10px;
+    color: rgba(0, 0, 0, 0.5);
+  }
+
+  #aboutMePhoto, #aboutMeText  {
+    max-width: 80%;
+  }
+
+  .mainPage {
+    max-width: 90%;
+  }
+
   .nav-item {
     position: relative;
     left: -25%;
     justify-content:space-around;
     text-align: start;
-    
+    padding: 0.3em;
+  }
+
+  #logo {
+    display: none;
   }
 
   .navbar-brand {
-    position: absolute;
-    top: 30%;
-    left: 45%;
+    display: inline;
+    position:fixed;
+    top:10px;
+    left: 50%;
+   
+    transform: translateX(-50%);
+    font-family: 'Alex Brush', cursive;
+    align-content: end;
   }
+
+  .mainPage {
+    width: 90%;
+  }
+
+  /* #logo {
+    display:flex;
+    max-width: 100px;
+    position: fixed;
+    justify-content: center;
+    top: 10px;
+  } */
   
 }
 
-@media (max-width:500px) {
-  #logo { 
+/* @media (max-width:500px) {
+  .navbar-brand { 
     display: none; 
   }
   
-}
+} */

@@ -10,13 +10,13 @@ const upload = multer({ storage });
 
 router.route('/')
     .get(catchAsync(tummy.index))
-    .post(isLoggedIn, upload.array('images'), validateTummy, catchAsync(tummy.createTummyPshoot));
+    .post(isLoggedIn, upload.array('images'), catchAsync(tummy.createTummyPshoot));
 
 router.get('/new', isLoggedIn, tummy.renderNewPshoot);
 
 router.route('/:id')
     .get(catchAsync(tummy.showTummyPshoot))
-    .put(isLoggedIn, isOwnerTummy, upload.array('images'), validateTummy, catchAsync(tummy.editTummyPshoot))
+    .put(isLoggedIn, isOwnerTummy, upload.array('images'), catchAsync(tummy.editTummyPshoot))
     .delete(isLoggedIn, isOwnerTummy, catchAsync(tummy.deleteTummyPshoot));
 
 router.get('/:id/edit', isLoggedIn, isOwnerTummy, catchAsync(tummy.renderEditPshoot));

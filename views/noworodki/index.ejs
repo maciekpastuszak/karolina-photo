@@ -1,0 +1,68 @@
+<% layout('layouts/boilerplate')%>
+    <div class="container pt-3">
+        <div class="d-flex justify-content-between">
+            <div></div>
+            <div>
+                <h2 class="pshoot-header">Sesje noworodkowe</h2>
+            </div>
+            <div>
+                <% if(currentUser) { %>
+                    <a class="btn btn-warning" href="/noworodki/new">Dodaj zdjęcie</a>
+                    <% } %>
+            </div>
+        </div>
+        <div class="fade_rule"></div>
+        <br>
+        <p class="card-text">Jestem dyplomowanym fotografem noworodkowym, a także mamą dwóch małych chłopców. Mogą być Państwo pewni, że powierzone mi Maleństwo będzie całkowicie bezpieczne i zadbam o jego dobre samopoczucie.
+<br>
+            Sesja noworodkowa – o co warto zadbać przed rozpoczęciem zdjęć? 
+            <br>
+            Trzeba się przygotować na to, że zdjęcia noworodkowe mogą długo trwać i warto sobie zarezerwować więcej czasu. Niektóre maluszki prześpią całą sesję i po godzinie idą do domu. Inne wymagają więcej czasu, zwłaszcza jeśli mają problemy z brzuszkiem (to zdarza się np. podczas suplementacji żelazem). Fakt jest taki, że kilkudniowy dzidziuś jest podczas sesji szefem i to on decyduje kiedy robimy zdjęcia, a kiedy jest czas na przytulanie z mamą i karmienie. 
+            <br>
+            Sesje noworodkowe przeprowadzam maksymalnie do 21 dnia życia. Im dziecko jest młodsze tym więcej śpi, jest bardziej elastyczne i jest mniejsza szansa na wystąpienie bolesnej kolki, która pogorszy jego samopoczucie.
+            
+            <br>
+            Na sesję proszę zabrać:
+            
+            - smoczek, nawet jeśli go nie używa,
+            - pieluszki jednorazowe ok 20 szt.,
+            - pieluszki tetrowe,
+            - kocyk, którego używa (tylko gładki, tak żeby splot nie odcisnął się na skórze)
+            - zapas mleka
+            <br>
+            Sesja noworodkowa z rodzicami i rodzeństwem:
+            <br>
+            Cała rodzina powinna być ubrana w podobnej kolorystyce i stylu. Najlepiej unikać wzorów i aplikacji, świetnie sprawdzają się gładkie, jednolite materiały.
+            <br>
+            Jakie zdjęcia noworodkowe wykonuję?
+            <br>
+            Posiadam bardzo wiele rekwizytów – miniaturowe łóżeczka, foteliki, koszyki, a także profesjonalny stół do pozycjonowania. Zarówno dla dziewczynek jak i dla chłopców mam przygotowane różne outfity – od ubranek po owijki. 
+            </p>
+    
+        <div class="container">
+            <div class="row justify-content-start">
+                <% for (let newb of newborn) { %>
+                    <div class="col-xs-12 col-md-6 px-3 py-2">
+                        <div class="pshoot-card card mb-3">
+                            <div class="card-body p-0">
+                                <% if(currentUser) { %>
+                                    <a href="noworodki/<%=newb._id%>">link</a>
+                                    <% } %>
+                                <div>
+                                    <% if(newb.images.length) {%>
+                                        <img class="card-img-top" src="<%= newb.images[0].url %>" alt="card-img"
+                                            id="pshoot-img">
+                                        <% } else {%>
+                                            <img class="card-img-top"
+                                                src="https://res.cloudinary.com/dqcadja0y/image/upload/v1617459271/sample.jpg"
+                                                alt="card-img" id="pshoot-img">
+                                            <% } %>
+                                               
+                                        </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
+    </div>

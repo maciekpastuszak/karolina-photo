@@ -5,24 +5,25 @@ const {cloudinary} = require("../cloudinary");
 
 module.exports.index = async (req, res) => {
     const kids = await Kid.find({});
-    res.render('dzieci/index', { kids, style: 'photo-gallery' });
+    res.render('dzieci/index', { kids, style: 'photo-gallery', title:"sesje dziecięce" });
 };
 
 // Creating a new kids photoshoot
 
-module.exports.createKidsPshoot = async (req, res) => {
+module.exports.createKidsPshoot = async (req, res, next) => {
     const kids = new Kid(req.body.kids);
     kids.images = req.files.map(f => ({url: f.path, filename: f.filename}));
     kids.owner = req.user._id;
     await kids.save();
-    req.flash('success', 'Brawo! Stworzyłaś nową sesję dziecięcą. Przepiękna!!');
+    req.flash('success', 'Dodałaś zdjęcie');
+    // req.flash('success', 'Brawo! Stworzyłaś nową sesję dziecięcą. Przepiękna!!');
     res.redirect(`/dzieci/${kids._id}`)
 };
 
 // Render a new kids photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('dzieci/new', { style: 'photo-gallery' });
+    res.render('dzieci/new', { style: 'photo-gallery', title:"sesje dziecięce" });
 };
 
 // Showing details of the photoshoot
@@ -34,7 +35,7 @@ module.exports.showKidsPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/dzieci');
     }
-    res.render('dzieci/show', { kids, style: 'photo-gallery' })
+    res.render('dzieci/show', { kids, style: 'photo-gallery', title:"sesje dziecięce" })
 };
 
 // Render update/edit photoshoot page
@@ -46,7 +47,7 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/dzieci');
     }
-    res.render('dzieci/edit', { kids, style: 'photo-gallery' })
+    res.render('dzieci/edit', { kids, style: 'photo-gallery', title:"sesje dziecięce" })
 };
 
 // Update/edit photoshoot
@@ -78,7 +79,8 @@ module.exports.deleteKidsPshoot = async (req, res) => {
             await cloudinary.uploader.destroy(img.filename);
           }
         };
-    req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
+    req.flash('success', 'Usunęłaś zdjęcie')
+    // req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
     res.redirect('/dzieci')
 };
 

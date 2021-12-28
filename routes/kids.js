@@ -10,13 +10,13 @@ const upload = multer({ storage });
 
 router.route('/')
     .get(catchAsync(kids.index))
-    .post(isLoggedIn, upload.array('images'), validateKids, catchAsync(kids.createKidsPshoot));
+    .post(isLoggedIn, upload.array('images'), catchAsync(kids.createKidsPshoot));
 
 router.get('/new', isLoggedIn, kids.renderNewPshoot);
 
 router.route('/:id')
     .get(catchAsync(kids.showKidsPshoot))
-    .put(isLoggedIn, isOwnerKids, upload.array('images'), validateKids, catchAsync(kids.editKidsPshoot))
+    .put(isLoggedIn, isOwnerKids, upload.array('images'), catchAsync(kids.editKidsPshoot))
     .delete(isLoggedIn, isOwnerKids, catchAsync(kids.deleteKidsPshoot));
 
 router.get('/:id/edit', isLoggedIn, isOwnerKids, catchAsync(kids.renderEditPshoot));
