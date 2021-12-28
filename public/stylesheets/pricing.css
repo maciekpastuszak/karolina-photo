@@ -71,6 +71,13 @@ h4 {
   background: #eee;
 }
 
+#coWchodziWSklad {
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 0.7rem;
+  text-align: center;
+}
+
 @media (max-width: 768px) {
   #switch-cont {
     display: block;
