@@ -1,10 +1,10 @@
 
 // Mapbox js for the contact page
 
-mapboxgl.accessToken = 'pk.eyJ1IjoicGFjaWVrZmx5IiwiYSI6ImNrbms2ZW54cjA3eXEycW54cTY5Y29xOWEifQ.giXUI96ja1Bv1iLe2XOcVQ';
+mapboxgl.accessToken = 'pk.eyJ1IjoicGFjaWVrZmx5IiwiYSI6ImNreHFpaXZtZjA1OHgyb3BjbjMxYnphNHcifQ.skpynqhjy74EPS8Gvu_m0w';
 const map = new mapboxgl.Map({
     container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/satellite-streets-v11', // style URL
+    style: 'mapbox://styles/mapbox/streets-v11', // style URL
     center: [19.05387, 49.82289], // starting position [lng, lat]
     zoom: 16, // starting zoom
     attributionControl: false
