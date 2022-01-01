@@ -82,6 +82,9 @@ display: none;
   width: 260px;
 }
 
+#logoZnak {
+  max-width: 50px;
+}
 
 .dropdown-menu {
   border-radius: 10px;
@@ -198,6 +201,11 @@ text-align: center;
 
 #aboutMePhoto {
   padding: 0;
+}
+
+.horizontalLine {
+  display: flex; 
+  justify-content: center;
 }
 
 

@@ -1,11 +1,12 @@
 const { Kid } = require('../models/photoshoot');
 const {cloudinary} = require("../cloudinary");
+const nonce = require('../utils/nonce');
 
 // Index page of kids photoshoot
 
 module.exports.index = async (req, res) => {
     const kids = await Kid.find({});
-    res.render('dzieci/index', { kids, style: 'photo-gallery', title:"sesje dziecięce" });
+    res.render('dzieci/index', { kids, style: 'photo-gallery', title:"sesje dziecięce", nonce: nonce });
 };
 
 // Creating a new kids photoshoot
@@ -23,7 +24,7 @@ module.exports.createKidsPshoot = async (req, res, next) => {
 // Render a new kids photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('dzieci/new', { style: 'photo-gallery', title:"sesje dziecięce" });
+    res.render('dzieci/new', { style: 'photo-gallery', title:"sesje dziecięce", nonce: nonce });
 };
 
 // Showing details of the photoshoot
@@ -35,7 +36,7 @@ module.exports.showKidsPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/dzieci');
     }
-    res.render('dzieci/show', { kids, style: 'photo-gallery', title:"sesje dziecięce" })
+    res.render('dzieci/show', { kids, style: 'photo-gallery', title:"sesje dziecięce", nonce: nonce })
 };
 
 // Render update/edit photoshoot page
@@ -47,7 +48,7 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/dzieci');
     }
-    res.render('dzieci/edit', { kids, style: 'photo-gallery', title:"sesje dziecięce" })
+    res.render('dzieci/edit', { kids, style: 'photo-gallery', title:"sesje dziecięce", nonce: nonce })
 };
 
 // Update/edit photoshoot

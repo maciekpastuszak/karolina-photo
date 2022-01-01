@@ -1,11 +1,12 @@
 const { Family } = require('../models/photoshoot');
 const {cloudinary} = require("../cloudinary");
+const nonce = require('../utils/nonce');
 
 // Index page of family photoshoots
 
 module.exports.indexFamily = async (req, res) => {
     const family = await Family.find({});
-    res.render('rodzinne/index', { family, style: 'photo-gallery', title: "Sesje rodzinne" });
+    res.render('rodzinne/index', { family, style: 'photo-gallery', title: "Sesje rodzinne", nonce: nonce  });
 };
 
 // Creating a new family photoshoot
@@ -23,7 +24,7 @@ module.exports.createFamilyPshoot = async (req, res) => {
 // Render a new family photoshoot page
 
 module.exports.renderNewFamilyPshoot = (req, res) => {
-    res.render('rodzinne/new', { style: 'photo-gallery', title: "Sesje rodzinne"  });
+    res.render('rodzinne/new', { style: 'photo-gallery', title: "Sesje rodzinne", nonce: nonce  });
 };
 
 // Showing details of the photoshoot
@@ -35,7 +36,7 @@ module.exports.showFamilyPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/rodzinne');
     }
-    res.render('rodzinne/show', { family, style: 'photo-gallery', title: "Sesje rodzinne"  })
+    res.render('rodzinne/show', { family, style: 'photo-gallery', title: "Sesje rodzinne", nonce: nonce  })
 };
 
 // Render update/edit family photoshoot page
@@ -47,7 +48,7 @@ module.exports.renderEditFamilyPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/rodzinne');
     }
-    res.render('rodzinne/edit', { family, style: 'photo-gallery', title: "Sesje rodzinne"  })
+    res.render('rodzinne/edit', { family, style: 'photo-gallery', title: "Sesje rodzinne", nonce: nonce  })
 };
 
 // Update/edit family photoshoot

@@ -1,9 +1,10 @@
 const User = require('../models/user');
+const nonce = require('../utils/nonce');
 
 // Render register user page
 
 module.exports.renderRegisterForm = (req, res) => {
-    res.render('users/register', {style: 'app', title:"login" });
+    res.render('users/register', {style: 'app', title:"login", nonce: nonce });
 };
 
 // Register user
@@ -27,7 +28,7 @@ module.exports.userRegister = async(req, res, next) => {
 // Render login form
 
 module.exports.renderLoginForm = (req,res) => {
-    res.render('users/login', {style: 'app', title:"login" }) 
+    res.render('users/login', {style: 'app', title:"login", nonce: nonce }) 
 };
 
 // Login user

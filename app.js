@@ -30,14 +30,14 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const helmet = require('helmet');
+const nonce = require('./utils/nonce');
 const mongoSanitize = require('express-mongo-sanitize');
 const { contentSecurityPolicy } = require('helmet');
+
 const MongoStore = require('connect-mongo');
 
-// mongoose.Promise = global.Promise;
 // connect to db
-// const dbUrl = 'mongodb://pastuszak_karolina:F19s6eb2iH@mongodb.pastuszak.nazwa.pl:4005/pastuszak_karolina';
-const dbUrl = 'mongodb://localhost:27017/karolina-photo';
+const dbUrl = process.env.DB_URL1
 mongoose.connect(dbUrl, { 
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -64,8 +64,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(mongoSanitize({	
     replaceWith: '_'	
 }))	
-const secret = 'thisshouldbeabettersecret!';
-
+const secret = process.env.SECRET || 'thisshouldbeabettersecret!';
 const store = MongoStore.create({
     mongoUrl: dbUrl,
     touchAfter: 24 * 60 * 60,
@@ -94,7 +93,7 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig));
 app.use(flash());
-app.use(helmet({contentSecurityPolicy: false}));
+app.use(helmet());
 
 const scriptSrcUrls = [
     "https://stackpath.bootstrapcdn.com/",
@@ -124,6 +123,7 @@ const connectSrcUrls = [
     "https://b.tiles.mapbox.com/",
     "https://events.mapbox.com/",
     "https://www.googletagmanager.com",
+    "https://www.google-analytics.com",
 ];
 const fontSrcUrls = [
     "https://fonts.gstatic.com",
@@ -131,12 +131,12 @@ const fontSrcUrls = [
 ];
 app.use(
     helmet.contentSecurityPolicy({
-        useDefaults: false,
+        useDefaults: true,
         directives: {
             defaultSrc: ["'self'"],
             connectSrc: ["'self'", ...connectSrcUrls],
-            scriptSrc: ["'unsafe-inline'", "'self'", "'unsafe-eval'", ...scriptSrcUrls],
-            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+            scriptSrc: ["'self'", `'nonce-${nonce}'`, ...scriptSrcUrls],
+            styleSrc: ["'self'", ...styleSrcUrls],
             workerSrc: ["'self'", "blob:"],
             objectSrc: [],
             imgSrc: [
@@ -176,27 +176,27 @@ app.use('/brzuszkowe', tummyRoutes);
 app.use('/noworodki', newbornRoutes);
 
 app.get('/', (req, res) => {
-    res.render('home', { style: 'app', title: "Karolina Pastuszak Photography" });
+    res.render('home', { style: 'app', title: "Karolina Pastuszak Photography", nonce: nonce });
 });
 
 app.get('/studio', (req, res) => {
-    res.render('studio', { style: 'studio', title: "Studio fotograficzne" });
+    res.render('studio', { style: 'studio', title: "Studio fotograficzne", nonce: nonce });
 });
 
 app.get('/przed_sesja', (req, res) => {
-    res.render('beforePS', { style: 'beforePS', title: "Jak przygotować się do sesji zdjęciowej"});
+    res.render('beforePS', { style: 'beforePS', title: "Jak przygotować się do sesji zdjęciowej", nonce: nonce});
 });
 
 app.get('/voucher', (req, res) => {
-    res.render('voucher', { style: 'voucher', title: "Vouchery na sesje fotograficzne" });
+    res.render('voucher', { style: 'voucher', title: "Vouchery na sesje fotograficzne", nonce: nonce });
 });
 
 app.get('/cennik', (req, res) => {
-    res.render('pricing', { style: 'pricing', title: "Cennik sesji fotograficznych" });
+    res.render('pricing', { style: 'pricing', title: "Cennik sesji fotograficznych", nonce: nonce });
 });
 
 app.get('/kontakt', (req, res) => {
-    res.render('contact', { style: 'contact', title: "Dane kontaktowe Karolina Pastuszak Photography" });
+    res.render('contact', { style: 'contact', title: "Dane kontaktowe Karolina Pastuszak Photography", nonce: nonce});
 });
 
 
@@ -207,7 +207,7 @@ app.all('*', (req, res, next) => {
 app.use((err, req, res, next) => {
     const { statusCode = 500 } = err;
     if (!err.message) err.message = "Coś się nie udało"
-    res.status(statusCode).render('error', { err, style: 'app', title: "Error" })
+    res.status(statusCode).render('error', { err, style: 'app', title: "Error", nonce: nonce })
 })
 
 const port = process.env.PORT || 3000;

@@ -1,11 +1,12 @@
 const { Tummy } = require('../models/photoshoot');
 const {cloudinary} = require("../cloudinary");
+const nonce = require('../utils/nonce');
 
 // Index page of pregnant photoshoot
 
 module.exports.index = async (req, res) => {
     const tummy = await Tummy.find({});
-    res.render('brzuszkowe/index', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe"  });
+    res.render('brzuszkowe/index', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe", nonce: nonce  });
 };
 
 // Creating a new pregnant photoshoot
@@ -22,7 +23,7 @@ module.exports.createTummyPshoot = async (req, res) => {
 // Render a new pregnant photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('brzuszkowe/new', { style: 'photo-gallery', title:"sesje brzuszkowe" });
+    res.render('brzuszkowe/new', { style: 'photo-gallery', title:"sesje brzuszkowe", nonce: nonce });
 };
 
 // Showing details of the pregnant photoshoot
@@ -34,7 +35,7 @@ module.exports.showTummyPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/brzuszkowe');
     }
-    res.render('brzuszkowe/show', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe" })
+    res.render('brzuszkowe/show', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe", nonce: nonce })
 };
 
 // Render update/edit pregnant photoshoot page
@@ -46,7 +47,7 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/brzuszkowe');
     }
-    res.render('brzuszkowe/edit', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe" })
+    res.render('brzuszkowe/edit', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe", nonce: nonce })
 };
 
 // Update/edit pregnant photoshoot

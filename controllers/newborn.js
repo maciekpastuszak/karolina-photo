@@ -1,11 +1,12 @@
 const { Newborn } = require('../models/photoshoot');
 const {cloudinary} = require("../cloudinary");
+const nonce = require('../utils/nonce');
 
 // Index page of newborn photoshoot
 
 module.exports.index = async (req, res) => {
     const newborn = await Newborn.find({});
-    res.render('noworodki/index', { newborn, style: 'photo-gallery', title:"sesje noworodkowe"  });
+    res.render('noworodki/index', { newborn, style: 'photo-gallery', title:"sesje noworodkowe", nonce: nonce  });
 };
 
 // Creating a new newborn photoshoot
@@ -22,7 +23,7 @@ module.exports.createNewbornPshoot = async (req, res) => {
 // Render a new newborn photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('noworodki/new', { style: 'photo-gallery', title:"sesje noworodkowe" });
+    res.render('noworodki/new', { style: 'photo-gallery', title:"sesje noworodkowe", nonce: nonce });
 };
 
 // Showing details of the photoshoot
@@ -34,7 +35,7 @@ module.exports.showNewbornPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/noworodki');
     }
-    res.render('noworodki/show', { newborn, style: 'photo-gallery', title:"sesje noworodkowe" })
+    res.render('noworodki/show', { newborn, style: 'photo-gallery', title:"sesje noworodkowe", nonce: nonce })
 };
 
 // Render update/edit photoshoot page
@@ -46,7 +47,7 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/noworodki');
     }
-    res.render('noworodki/edit', { newborn, style: 'photo-gallery', title:"sesje noworodkowe" })
+    res.render('noworodki/edit', { newborn, style: 'photo-gallery', title:"sesje noworodkowe", nonce: nonce })
 };
 
 // Update/edit photoshoot
