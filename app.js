@@ -37,7 +37,7 @@ const { contentSecurityPolicy } = require('helmet');
 const MongoStore = require('connect-mongo');
 
 // connect to db
-const dbUrl = process.env.DB_URL1
+const dbUrl = process.env.DB_URL2
 mongoose.connect(dbUrl, { 
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -176,7 +176,7 @@ app.use('/brzuszkowe', tummyRoutes);
 app.use('/noworodki', newbornRoutes);
 
 app.get('/', (req, res) => {
-    res.render('home', { style: 'app', title: "Karolina Pastuszak Photography", nonce: nonce });
+    res.render('index', { style: 'app', title: "Karolina Pastuszak Photography", nonce: nonce });
 });
 
 app.get('/studio', (req, res) => {
@@ -184,7 +184,7 @@ app.get('/studio', (req, res) => {
 });
 
 app.get('/przed_sesja', (req, res) => {
-    res.render('beforePS', { style: 'beforePS', title: "Jak przygotować się do sesji zdjęciowej", nonce: nonce});
+    res.render('przedsesja', { style: 'beforePS', title: "Jak przygotować się do sesji zdjęciowej", nonce: nonce});
 });
 
 app.get('/voucher', (req, res) => {
@@ -192,11 +192,11 @@ app.get('/voucher', (req, res) => {
 });
 
 app.get('/cennik', (req, res) => {
-    res.render('pricing', { style: 'pricing', title: "Cennik sesji fotograficznych", nonce: nonce });
+    res.render('cennik', { style: 'pricing', title: "Cennik sesji fotograficznych", nonce: nonce });
 });
 
 app.get('/kontakt', (req, res) => {
-    res.render('contact', { style: 'contact', title: "Dane kontaktowe Karolina Pastuszak Photography", nonce: nonce});
+    res.render('kontakt', { style: 'contact', title: "Dane kontaktowe Karolina Pastuszak Photography", nonce: nonce});
 });
 
 
