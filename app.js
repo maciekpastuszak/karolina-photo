@@ -202,7 +202,10 @@ app.get('/studio', (req, res) => {
 });
 
 app.get('/przed_sesja', (req, res) => {
-    res.render('przedsesja', { style: 'beforePS', title: "Jak przygotować się do sesji zdjęciowej", nonce: nonce});
+    res.render('przedsesja', { style: 'beforePS',
+                               title: "Jak przygotować się do sesji zdjęciowej",
+                               metaDescription: "Kilka porad, jak przygotować się do sesji noworodkowej, sesji brzuszkowej, sesji rodzinnej i innych",
+                               metaKeywords:"fotograf bielsko, przed sesją zdjęciową, sesja noworodkowa do kiedy, sesja zdjęciowa z makijażem i fryzurą bielsko, sesja ciążowa w studio, kiedy sesja ciążowa", nonce: nonce});
 });
 
 app.get('/voucher', (req, res) => {

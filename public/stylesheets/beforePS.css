@@ -25,4 +25,11 @@
     text-align: center;
 }
 
+.card-title {
+    padding: 1rem 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    font-size: larger;
+  }
+
 
