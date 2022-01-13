@@ -57,6 +57,9 @@ body {
 }
 
 /* navbar & footer  */
+.pixel {
+  display:none;
+}
 
 .navbar,
 #footer {

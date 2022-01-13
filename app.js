@@ -106,6 +106,9 @@ const scriptSrcUrls = [
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
     "https://ssl.google-analytics.com",
+    "*.facebook.net",
+    "https://static.hotjar.com",
+    "https://script.hotjar.com"
 ];
 
 const styleSrcUrls = [
@@ -124,10 +127,15 @@ const connectSrcUrls = [
     "https://events.mapbox.com/",
     "https://www.googletagmanager.com",
     "https://www.google-analytics.com",
+    "www.facebook.com",
+    "*.hotjar.com",
+    "wss://*.hotjar.com",
+    "*.hotjar.io"
 ];
 const fontSrcUrls = [
     "https://fonts.gstatic.com",
     "https://fonts.googleapis.com/",
+    "script.hotjar.com"
 ];
 app.use(
     helmet.contentSecurityPolicy({
@@ -136,16 +144,19 @@ app.use(
             defaultSrc: ["'self'"],
             connectSrc: ["'self'", ...connectSrcUrls],
             scriptSrc: ["'self'", `'nonce-${nonce}'`, ...scriptSrcUrls],
-            styleSrc: ["'self'", ...styleSrcUrls],
+            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
             workerSrc: ["'self'", "blob:"],
             objectSrc: [],
+            frameSrc: ["vars.hotjar.com"],
             imgSrc: [
                 "'self'",
                 "blob:",
                 "data:",
                 "https://res.cloudinary.com/dqcadja0y/",
                 "https://images.unsplash.com/",
-                "https://www.google-analytics.com"
+                "https://www.google-analytics.com",
+                "www.facebook.com",
+                "script.hotjar.com"
             ],
             fontSrc: ["'self'", ...fontSrcUrls],
         },
@@ -176,7 +187,7 @@ app.use('/brzuszkowe', tummyRoutes);
 app.use('/noworodki', newbornRoutes);
 
 app.get('/', (req, res) => {
-    res.render('index', { style: 'app', title: "Karolina Pastuszak Photography", nonce: nonce });
+    res.render('index', { style: 'app', title: "Karolina Pastuszak Photography", metaDescription: "Fotograf z Bielska-Białej - Zapraszam na sesje zdjęciowe: noworodkowe, ciążowe, rodzinne, komunijne, ślubne, sesje studyjne i w plenerze", metaKeywords:"fotograf bielsko, sesja ciążowa, sesja brzuszkowa, sesja noworodkowa, fotografia ślubna, zdjęcia ślubne, fotografia bielsko, sesja ciążowa w plenerze, sesja niemowlęca, fotograf na wesele", nonce: nonce });
 });
 
 app.get('/studio', (req, res) => {
