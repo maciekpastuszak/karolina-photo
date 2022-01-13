@@ -187,11 +187,18 @@ app.use('/brzuszkowe', tummyRoutes);
 app.use('/noworodki', newbornRoutes);
 
 app.get('/', (req, res) => {
-    res.render('index', { style: 'app', title: "Karolina Pastuszak Photography", metaDescription: "Fotograf z Bielska-Białej - Zapraszam na sesje zdjęciowe: noworodkowe, ciążowe, rodzinne, komunijne, ślubne, sesje studyjne i w plenerze", metaKeywords:"fotograf bielsko, sesja ciążowa, sesja brzuszkowa, sesja noworodkowa, fotografia ślubna, zdjęcia ślubne, fotografia bielsko, sesja ciążowa w plenerze, sesja niemowlęca, fotograf na wesele", nonce: nonce });
+    res.render('index', { style: 'app', 
+                          title: "Karolina Pastuszak Photography", 
+                          metaDescription: "Fotograf z Bielska-Białej - Zapraszam na sesje zdjęciowe: noworodkowe, ciążowe, rodzinne, komunijne, ślubne, sesje studyjne i w plenerze", 
+                          metaKeywords:"fotograf bielsko, sesja ciążowa, sesja brzuszkowa, sesja noworodkowa, fotografia ślubna, zdjęcia ślubne, fotografia bielsko, sesja ciążowa w plenerze, sesja niemowlęca, fotograf na wesele", nonce: nonce });
 });
 
 app.get('/studio', (req, res) => {
-    res.render('studio', { style: 'studio', title: "Studio fotograficzne", nonce: nonce });
+    res.render('studio', { style: 'studio',
+                           title: "Studio fotograficzne",
+                           metaDescription: "Moje studio fotograficzne, do którego zapraszam na profesjonalne sesje zdjęciowe. Zapraszam również na sesje plenerowe",
+                           metaKeywords:"fotograf bielsko, studio fotograficzne, sesja świąteczna bielsko, sesja komunijna, sesja ciążowa w plenerze",
+                           nonce: nonce });
 });
 
 app.get('/przed_sesja', (req, res) => {
