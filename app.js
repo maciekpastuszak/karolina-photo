@@ -205,11 +205,16 @@ app.get('/przed_sesja', (req, res) => {
     res.render('przedsesja', { style: 'beforePS',
                                title: "Jak przygotować się do sesji zdjęciowej",
                                metaDescription: "Kilka porad, jak przygotować się do sesji noworodkowej, sesji brzuszkowej, sesji rodzinnej i innych",
-                               metaKeywords:"fotograf bielsko, przed sesją zdjęciową, sesja noworodkowa do kiedy, sesja zdjęciowa z makijażem i fryzurą bielsko, sesja ciążowa w studio, kiedy sesja ciążowa", nonce: nonce});
+                               metaKeywords:"fotograf bielsko, przed sesją zdjęciową, sesja noworodkowa do kiedy, sesja zdjęciowa z makijażem i fryzurą bielsko, sesja ciążowa w studio, kiedy sesja ciążowa", 
+                               nonce: nonce});
 });
 
 app.get('/voucher', (req, res) => {
-    res.render('voucher', { style: 'voucher', title: "Vouchery na sesje fotograficzne", nonce: nonce });
+    res.render('voucher', { style: 'voucher',
+                            title: "Vouchery na sesje fotograficzne",
+                            metaDescription: "Bon podarunkowy na sesję fotograficzną w Bielsku-Białej to wyjątkowy pomysł na prezent. Zapraszam do zakupu",
+                            metaKeywords: "fotograf bielsko, voucher na sesję fotograficzną, kupon sesja fotograficzna, promocja sesja zdjęciowa",
+                            nonce: nonce });
 });
 
 app.get('/cennik', (req, res) => {
