@@ -218,7 +218,11 @@ app.get('/voucher', (req, res) => {
 });
 
 app.get('/cennik', (req, res) => {
-    res.render('cennik', { style: 'pricing', title: "Cennik sesji fotograficznych", nonce: nonce });
+    res.render('cennik', { style: 'pricing',
+                           title: "Cennik sesji fotograficznych",
+                           metaDescription: "Ile kosztuje sesja fotograficzna? Zapraszam do zapoznania się z moim cennikiem",
+                           metaKeywords: "fotograf bielsko cennik, sesja zdjęciowa, sesja plenerowa, fotograf ślubny śląsk cennik, sesja dziecięca cena, sesja świąteczna cennik",
+                           nonce: nonce });
 });
 
 app.get('/kontakt', (req, res) => {

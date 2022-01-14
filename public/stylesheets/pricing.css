@@ -36,7 +36,7 @@ h4 {
   justify-content: center;
 }
 
-#switch-cont {
+#switch-cont, #switch-cont2 {
   display: none;
   width: 100%;
   min-width: 270px;
@@ -44,7 +44,7 @@ h4 {
   margin: 30px auto;
   position: relative;
 }
-#switch-cont button {
+#switch-cont button, #switch-cont2 button {
   display: inline-block;
   width: 25%;
   max-width: 100px;
@@ -57,18 +57,18 @@ h4 {
   font-size: 0.8rem;
   color: rgba(0, 0, 0, 0.7);
 }
-#switch-cont button.switch-selected {
+#switch-cont button.switch-selected, #switch-cont2 button.switch-selected {
   background: #fae1dd;
   color: white;
 }
-#switch-cont button:focus {
+#switch-cont button:focus, #switch-cont2 button:focus {
   outline: none;
 }
-#switch-cont button:hover {
+#switch-cont button:hover, #switch-cont2 button:hover {
   cursor: pointer;
   color: rgba(0, 0, 0, 0.7);
 }
-#switch-cont button:not(.switch-selected):hover {
+#switch-cont button:not(.switch-selected):hover, #switch-cont2 button:not(.switch-selected):hover {
   background: #eee;
 }
 
@@ -80,16 +80,16 @@ h4 {
 }
 
 @media (max-width: 768px) {
-  #switch-cont {
+  #switch-cont, #switch-cont2 {
     display: block;
   }
 
-  .card {
+  .card1, .card2 {
  
     display: none;
    
   }
-  .card.pricing-selected {
+  .card1.pricing-selected,  .card2.pricing-selected {
     display: block;
     max-width: 80%;
   }
