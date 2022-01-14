@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.indexFamily = async (req, res) => {
     const family = await Family.find({});
-    res.render('rodzinne/index', { family, style: 'photo-gallery', title: "Sesje rodzinne", nonce: nonce  });
+    res.render('rodzinne/index', { family, style: 'photo-gallery', title: "Sesje rodzinne", metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, sesja rodzinna bielsko, sesja zdjęciowa rodzinna, fotograf śląsk, profesjonalne sesje zdjęciowe bielsko-biała", nonce: nonce  });
 };
 
 // Creating a new family photoshoot
@@ -24,7 +24,7 @@ module.exports.createFamilyPshoot = async (req, res) => {
 // Render a new family photoshoot page
 
 module.exports.renderNewFamilyPshoot = (req, res) => {
-    res.render('rodzinne/new', { style: 'photo-gallery', title: "Sesje rodzinne", nonce: nonce  });
+    res.render('rodzinne/new', { style: 'photo-gallery', title: "Sesje rodzinne", metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce  });
 };
 
 // Showing details of the photoshoot
@@ -36,7 +36,7 @@ module.exports.showFamilyPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/rodzinne');
     }
-    res.render('rodzinne/show', { family, style: 'photo-gallery', title: "Sesje rodzinne", nonce: nonce  })
+    res.render('rodzinne/show', { family, style: 'photo-gallery', title: "Sesje rodzinne", metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce  })
 };
 
 // Render update/edit family photoshoot page
@@ -48,7 +48,7 @@ module.exports.renderEditFamilyPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/rodzinne');
     }
-    res.render('rodzinne/edit', { family, style: 'photo-gallery', title: "Sesje rodzinne", nonce: nonce  })
+    res.render('rodzinne/edit', { family, style: 'photo-gallery', title: "Sesje rodzinne", metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce  })
 };
 
 // Update/edit family photoshoot
