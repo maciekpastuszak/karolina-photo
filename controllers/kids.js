@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.index = async (req, res) => {
     const kids = await Kid.find({});
-    res.render('dzieci/index', { kids, style: 'photo-gallery', title:"sesje dziecięce", nonce: nonce });
+    res.render('dzieci/index', { kids, style: 'photo-gallery', title:"sesje dziecięce", metaDescription: "Sesje dziecięce | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja dziecięca, fotograf śląsk", nonce: nonce });
 };
 
 // Creating a new kids photoshoot
@@ -24,7 +24,7 @@ module.exports.createKidsPshoot = async (req, res, next) => {
 // Render a new kids photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('dzieci/new', { style: 'photo-gallery', title:"sesje dziecięce", nonce: nonce });
+    res.render('dzieci/new', { style: 'photo-gallery', title:"sesje dziecięce",metaDescription: "Sesje dziecięce | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce });
 };
 
 // Showing details of the photoshoot
@@ -36,7 +36,7 @@ module.exports.showKidsPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/dzieci');
     }
-    res.render('dzieci/show', { kids, style: 'photo-gallery', title:"sesje dziecięce", nonce: nonce })
+    res.render('dzieci/show', { kids, style: 'photo-gallery', title:"sesje dziecięce",metaDescription: "Sesje dziecięce | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
 };
 
 // Render update/edit photoshoot page
@@ -48,7 +48,7 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/dzieci');
     }
-    res.render('dzieci/edit', { kids, style: 'photo-gallery', title:"sesje dziecięce", nonce: nonce })
+    res.render('dzieci/edit', { kids, style: 'photo-gallery', title:"sesje dziecięce",metaDescription: "Sesje dziecięce | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
 };
 
 // Update/edit photoshoot
