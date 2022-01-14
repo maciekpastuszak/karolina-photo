@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.index = async (req, res) => {
     const kids = await Kid.find({});
-    res.render('dzieci/index', { kids, style: 'photo-gallery', title:"sesje dziecięce", metaDescription: "Sesje dziecięce | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja dziecięca, fotograf śląsk", nonce: nonce });
+    res.render('dzieci/index', { kids, style: 'photo-gallery', title:"Sesje dziecięce", metaDescription: "Sesje dziecięce | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja dziecięca, fotograf śląsk", nonce: nonce });
 };
 
 // Creating a new kids photoshoot

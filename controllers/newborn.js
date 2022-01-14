@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.index = async (req, res) => {
     const newborn = await Newborn.find({});
-    res.render('noworodki/index', { newborn, style: 'photo-gallery', title:"sesje noworodkowe", nonce: nonce  });
+    res.render('noworodki/index', { newborn, style: 'photo-gallery', title:"Sesje noworodkowe", metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja noworodkowa śląsk, sesja noworodkowa Bielsko-Biała, sesja niemowlęca", nonce: nonce  });
 };
 
 // Creating a new newborn photoshoot
