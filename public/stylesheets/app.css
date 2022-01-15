@@ -94,6 +94,10 @@ display: none;
   background-color: rgba(250, 225, 221, 0.9);
 }
 
+.dropdown {
+  padding-left: 0 !important;
+}
+
 /* facebook and instagram */
 
 #socialIcons {
@@ -229,7 +233,7 @@ text-align: center;
   #dropdown { 
     position: absolute;
     top: 10px;
-    left:80px;
+    left:100px;
   }
 
   #logoMale{
@@ -246,11 +250,15 @@ text-align: center;
   }
 
   .nav-item {
-    position: relative;
-    left: -25%;
-    justify-content:space-around;
-    text-align: start;
     padding: 0.3em;
+    margin-left: 0;
+  }
+
+  .navbar-nav li {
+    display: flex;
+    align-items: start;
+    justify-content: left;
+    text-align: left;
   }
 
   #logo {
@@ -282,9 +290,9 @@ text-align: center;
   
 }
 
-/* @media (max-width:500px) {
-  .navbar-brand { 
-    display: none; 
-  }
+@media (max-width:500px) {
+ #logoMale {
+   display: none;
+ }
   
-} */
+}

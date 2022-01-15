@@ -1,0 +1,5 @@
+User-agent: * 
+Disallow: karolinapastuszak.pl/login
+Disallow: karolinapastuszak.pl/register
+
+Sitemap: http://karolinapastuszak.pl/sitemap.xml
