@@ -50,3 +50,10 @@ module.exports.newbornSchema = Joi.object({
     }).required(),
     deleteImages: Joi.array()
 });
+
+module.exports.communionSchema = Joi.object({
+    communions: Joi.object({
+        title: Joi.string().required().escapeHTML(),
+    }).required(),
+    deleteImages: Joi.array()
+});

@@ -12,7 +12,8 @@ const morgan = require('morgan');
 const kidsRoutes = require('./routes/kids');
 const familyRoutes = require('./routes/family');
 const tummyRoutes = require('./routes/tummy');
-const newbornRoutes = require('./routes/newborn')
+const newbornRoutes = require('./routes/newborn');
+const communionRoutes = require('./routes/communion')
 const usersRoutes = require('./routes/users');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
@@ -185,6 +186,7 @@ app.use('/dzieci', kidsRoutes);
 app.use('/rodzinne', familyRoutes);
 app.use('/brzuszkowe', tummyRoutes);
 app.use('/noworodki', newbornRoutes);
+app.use('/komunijne', communionRoutes);
 
 app.get('/', (req, res) => {
     res.render('index', { style: 'app', 

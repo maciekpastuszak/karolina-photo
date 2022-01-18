@@ -54,6 +54,16 @@ module.exports.validateNewborn = (req, res, next) => {
     }
 }
 
+module.exports.validateCommunion = (req, res, next) => {
+    const { error } = communionSchema.validate(req.body);
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(msg, 400)
+    } else {
+        next()
+    }
+}
+
 module.exports.isOwnerKids = async (req, res, next) => {
     const {id} = req.params;
     const kids = await Kid.findById(id)
@@ -91,6 +101,16 @@ module.exports.isOwnerNewborn = async (req, res, next) => {
     if (!newborn.owner.equals(req.user._id)) {
         req.flash ('error', 'nie możesz tego zrobić - nie jesteś właścicielem')
         return res.redirect(`/noworodki/${kids._id}`);
+}
+next()
+}
+
+module.exports.isOwnerCommunion = async (req, res, next) => {
+    const {id} = req.params;
+    const communions = await Communion.findById(id)
+    if (!communions.owner.equals(req.user._id)) {
+        req.flash ('error', 'nie możesz tego zrobić - nie jesteś właścicielem')
+        return res.redirect(`/noworodki/${communions._id}`);
 }
 next()
 }

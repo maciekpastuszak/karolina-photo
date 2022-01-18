@@ -267,7 +267,7 @@ text-align: center;
 
   .navbar-brand {
     display: inline;
-    position:fixed;
+    position:absolute;
     top:10px;
     left: 50%;
    
