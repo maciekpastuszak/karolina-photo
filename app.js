@@ -13,7 +13,7 @@ const kidsRoutes = require('./routes/kids');
 const familyRoutes = require('./routes/family');
 const tummyRoutes = require('./routes/tummy');
 const newbornRoutes = require('./routes/newborn');
-const communionRoutes = require('./routes/communion')
+const communionRoutes = require('./routes/communion');
 const usersRoutes = require('./routes/users');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
@@ -38,7 +38,7 @@ const { contentSecurityPolicy } = require('helmet');
 const MongoStore = require('connect-mongo');
 
 // connect to db
-const dbUrl = process.env.DB_URL2
+const dbUrl = process.env.DB_URL1
 mongoose.connect(dbUrl, { 
     useNewUrlParser: true,
     useCreateIndex: true,
