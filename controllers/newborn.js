@@ -23,7 +23,7 @@ module.exports.createNewbornPshoot = async (req, res) => {
 // Render a new newborn photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('noworodki/new', { style: 'photo-gallery', title:"sesje noworodkowe", nonce: nonce });
+    res.render('noworodki/new', { style: 'photo-gallery', title:"Sesje noworodkowe", metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja noworodkowa śląsk, sesja noworodkowa Bielsko-Biała, sesja niemowlęca", nonce: nonce });
 };
 
 // Showing details of the photoshoot
@@ -35,7 +35,7 @@ module.exports.showNewbornPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/noworodki');
     }
-    res.render('noworodki/show', { newborn, style: 'photo-gallery', title:"sesje noworodkowe", nonce: nonce })
+    res.render('noworodki/show', { newborn, style: 'photo-gallery', title:"Sesje noworodkowe", metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja noworodkowa śląsk, sesja noworodkowa Bielsko-Biała, sesja niemowlęca", nonce: nonce })
 };
 
 // Render update/edit photoshoot page
@@ -47,7 +47,7 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/noworodki');
     }
-    res.render('noworodki/edit', { newborn, style: 'photo-gallery', title:"sesje noworodkowe", nonce: nonce })
+    res.render('noworodki/edit', { newborn, style: 'photo-gallery', title:"Sesje noworodkowe", metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja noworodkowa śląsk, sesja noworodkowa Bielsko-Biała, sesja niemowlęca", nonce: nonce })
 };
 
 // Update/edit photoshoot

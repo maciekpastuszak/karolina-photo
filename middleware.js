@@ -3,7 +3,7 @@ const { familySchema } = require('./schemas.js');
 const { tummySchema } = require('./schemas.js');
 const { newbornSchema } = require('./schemas.js')
 const ExpressError = require('./utils/ExpressError');
-const { Kid, Family, Tummy } = require('./models/photoshoot');
+const { Kid, Family, Tummy, Newborn } = require('./models/photoshoot');
 
 module.exports.isLoggedIn = (req,res,next) => {
     if(!req.isAuthenticated()){
