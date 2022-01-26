@@ -79,6 +79,11 @@ h4 {
   text-align: center;
 }
 
+.pricingHeader {
+  font-family: "Allura", cursive;
+  color: rgba(0, 0, 0, 0.6);
+}
+
 @media (max-width: 768px) {
   #switch-cont, #switch-cont2 {
     display: block;
