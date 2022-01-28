@@ -38,7 +38,7 @@ const { contentSecurityPolicy } = require('helmet');
 const MongoStore = require('connect-mongo');
 
 // connect to db
-const dbUrl = process.env.DB_URL1
+const dbUrl = process.env.DB_URL2
 mongoose.connect(dbUrl, { 
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -235,6 +235,14 @@ app.get('/kontakt', (req, res) => {
                             nonce: nonce});
 });
 
+app.get('/sitemap.xml', (req, res) => {
+    res.sendFile('sitemap.xml', { root: '.' });
+    });
+
+// app.get('/robots.txt', (req, res) => {
+//         res.sendFile('robots.txt', { root: '.' });
+//         });
+    
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Ups, nie ma takiej strony. Spróbuj ponownie', 404))
