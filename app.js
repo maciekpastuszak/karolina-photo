@@ -183,7 +183,9 @@ app.get('/', (req, res) => {
     res.render('index', { style: 'app', 
                           title: "Karolina Pastuszak Photography", 
                           metaDescription: "Fotograf z Bielska-Białej - Zapraszam na sesje zdjęciowe: noworodkowe, ciążowe, rodzinne, komunijne, ślubne, sesje studyjne i w plenerze", 
-                          metaKeywords:"fotograf bielsko, sesja ciążowa, sesja brzuszkowa, sesja noworodkowa, fotografia ślubna, zdjęcia ślubne, fotografia bielsko, sesja ciążowa w plenerze, sesja niemowlęca, fotograf na wesele", nonce: nonce });
+                          metaKeywords:"fotograf bielsko, sesja ciążowa, sesja brzuszkowa, sesja noworodkowa, fotografia ślubna, zdjęcia ślubne, fotografia bielsko, sesja ciążowa w plenerze, sesja niemowlęca, fotograf na wesele",
+                          canonicalTag:"https://karolinapastuszak.pl",
+                          nonce: nonce });
 });
 
 app.get('/studio', (req, res) => {
@@ -191,6 +193,7 @@ app.get('/studio', (req, res) => {
                            title: "Sesja studyjna, sesja w plenerze | Fotograf Bielsko",
                            metaDescription: "Zapraszam na sesję studyjną oraz sesję w plenerze - noworodkową, ciążową, kobiecą, rodzinną, dziecięcą.",
                            metaKeywords:"ffotograf bielsko, fotografia bielsko, fotograf bielsko-biała, fotografia dziecięca, sesja komunijna, sesja noworodkowa, sesja rodzinna, sesja ciążowa, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja ciążowa bielsko, sesja noworodkowa bielsko, sesja kobieca bielsko",
+                           canonicalTag:"https://karolinapastuszak.pl/studio",
                            nonce: nonce });
 });
 
@@ -199,6 +202,7 @@ app.get('/przed-sesja', (req, res) => {
                                title: "Sesja zdjęciowa - jak się przygotowć? | Fotograf Bielsko",
                                metaDescription: "O czym warto pamiętać przed sesją zdjęciową noworodkową lub rodzinną? Jak się przygotować do sesji ciążowej?",
                                metaKeywords:"fotograf bielsko, fotografia bielsko, fotograf bielsko-biała, fotografia dziecięca, sesja komunijna, sesja noworodkowa, sesja rodzinna, sesja ciążowa, sesja studyjna, sesja w plenerze, sesja zdjęciowa", 
+                               canonicalTag:"https://karolinapastuszak.pl/przed-sesja",
                                nonce: nonce});
 });
 
@@ -207,6 +211,7 @@ app.get('/voucher', (req, res) => {
                             title: "Voucher - sesja zdjęciowa na prezent | Fotograf Bielsko",
                             metaDescription: "Bon podarunkowy na sesję zdjęciową to wyjątkowy pomysł na prezent z okazji narodzin dziecka, urodzin, rocznicy śluby.",
                             metaKeywords: "fotograf bielsko, fotografia bielsko, voucher, voucher podarunkowy, bon podarunkowy, voucher na sesję fotograficzną, fotograf bielsko-biała, fotografia dziecięca, sesja komunijna, sesja noworodkowa, sesja rodzinna, sesja ciążowa, sesja studyjna, sesja w plenerze, sesja zdjęciowa",
+                            canonicalTag:"https://karolinapastuszak.pl/voucher",
                             nonce: nonce });
 });
 
@@ -215,6 +220,7 @@ app.get('/cennik', (req, res) => {
                            title: "Ile kosztuje sesja zdjęciowa? Cennik | Fotograf Bielsko",
                            metaDescription: "Ile kosztuje sesja zdjęciowa noworodkowa, ciążowa, dziecięca, rodzinna, kobieca? Od czego zależy cena? Zapraszam do zapoznania się z pakietami!",
                            metaKeywords: "fotograf bielsko, cennik sesji zdjęciowej, fotografia bielsko, fotograf bielsko-biała,ile kosztuje sesja zdjęciowa, koszt sesji zdjęciowej, cena sesji zdjęciowej, fotografia dziecięca, sesja komunijna, sesja noworodkowa, sesja rodzinna, sesja ciążowa, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja ciążowa bielsko, sesja noworodkowa bielsko, sesja kobieca bielsko",
+                           canonicalTag:"https://karolinapastuszak.pl/cennik",
                            nonce: nonce });
 });
 
@@ -223,6 +229,7 @@ app.get('/kontakt', (req, res) => {
                             title: "Kontakt - Karolina Pastuszak Photography | Fotograf Bielsko",
                             metaDescription: "Moje studio zlokalizowane jest w zabytkowej Kamienicy pod Orłem w Bielsku-Białej. Studio jest profesjonalnie wyposażone i przystosowane do różnego rodzaju sesji – noworodkowych, ciążowych, kobiecych, rodzinnych, wizerunkowych.",
                             metaKeywords: "fotograf bielsko, fotografia bielsko, fotograf bielsko-biała, fotografia dziecięca, sesja komunijna, sesja noworodkowa, sesja rodzinna, sesja ciążowa, sesja studyjna, sesja w plenerze, sesja zdjęciowa",
+                            canonicalTag:"https://karolinapastuszak.pl/kontakt",
                             nonce: nonce});
 });
 

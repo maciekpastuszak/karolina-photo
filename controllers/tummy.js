@@ -6,7 +6,13 @@ const nonce = require('../utils/nonce');
 
 module.exports.index = async (req, res) => {
     const tummy = await Tummy.find({});
-    res.render('sesja-brzuszkowa/index', { tummy, style: 'photo-gallery', title:"Sesja ciążowa - w studio i w plenerze | Fotograf Bielsko", metaDescription: "Sesja ciążowa ma uwidocznić emocje - oczekiwanie, rodzącą się więź, miłość. Kobieta w ciąży promienieje I wygląda piękniej niż kiedykolwiek", metaKeywords: "fotograf bielsko, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja ciążowa, sesje ciążowe, zdjęcia ciążowe, sesja ciążowa z partnerem, sesja ciążowa w plenerze, sesja ciążowa studio, fotografia ciążowa, sesja ciążowa w studio, sesja w ciąży", nonce: nonce  });
+    res.render('sesja-brzuszkowa/index', { tummy, 
+                                           style: 'photo-gallery', 
+                                           title:"Sesja ciążowa - w studio i w plenerze | Fotograf Bielsko", 
+                                           metaDescription: "Sesja ciążowa ma uwidocznić emocje - oczekiwanie, rodzącą się więź, miłość. Kobieta w ciąży promienieje I wygląda piękniej niż kiedykolwiek", 
+                                           metaKeywords: "fotograf bielsko, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja ciążowa, sesje ciążowe, zdjęcia ciążowe, sesja ciążowa z partnerem, sesja ciążowa w plenerze, sesja ciążowa studio, fotografia ciążowa, sesja ciążowa w studio, sesja w ciąży", 
+                                           canonicalTag:"https://karolinapastuszak.pl/sesja-brzuszkowa",
+                                           nonce: nonce  });
 };
 
 // Creating a new pregnant photoshoot
@@ -23,7 +29,12 @@ module.exports.createTummyPshoot = async (req, res) => {
 // Render a new pregnant photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('sesja-brzuszkowa/new', { style: 'photo-gallery', title:"sesje brzuszkowe", metaDescription: "Sesje brzuszkowe/ciążowe | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce });
+    res.render('sesja-brzuszkowa/new', { style: 'photo-gallery', 
+                                         title:"sesje brzuszkowe", 
+                                         metaDescription: "Sesje brzuszkowe/ciążowe | Karolina Pastuszak Photography", 
+                                         metaKeywords: "",
+                                         canonicalTag:"https://karolinapastuszak.pl/sesja-brzuszkowa", 
+                                         nonce: nonce });
 };
 
 // Showing details of the pregnant photoshoot
@@ -35,7 +46,13 @@ module.exports.showTummyPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/brzuszkowe');
     }
-    res.render('sesja-brzuszkowa/show', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe", metaDescription: "Sesje brzuszkowe/ciążowe | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
+    res.render('sesja-brzuszkowa/show', { tummy, 
+                                          style: 'photo-gallery', 
+                                          title:"sesje brzuszkowe", 
+                                          metaDescription: "Sesje brzuszkowe/ciążowe | Karolina Pastuszak Photography", 
+                                          metaKeywords: "",
+                                          canonicalTag:"https://karolinapastuszak.pl/sesja-brzuszkowa",
+                                          nonce: nonce })
 };
 
 // Render update/edit pregnant photoshoot page
@@ -47,7 +64,13 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/brzuszkowe');
     }
-    res.render('sesja-brzuszkowa/edit', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe", metaDescription: "Sesje brzuszkowe/ciążowe | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
+    res.render('sesja-brzuszkowa/edit', { tummy, 
+                                          style: 'photo-gallery', 
+                                          title:"sesje brzuszkowe", 
+                                          metaDescription: "Sesje brzuszkowe/ciążowe | Karolina Pastuszak Photography", 
+                                          metaKeywords: "", 
+                                          canonicalTag:"https://karolinapastuszak.pl/sesja-brzuszkowa",
+                                          nonce: nonce })
 };
 
 // Update/edit pregnant photoshoot

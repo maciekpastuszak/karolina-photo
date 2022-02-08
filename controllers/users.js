@@ -28,7 +28,12 @@ module.exports.userRegister = async(req, res, next) => {
 // Render login form
 
 module.exports.renderLoginForm = (req,res) => {
-    res.render('users/login', {style: 'app', title:"login", metaDescription: "", metaKeywords: "", nonce: nonce }) 
+    res.render('users/login', {style: 'app', 
+                               title:"login", 
+                               metaDescription: "", 
+                               metaKeywords: "", 
+                               canonicalTag: "",
+                               nonce: nonce }) 
 };
 
 // Login user

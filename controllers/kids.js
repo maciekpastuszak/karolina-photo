@@ -6,7 +6,13 @@ const nonce = require('../utils/nonce');
 
 module.exports.index = async (req, res) => {
     const kids = await Kid.find({});
-    res.render('sesja-dziecieca/index', { kids, style: 'photo-gallery', title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", metaDescription: "Sesja dziecięca jest niepowtarzalną możliwością na uchwycenie ulotnych momentów. Zdjęcia to piękna pamiątka, do której będziemy mogli wracać przez całe życie.", metaKeywords: "fotograf bielsko, cennik sesji zdjęciowej, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja dziecięca, sesje dziecięce, fotograf dziecięcy", nonce: nonce });
+    res.render('sesja-dziecieca/index', { kids, 
+                                          style: 'photo-gallery', 
+                                          title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", 
+                                          metaDescription: "Sesja dziecięca jest niepowtarzalną możliwością na uchwycenie ulotnych momentów. Zdjęcia to piękna pamiątka, do której będziemy mogli wracać przez całe życie.",
+                                          metaKeywords: "fotograf bielsko, cennik sesji zdjęciowej, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja dziecięca, sesje dziecięce, fotograf dziecięcy", 
+                                          canonicalTag:"https://karolinapastuszak.pl/sesja-dziecieca",
+                                          nonce: nonce });
 };
 
 // Creating a new kids photoshoot
@@ -24,7 +30,12 @@ module.exports.createKidsPshoot = async (req, res, next) => {
 // Render a new kids photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('sesja-dziecieca/new', { style: 'photo-gallery', title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", metaDescription: "", metaKeywords: "", nonce: nonce });
+    res.render('sesja-dziecieca/new', { style: 'photo-gallery', 
+                                        title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", 
+                                        metaDescription: "", 
+                                        metaKeywords: "", 
+                                        canonicalTag:"https://karolinapastuszak.pl/sesja-dziecieca",
+                                        nonce: nonce });
 };
 
 // Showing details of the photoshoot
@@ -36,7 +47,13 @@ module.exports.showKidsPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/dzieci');
     }
-    res.render('sesja-dziecieca/show', { kids, style: 'photo-gallery', title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", metaDescription: "", metaKeywords: "", nonce: nonce })
+    res.render('sesja-dziecieca/show', { kids, 
+                                         style: 'photo-gallery', 
+                                         title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko",
+                                        metaDescription: "", 
+                                        metaKeywords: "", 
+                                        canonicalTag:"https://karolinapastuszak.pl/sesja-dziecieca",
+                                        nonce: nonce })
 };
 
 // Render update/edit photoshoot page
