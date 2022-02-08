@@ -6,8 +6,6 @@ const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const { Kid } = require('./models/photoshoot');
-const { Family } = require('./models/photoshoot');
 const morgan = require('morgan');
 const kidsRoutes = require('./routes/kids');
 const familyRoutes = require('./routes/family');
@@ -18,22 +16,14 @@ const usersRoutes = require('./routes/users');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
-const Joi = require('joi');
-// const { kidsSchema } = require('./schemas.js')
-// const { familySchema } = require('./schemas.js')
-const catchAsync = require('./utils/catchAsync');
-const ExpressError = require('./utils/ExpressError')
-const { urlencoded } = require('express');
-const { fileLoader } = require('ejs');
-const photoshoot = require('./models/photoshoot');
-const { error } = require('console');
+const ExpressError = require('./utils/ExpressError');
+const favicon = require('serve-favicon');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
 const helmet = require('helmet');
 const nonce = require('./utils/nonce');
 const mongoSanitize = require('express-mongo-sanitize');
-const { contentSecurityPolicy } = require('helmet');
 
 const MongoStore = require('connect-mongo');
 
@@ -181,6 +171,7 @@ app.use((req, res, next) => {
 
 
 app.use(morgan('tiny'));
+app.use(favicon(path.join(__dirname,'public','images','favicon.ico')));
 app.use('/', usersRoutes);
 app.use('/sesja-dziecieca', kidsRoutes);
 app.use('/sesja-rodzinna', familyRoutes);
@@ -203,7 +194,7 @@ app.get('/studio', (req, res) => {
                            nonce: nonce });
 });
 
-app.get('/przed_sesja', (req, res) => {
+app.get('/przed-sesja', (req, res) => {
     res.render('przedsesja', { style: 'beforePS',
                                title: "Sesja zdjęciowa - jak się przygotowć? | Fotograf Bielsko",
                                metaDescription: "O czym warto pamiętać przed sesją zdjęciową noworodkową lub rodzinną? Jak się przygotować do sesji ciążowej?",
@@ -239,10 +230,14 @@ app.get('/sitemap.xml', (req, res) => {
     res.sendFile('sitemap.xml', { root: '.' });
     });
 
-app.get('/robots.txt', (req, res) => {
-        res.sendFile('robots.txt', { root: '.' });
-        });
-    
+// app.get('/robots.txt', (req, res) => {
+//         res.sendFile('robots.txt', { root: '.' });
+//         });
+
+app.get('/robots.txt', function (req, res) {
+    res.type('text/plain');
+    res.send("User-agent: *\nDisallow: /");
+});
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Ups, nie ma takiej strony. Spróbuj ponownie', 404))
