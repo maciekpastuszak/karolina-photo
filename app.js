@@ -195,7 +195,7 @@ app.get('/studio', (req, res) => {
 });
 
 app.get('/przed-sesja', (req, res) => {
-    res.render('przedsesja', { style: 'beforePS',
+    res.render('przed-sesja', { style: 'beforePS',
                                title: "Sesja zdjęciowa - jak się przygotowć? | Fotograf Bielsko",
                                metaDescription: "O czym warto pamiętać przed sesją zdjęciową noworodkową lub rodzinną? Jak się przygotować do sesji ciążowej?",
                                metaKeywords:"fotograf bielsko, fotografia bielsko, fotograf bielsko-biała, fotografia dziecięca, sesja komunijna, sesja noworodkowa, sesja rodzinna, sesja ciążowa, sesja studyjna, sesja w plenerze, sesja zdjęciowa", 
@@ -230,14 +230,14 @@ app.get('/sitemap.xml', (req, res) => {
     res.sendFile('sitemap.xml', { root: '.' });
     });
 
-// app.get('/robots.txt', (req, res) => {
-//         res.sendFile('robots.txt', { root: '.' });
-//         });
+app.get('/robots.txt', (req, res) => {
+        res.sendFile('robots.txt', { root: '.' });
+        });
 
-app.get('/robots.txt', function (req, res) {
-    res.type('text/plain');
-    res.send("User-agent: *\nDisallow: /");
-});
+// app.get('/robots.txt', function (req, res) {
+//     res.type('text/plain');
+//     res.send("User-agent: *\nAllow: /");
+// });
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Ups, nie ma takiej strony. Spróbuj ponownie', 404))
