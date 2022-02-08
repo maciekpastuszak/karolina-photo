@@ -4,12 +4,12 @@
         <div class="d-flex justify-content-between">
             <div></div>
             <div>
-                <h2 class="pshoot-header">Sesje komunijne</h2>
+                <h2 class="pshoot-header">Sesja komunijna</h2>
             </div>
            
             <div>
                 <% if(currentUser) { %>
-                    <a class="btn btn-warning" href="/komunijne/new">Dodaj zdjęcie</a>
+                    <a class="btn btn-warning" href="/sesja-komunijna/new">Dodaj zdjęcie</a>
                     <% } %>
             </div>
         </div>
@@ -27,7 +27,7 @@
                         <div class="pshoot-card card mb-3">
                             <div class="card-body p-0">
                                 <% if(currentUser) { %>
-                                <a href="komunijne/<%=comm._id%>">link</a>
+                                <a href="sesja-komunijna/<%=comm._id%>">link</a>
                                 <% } %>
                                 <div>
                                     <% if(comm.images.length) {%>

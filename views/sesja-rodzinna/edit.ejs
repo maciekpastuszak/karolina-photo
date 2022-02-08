@@ -2,7 +2,7 @@
     <div class="row">
         <h3 class="text-center">Edytuj sesję</h3>
         <div class="col-6 offset-3">
-            <form action="/rodzinne/<%= family._id%>?_method=PUT " method="POST" novalidate class="validated-form"
+            <form action="/sesja-rodzinna/<%= family._id%>?_method=PUT " method="POST" novalidate class="validated-form"
                 enctype="multipart/form-data">
                 <div class="mb-3">
                     <label class="form-label" for="title">Nazwa sesji</label>
@@ -33,8 +33,8 @@
                 </div>
             </form>
             <div class="footer my-3 py-2">
-                <section> <a href=" /rodzinne/<%= family._id %> ">Wróć do sesji</a></section>
-                <section> <a href="/rodzinne">Wróć do wszystkich sesji dziecięcych</a></section>
+                <section> <a href=" /sesja-rodzinna/<%= family._id %> ">Wróć do sesji</a></section>
+                <section> <a href="/sesja-rodzinna">Wróć do wszystkich sesji dziecięcych</a></section>
             </div>
         </div>
     </div>

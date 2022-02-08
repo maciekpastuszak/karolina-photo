@@ -6,8 +6,8 @@
             </h2>
             <section class="d-flex h-100">
                 <% if(currentUser && communions.owner.equals(currentUser._id)) { %>
-                    <a class="btn btn-warning mx-2" href="/komunijne/<%=communions._id%>/edit">Edytuj zdjęcie</a>
-                    <form action="/komunijne/<%=communions._id%>?_method=DELETE" method="POST">
+                    <a class="btn btn-warning mx-2" href="/sesja-komunijna/<%=communions._id%>/edit">Edytuj zdjęcie</a>
+                    <form action="/sesja-komunijna/<%=communions._id%>?_method=DELETE" method="POST">
                         <button class="btn btn-danger">Skasuj zdjęcie</button>
                     </form>
             </section>
@@ -38,6 +38,6 @@
             </div>
         </div>
         <footer class="footer my-3 py-2 text-center">
-            <a href="/komunijne">Wróć do wszytkich sesji</a>
+            <a href="/sesja-komunijna">Wróć do wszytkich sesji</a>
         </footer>
     </div>

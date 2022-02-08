@@ -3,13 +3,13 @@
         <div class="d-flex justify-content-between">
             <div></div>
             <div>
-                <h2 class="pshoot-header">Sesje brzuszkowe</h2>
+                <h2 class="pshoot-header">Sesja brzuszkowa</h2>
             </div>
            
           
             <div>
                 <% if(currentUser) { %>
-                    <a class="btn btn-warning" href="/brzuszkowe/new">Dodaj zdjęcie</a>
+                    <a class="btn btn-warning" href="/sesja-brzuszkowa/new">Dodaj zdjęcie</a>
                     <% } %>
             </div>
         </div>
@@ -29,7 +29,7 @@
                         <div class="pshoot-card card mb-4">
                             <div class="card-body p-0">
                                 <% if(currentUser) { %>
-                                    <a href="brzuszkowe/<%=tum._id%>">link</a>
+                                    <a href="sesja-brzuszkowa/<%=tum._id%>">link</a>
                                     <% } %>
                                 <div>
                                     <% if(tum.images.length) {%>

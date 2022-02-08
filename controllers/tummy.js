@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.index = async (req, res) => {
     const tummy = await Tummy.find({});
-    res.render('brzuszkowe/index', { tummy, style: 'photo-gallery', title:"Sesje ciążowe", metaDescription: "Sesje Brzuszkowe/ciążowe | Karolina Pastuszak Photography", metaKeywords: "sesja ciążowa, fotograf bielsko, sesja ciążowa w plenerze, sesja ciążowa w studio, sesja ciążowa bielsko, sesja ciążowa z partnerem", nonce: nonce  });
+    res.render('sesja-brzuszkowa/index', { tummy, style: 'photo-gallery', title:"Sesja ciążowa - w studio i w plenerze | Fotograf Bielsko", metaDescription: "Sesja ciążowa ma uwidocznić emocje - oczekiwanie, rodzącą się więź, miłość. Kobieta w ciąży promienieje I wygląda piękniej niż kiedykolwiek", metaKeywords: "fotograf bielsko, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja ciążowa, sesje ciążowe, zdjęcia ciążowe, sesja ciążowa z partnerem, sesja ciążowa w plenerze, sesja ciążowa studio, fotografia ciążowa, sesja ciążowa w studio, sesja w ciąży", nonce: nonce  });
 };
 
 // Creating a new pregnant photoshoot
@@ -17,13 +17,13 @@ module.exports.createTummyPshoot = async (req, res) => {
     tummy.owner = req.user._id;
     await tummy.save();
     req.flash('success', 'Dodałaś zdjęcie');
-    res.redirect(`/brzuszkowe/${tummy._id}`)
+    res.redirect(`/sesja-brzuszkowa/${tummy._id}`)
 };
 
 // Render a new pregnant photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('brzuszkowe/new', { style: 'photo-gallery', title:"sesje brzuszkowe", metaDescription: "Sesje brzuszkowe/ciążowe | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce });
+    res.render('sesja-brzuszkowa/new', { style: 'photo-gallery', title:"sesje brzuszkowe", metaDescription: "Sesje brzuszkowe/ciążowe | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce });
 };
 
 // Showing details of the pregnant photoshoot
@@ -35,7 +35,7 @@ module.exports.showTummyPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/brzuszkowe');
     }
-    res.render('brzuszkowe/show', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe", metaDescription: "Sesje brzuszkowe/ciążowe | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
+    res.render('sesja-brzuszkowa/show', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe", metaDescription: "Sesje brzuszkowe/ciążowe | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
 };
 
 // Render update/edit pregnant photoshoot page
@@ -47,7 +47,7 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/brzuszkowe');
     }
-    res.render('brzuszkowe/edit', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe", metaDescription: "Sesje brzuszkowe/ciążowe | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
+    res.render('sesja-brzuszkowa/edit', { tummy, style: 'photo-gallery', title:"sesje brzuszkowe", metaDescription: "Sesje brzuszkowe/ciążowe | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
 };
 
 // Update/edit pregnant photoshoot
@@ -80,5 +80,5 @@ module.exports.deleteTummyPshoot = async (req, res) => {
           }
         };
     req.flash('success', 'Usunęłaś zdjęcie!')
-    res.redirect('/brzuszkowe')
+    res.redirect('/sesja-brzuszkowa')
 };

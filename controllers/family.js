@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.indexFamily = async (req, res) => {
     const family = await Family.find({});
-    res.render('rodzinne/index', { family, style: 'photo-gallery', title: "Sesje rodzinne", metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, sesja rodzinna bielsko, sesja zdjęciowa rodzinna, fotograf śląsk, profesjonalne sesje zdjęciowe bielsko-biała", nonce: nonce  });
+    res.render('sesja-rodzinna/index', { family, style: 'photo-gallery', title: "Sesja rodzinna - w studio i w plenerze | Fotograf Bielsko", metaDescription: "Sesja rodzinna to nie tylko wspaniała pamiątka, ale również prawdziwa przygoda, którą przeżyjecie razem. Zdjęcia rodzinne można zaplanować w studio lub w plenerze.", metaKeywords: "ffotograf bielsko, fotografia bielsko, fotograf bielsko-biała, sesja rodzinna, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja rodzinna w plenerze, fotografia rodzinna, sesje rodzinne, sesja zdjęciowa rodzinna, rodzinna sesja zdjęciowa, sesja rodzinna w studio", nonce: nonce  });
 };
 
 // Creating a new family photoshoot
@@ -18,13 +18,13 @@ module.exports.createFamilyPshoot = async (req, res) => {
     await family.save();
     req.flash('success', 'Dodałaś zdjęcie!!');
     // req.flash('success', 'Brawo! Stworzyłaś rodzinną. Przepiękna!!');
-    res.redirect(`/rodzinne/${family._id}`)
+    res.redirect(`/sesja-rodzinna/${family._id}`)
 };
 
 // Render a new family photoshoot page
 
 module.exports.renderNewFamilyPshoot = (req, res) => {
-    res.render('rodzinne/new', { style: 'photo-gallery', title: "Sesje rodzinne", metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce  });
+    res.render('sesja-rodzinna/new', { style: 'photo-gallery', title: "Sesje rodzinne", metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce  });
 };
 
 // Showing details of the photoshoot
@@ -36,7 +36,7 @@ module.exports.showFamilyPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/rodzinne');
     }
-    res.render('rodzinne/show', { family, style: 'photo-gallery', title: "Sesje rodzinne", metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce  })
+    res.render('sesja-rodzinna/show', { family, style: 'photo-gallery', title: "Sesje rodzinne", metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce  })
 };
 
 // Render update/edit family photoshoot page
@@ -48,7 +48,7 @@ module.exports.renderEditFamilyPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/rodzinne');
     }
-    res.render('rodzinne/edit', { family, style: 'photo-gallery', title: "Sesje rodzinne", metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce  })
+    res.render('sesja-rodzinna/edit', { family, style: 'photo-gallery', title: "Sesje rodzinne", metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce  })
 };
 
 // Update/edit family photoshoot
@@ -82,6 +82,6 @@ module.exports.deleteFamilyPshoot = async (req, res) => {
         };
     req.flash('success', 'Usunęłaś zdjęcie')
     // req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
-    res.redirect('/rodzinne')
+    res.redirect('/sesja-rodzinna')
 };
 

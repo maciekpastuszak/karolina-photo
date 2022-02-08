@@ -6,8 +6,8 @@
             </h2>
             <section class="d-flex h-100">
                 <% if(currentUser && newborn.owner.equals(currentUser._id)) { %>
-                    <a class="btn btn-warning mx-2" href="/noworodki/<%=newborn._id%>/edit">Edytuj sesję</a>
-                    <form action="/noworodki/<%=newborn._id%>?_method=DELETE" method="POST">
+                    <a class="btn btn-warning mx-2" href="/sesja-noworodkowa/<%=newborn._id%>/edit">Edytuj sesję</a>
+                    <form action="/sesja-noworodkowa/<%=newborn._id%>?_method=DELETE" method="POST">
                         <button class="btn btn-danger">Skasuj sesję</button>
                     </form>
             </section>
@@ -39,6 +39,6 @@
             </div>
         </div>
         <footer class="footer my-3 py-2 text-center">
-            <a href="/noworodki">Wróć do wszytkich sesji</a>
+            <a href="/sesja-noworodkowa">Wróć do wszytkich sesji</a>
         </footer>
     </div>

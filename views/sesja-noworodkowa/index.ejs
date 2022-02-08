@@ -3,11 +3,11 @@
         <div class="d-flex justify-content-between">
             <div></div>
             <div>
-                <h2 class="pshoot-header">Sesje noworodkowe</h2>
+                <h2 class="pshoot-header">Sesja noworodkowa</h2>
             </div>
             <div>
                 <% if(currentUser) { %>
-                    <a class="btn btn-warning" href="/noworodki/new">Dodaj zdjęcie</a>
+                    <a class="btn btn-warning" href="/sesja-noworodkowa/new">Dodaj zdjęcie</a>
                     <% } %>
             </div>
         </div>
@@ -25,7 +25,7 @@
                         <div class="pshoot-card card mb-3">
                             <div class="card-body p-0">
                                 <% if(currentUser) { %>
-                                    <a href="noworodki/<%=newb._id%>">link</a>
+                                    <a href="sesja-noworodkowa/<%=newb._id%>">link</a>
                                     <% } %>
                                 <div>
                                     <% if(newb.images.length) {%>

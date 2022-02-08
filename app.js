@@ -38,7 +38,7 @@ const { contentSecurityPolicy } = require('helmet');
 const MongoStore = require('connect-mongo');
 
 // connect to db
-const dbUrl = process.env.DB_URL2
+const dbUrl = process.env.DB_URL1
 mongoose.connect(dbUrl, { 
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -182,11 +182,11 @@ app.use((req, res, next) => {
 
 app.use(morgan('tiny'));
 app.use('/', usersRoutes);
-app.use('/dzieci', kidsRoutes);
-app.use('/rodzinne', familyRoutes);
-app.use('/brzuszkowe', tummyRoutes);
-app.use('/noworodki', newbornRoutes);
-app.use('/komunijne', communionRoutes);
+app.use('/sesja-dziecieca', kidsRoutes);
+app.use('/sesja-rodzinna', familyRoutes);
+app.use('/sesja-brzuszkowa', tummyRoutes);
+app.use('/sesja-noworodkowa', newbornRoutes);
+app.use('/sesja-komunijna', communionRoutes);
 
 app.get('/', (req, res) => {
     res.render('index', { style: 'app', 
@@ -197,41 +197,41 @@ app.get('/', (req, res) => {
 
 app.get('/studio', (req, res) => {
     res.render('studio', { style: 'studio',
-                           title: "Studio fotograficzne",
-                           metaDescription: "Moje studio fotograficzne, do którego zapraszam na profesjonalne sesje zdjęciowe. Zapraszam również na sesje plenerowe",
-                           metaKeywords:"fotograf bielsko, studio fotograficzne, sesja świąteczna bielsko, sesja komunijna, sesja ciążowa w plenerze",
+                           title: "Sesja studyjna, sesja w plenerze | Fotograf Bielsko",
+                           metaDescription: "Zapraszam na sesję studyjną oraz sesję w plenerze - noworodkową, ciążową, kobiecą, rodzinną, dziecięcą.",
+                           metaKeywords:"ffotograf bielsko, fotografia bielsko, fotograf bielsko-biała, fotografia dziecięca, sesja komunijna, sesja noworodkowa, sesja rodzinna, sesja ciążowa, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja ciążowa bielsko, sesja noworodkowa bielsko, sesja kobieca bielsko",
                            nonce: nonce });
 });
 
 app.get('/przed_sesja', (req, res) => {
     res.render('przedsesja', { style: 'beforePS',
-                               title: "Jak przygotować się do sesji zdjęciowej",
-                               metaDescription: "Kilka porad, jak przygotować się do sesji noworodkowej, sesji brzuszkowej, sesji rodzinnej i innych",
-                               metaKeywords:"fotograf bielsko, przed sesją zdjęciową, sesja noworodkowa do kiedy, sesja zdjęciowa z makijażem i fryzurą bielsko, sesja ciążowa w studio, kiedy sesja ciążowa", 
+                               title: "Sesja zdjęciowa - jak się przygotowć? | Fotograf Bielsko",
+                               metaDescription: "O czym warto pamiętać przed sesją zdjęciową noworodkową lub rodzinną? Jak się przygotować do sesji ciążowej?",
+                               metaKeywords:"fotograf bielsko, fotografia bielsko, fotograf bielsko-biała, fotografia dziecięca, sesja komunijna, sesja noworodkowa, sesja rodzinna, sesja ciążowa, sesja studyjna, sesja w plenerze, sesja zdjęciowa", 
                                nonce: nonce});
 });
 
 app.get('/voucher', (req, res) => {
     res.render('voucher', { style: 'voucher',
-                            title: "Vouchery na sesje fotograficzne",
-                            metaDescription: "Bon podarunkowy na sesję fotograficzną w Bielsku-Białej to wyjątkowy pomysł na prezent. Zapraszam do zakupu",
-                            metaKeywords: "fotograf bielsko, voucher na sesję fotograficzną, kupon sesja fotograficzna, promocja sesja zdjęciowa",
+                            title: "Voucher - sesja zdjęciowa na prezent | Fotograf Bielsko",
+                            metaDescription: "Bon podarunkowy na sesję zdjęciową to wyjątkowy pomysł na prezent z okazji narodzin dziecka, urodzin, rocznicy śluby.",
+                            metaKeywords: "fotograf bielsko, fotografia bielsko, voucher, voucher podarunkowy, bon podarunkowy, voucher na sesję fotograficzną, fotograf bielsko-biała, fotografia dziecięca, sesja komunijna, sesja noworodkowa, sesja rodzinna, sesja ciążowa, sesja studyjna, sesja w plenerze, sesja zdjęciowa",
                             nonce: nonce });
 });
 
 app.get('/cennik', (req, res) => {
     res.render('cennik', { style: 'pricing',
-                           title: "Cennik sesji fotograficznych",
-                           metaDescription: "Ile kosztuje sesja fotograficzna? Zapraszam do zapoznania się z moim cennikiem",
-                           metaKeywords: "fotograf bielsko cennik, sesja zdjęciowa bielsko cena, sesja plenerowa cena, fotograf ślubny śląsk cennik, sesja dziecięca cena, sesja świąteczna cennik",
+                           title: "Ile kosztuje sesja zdjęciowa? Cennik | Fotograf Bielsko",
+                           metaDescription: "Ile kosztuje sesja zdjęciowa noworodkowa, ciążowa, dziecięca, rodzinna, kobieca? Od czego zależy cena? Zapraszam do zapoznania się z pakietami!",
+                           metaKeywords: "fotograf bielsko, cennik sesji zdjęciowej, fotografia bielsko, fotograf bielsko-biała,ile kosztuje sesja zdjęciowa, koszt sesji zdjęciowej, cena sesji zdjęciowej, fotografia dziecięca, sesja komunijna, sesja noworodkowa, sesja rodzinna, sesja ciążowa, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja ciążowa bielsko, sesja noworodkowa bielsko, sesja kobieca bielsko",
                            nonce: nonce });
 });
 
 app.get('/kontakt', (req, res) => {
     res.render('kontakt', { style: 'contact',
-                            title: "Dane kontaktowe Karolina Pastuszak Photography",
-                            metaDescription: "Lokalizacja i dane adresowe mojego studia",
-                            metaKeywords: "Karolina Pastuszak Photography, fotograf bielsko kontakt, fotograf bielsko 11 listopada, fotograf pod orłem, fotograf śląsk kontakt",
+                            title: "Kontakt - Karolina Pastuszak Photography | Fotograf Bielsko",
+                            metaDescription: "Moje studio zlokalizowane jest w zabytkowej Kamienicy pod Orłem w Bielsku-Białej. Studio jest profesjonalnie wyposażone i przystosowane do różnego rodzaju sesji – noworodkowych, ciążowych, kobiecych, rodzinnych, wizerunkowych.",
+                            metaKeywords: "fotograf bielsko, fotografia bielsko, fotograf bielsko-biała, fotografia dziecięca, sesja komunijna, sesja noworodkowa, sesja rodzinna, sesja ciążowa, sesja studyjna, sesja w plenerze, sesja zdjęciowa",
                             nonce: nonce});
 });
 
@@ -239,9 +239,9 @@ app.get('/sitemap.xml', (req, res) => {
     res.sendFile('sitemap.xml', { root: '.' });
     });
 
-// app.get('/robots.txt', (req, res) => {
-//         res.sendFile('robots.txt', { root: '.' });
-//         });
+app.get('/robots.txt', (req, res) => {
+        res.sendFile('robots.txt', { root: '.' });
+        });
     
 
 app.all('*', (req, res, next) => {

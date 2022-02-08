@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.index = async (req, res) => {
     const communions = await Communion.find({});
-    res.render('komunijne/index', { communions, style: 'photo-gallery', title:"Sesje komunijne", metaDescription: "Sesje komunijne | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja komunijna, zdjęcia komunijne, fotograf śląsk", nonce: nonce });
+    res.render('sesja-komunijna/index', { communions, style: 'photo-gallery', title:"Sesja komunijna - w plenerze i w studio | Fotograf Bielsko", metaDescription: "Na sesję komunijną możemy się umówić już w dniu uroczystości lub w innym dogodnym dla Państwa terminie.", metaKeywords: "fotograf bielsko, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja komunijna, zdjęcia komunijne w plenerze, sesja komunijna w plenerze, sesje komunijne, sesja komunijna studio, sesja zdjęciowa komunijna", nonce: nonce });
 };
 
 // Creating a new communion photoshoot
@@ -18,13 +18,13 @@ module.exports.createCommunionPshoot = async (req, res, next) => {
     await communions.save();
     req.flash('success', 'Dodałaś zdjęcie');
     // req.flash('success', 'Brawo! Stworzyłaś nową sesję dziecięcą. Przepiękna!!');
-    res.redirect(`/komunijne/${communions._id}`)
+    res.redirect(`/sesja-komunijna/${communions._id}`)
 };
 
 // Render a new communion photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('komunijne/new', { style: 'photo-gallery', title:"Sesje komunijne", metaDescription: "Sesje komunijne | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja komunijna, zdjęcia komunijne, fotograf śląsk", nonce: nonce });
+    res.render('sesja-komunijna/new', { style: 'photo-gallery', title:"Sesje komunijne", metaDescription: "Sesje komunijne | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja komunijna, zdjęcia komunijne, fotograf śląsk", nonce: nonce });
 };
 
 // Showing details of the photoshoot
@@ -36,7 +36,7 @@ module.exports.showCommunionPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/komunijne');
     }
-    res.render('komunijne/show', { communions, style: 'photo-gallery', title:"Sesje komunijne",metaDescription: "Sesje komunijne | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
+    res.render('sesja-komunijna/show', { communions, style: 'photo-gallery', title:"Sesje komunijne",metaDescription: "Sesje komunijne | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
 };
 
 // Render update/edit photoshoot page
@@ -48,7 +48,7 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/komunijne');
     }
-    res.render('komunijne/edit', { communions, style: 'photo-gallery', title:"Sesje komunijne",metaDescription: "Sesje komunijne | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
+    res.render('sesja-komunijna/edit', { communions, style: 'photo-gallery', title:"Sesje komunijne",metaDescription: "Sesje komunijne | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
 };
 
 // Update/edit photoshoot
@@ -82,6 +82,6 @@ module.exports.deleteCommunionPshoot = async (req, res) => {
         };
     req.flash('success', 'Usunęłaś zdjęcie')
     // req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
-    res.redirect('/komunijne')
+    res.redirect('/sesja-komunijna')
 };
 

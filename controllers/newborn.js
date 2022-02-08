@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.index = async (req, res) => {
     const newborn = await Newborn.find({});
-    res.render('noworodki/index', { newborn, style: 'photo-gallery', title:"Sesje noworodkowe", metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja noworodkowa śląsk, sesja noworodkowa Bielsko-Biała, sesja niemowlęca", nonce: nonce  });
+    res.render('sesja-noworodkowa/index', { newborn, style: 'photo-gallery', title:"Sesja noworodkowa - co warto wiedzieć? | Fotograf Bielsko", metaDescription: "Sesję noworodkową najlepiej jest zarezerwować będąc w ciąży. Przyjęło się, że wykonywana jest maksymalnie do 21 dnia życia Maluszka.", metaKeywords: "fotograf bielsko, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, zdjęcia noworodkowe, sesje noworodkowe, sesja noworodkowa z rodzicami, fotografia noworodkowa, sesja noworodkowa rodzinna, noworodek sesja", nonce: nonce  });
 };
 
 // Creating a new newborn photoshoot
@@ -17,13 +17,13 @@ module.exports.createNewbornPshoot = async (req, res) => {
     newborn.owner = req.user._id;
     await newborn.save();
     req.flash('success', 'Brawo! Dodałaś zdjęcie');
-    res.redirect(`/noworodki/${newborn._id}`)
+    res.redirect(`/sesja-noworodkowa/${newborn._id}`)
 };
 
 // Render a new newborn photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('noworodki/new', { style: 'photo-gallery', title:"Sesje noworodkowe", metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja noworodkowa śląsk, sesja noworodkowa Bielsko-Biała, sesja niemowlęca", nonce: nonce });
+    res.render('sesja-noworodkowa/new', { style: 'photo-gallery', title:"Sesje noworodkowe", metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja noworodkowa śląsk, sesja noworodkowa Bielsko-Biała, sesja niemowlęca", nonce: nonce });
 };
 
 // Showing details of the photoshoot
@@ -35,7 +35,7 @@ module.exports.showNewbornPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/noworodki');
     }
-    res.render('noworodki/show', { newborn, style: 'photo-gallery', title:"Sesje noworodkowe", metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja noworodkowa śląsk, sesja noworodkowa Bielsko-Biała, sesja niemowlęca", nonce: nonce })
+    res.render('sesja-noworodkowa/show', { newborn, style: 'photo-gallery', title:"Sesje noworodkowe", metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja noworodkowa śląsk, sesja noworodkowa Bielsko-Biała, sesja niemowlęca", nonce: nonce })
 };
 
 // Render update/edit photoshoot page
@@ -47,7 +47,7 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/noworodki');
     }
-    res.render('noworodki/edit', { newborn, style: 'photo-gallery', title:"Sesje noworodkowe", metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja noworodkowa śląsk, sesja noworodkowa Bielsko-Biała, sesja niemowlęca", nonce: nonce })
+    res.render('sesja-noworodkowa/edit', { newborn, style: 'photo-gallery', title:"Sesje noworodkowe", metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja noworodkowa śląsk, sesja noworodkowa Bielsko-Biała, sesja niemowlęca", nonce: nonce })
 };
 
 // Update/edit photoshoot
@@ -80,6 +80,6 @@ module.exports.deleteNewbornPshoot = async (req, res) => {
           }
         };
     req.flash('success', 'Usunęłaś zdjęcie!')
-    res.redirect('/noworodki')
+    res.redirect('/sesja-noworodkowa')
 };
 

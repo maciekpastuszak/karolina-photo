@@ -3,11 +3,11 @@
         <div class="d-flex justify-content-between">
             <div></div>
             <div>
-                <h2 class="pshoot-header">Sesje rodzinne</h2>
+                <h2 class="pshoot-header">Sesja rodzinna</h2>
             </div>
             <div>
                 <% if(currentUser) { %>
-                    <a class="btn btn-warning" href="/rodzinne/new">Dodaj zdjęcie</a>
+                    <a class="btn btn-warning" href="/sesja-rodzinna/new">Dodaj zdjęcie</a>
                     <% } %>
             </div>
         </div>
@@ -22,7 +22,7 @@
                         <div class="pshoot-card card mb-4">
                             <div class="card-body p-0">
                                 <% if(currentUser) { %>
-                                    <a href="rodzinne/<%=fam._id%>">link</a>
+                                    <a href="sesja-rodzinna/<%=fam._id%>">link</a>
                                     <% } %>
                                 <div>
                                     <% if(fam.images.length) {%>

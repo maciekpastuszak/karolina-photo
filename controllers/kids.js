@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.index = async (req, res) => {
     const kids = await Kid.find({});
-    res.render('dzieci/index', { kids, style: 'photo-gallery', title:"Sesje dziecięce", metaDescription: "Sesje dziecięce | Karolina Pastuszak Photography", metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja dziecięca, fotograf śląsk", nonce: nonce });
+    res.render('sesja-dziecieca/index', { kids, style: 'photo-gallery', title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", metaDescription: "Sesja dziecięca jest niepowtarzalną możliwością na uchwycenie ulotnych momentów. Zdjęcia to piękna pamiątka, do której będziemy mogli wracać przez całe życie.", metaKeywords: "fotograf bielsko, cennik sesji zdjęciowej, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja dziecięca, sesje dziecięce, fotograf dziecięcy", nonce: nonce });
 };
 
 // Creating a new kids photoshoot
@@ -18,13 +18,13 @@ module.exports.createKidsPshoot = async (req, res, next) => {
     await kids.save();
     req.flash('success', 'Dodałaś zdjęcie');
     // req.flash('success', 'Brawo! Stworzyłaś nową sesję dziecięcą. Przepiękna!!');
-    res.redirect(`/dzieci/${kids._id}`)
+    res.redirect(`/sesja-dziecieca/${kids._id}`)
 };
 
 // Render a new kids photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('dzieci/new', { style: 'photo-gallery', title:"sesje dziecięce",metaDescription: "Sesje dziecięce | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce });
+    res.render('sesja-dziecieca/new', { style: 'photo-gallery', title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", metaDescription: "", metaKeywords: "", nonce: nonce });
 };
 
 // Showing details of the photoshoot
@@ -36,7 +36,7 @@ module.exports.showKidsPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/dzieci');
     }
-    res.render('dzieci/show', { kids, style: 'photo-gallery', title:"sesje dziecięce",metaDescription: "Sesje dziecięce | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
+    res.render('sesja-dziecieca/show', { kids, style: 'photo-gallery', title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", metaDescription: "", metaKeywords: "", nonce: nonce })
 };
 
 // Render update/edit photoshoot page
@@ -48,7 +48,7 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/dzieci');
     }
-    res.render('dzieci/edit', { kids, style: 'photo-gallery', title:"sesje dziecięce",metaDescription: "Sesje dziecięce | Karolina Pastuszak Photography", metaKeywords: "", nonce: nonce })
+    res.render('sesja-dziecieca/edit', { kids, style: 'photo-gallery', title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", metaDescription: "", metaKeywords: "", nonce: nonce })
 };
 
 // Update/edit photoshoot
@@ -82,6 +82,6 @@ module.exports.deleteKidsPshoot = async (req, res) => {
         };
     req.flash('success', 'Usunęłaś zdjęcie')
     // req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
-    res.redirect('/dzieci')
+    res.redirect('/sesja-dziecieca')
 };
 
