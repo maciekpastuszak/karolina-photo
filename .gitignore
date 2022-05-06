@@ -3,3 +3,5 @@ node_modules
 .DS_Store
 /public/images
 .env
+sitemap.xml
+robots.txt
