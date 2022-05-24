@@ -28,7 +28,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const MongoStore = require('connect-mongo');
 
 // connect to db
-const dbUrl = process.env.DB_URL1
+const dbUrl = process.env.DB_URL2;
 mongoose.connect(dbUrl, { 
     useNewUrlParser: true,
     useCreateIndex: true,

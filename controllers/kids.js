@@ -65,7 +65,13 @@ module.exports.renderEditPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/dzieci');
     }
-    res.render('sesja-dziecieca/edit', { kids, style: 'photo-gallery', title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", metaDescription: "", metaKeywords: "", nonce: nonce })
+    res.render('sesja-dziecieca/edit', { kids, 
+                                        style: 'photo-gallery', 
+                                        title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", 
+                                        metaDescription: "", 
+                                        metaKeywords: "", 
+                                        canonicalTag:"https://karolinapastuszak.pl/sesja-dziecieca",
+                                        nonce: nonce })
 };
 
 // Update/edit photoshoot

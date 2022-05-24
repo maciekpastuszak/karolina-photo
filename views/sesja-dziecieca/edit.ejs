@@ -14,7 +14,24 @@
                     <label for="addImages" class="form-label">Dodaj więcej obrazów</label>
                     <input class="form-control" type="file" id="addImages" name="images" multiple>
                 </div>
-                <p>Usuń wybrane zdjęcia:</p>
+
+                <h5> Delete Images </h5>
+    <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
+                <% kids.images.forEach((image, i) => { %>
+                    <div class="col">
+                        <div class="card">
+                            <img class="card-img" src="<%= image.thumbnail %>" alt="">
+                            <div class="card-img-overlay text-end pt-1 pe-2">
+                                <label class="visually-hidden" for="image-<%= i %>">Delete Image</label>
+                                <input class="form-check-input" type="checkbox" name="deleteImages[]" value="<%= image.filename %>"  id="image-<%= i %>">
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+
+
+                <!-- <p>Usuń wybrane zdjęcia:</p>
                 <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
                     <% kids.images.forEach((image, i)=> { %> <div class="col">
                             <div class="card">
@@ -27,7 +44,7 @@
                             </div>
                         </div>
                         <% }) %>
-                </div>
+                </div> -->
                 <div class="mb-3">
                     <button class="btn btn-success">Edytuj sesję</button>
                 </div>
