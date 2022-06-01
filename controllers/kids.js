@@ -22,6 +22,7 @@ module.exports.createKidsPshoot = async (req, res, next) => {
     kids.images = req.files.map(f => ({url: f.path, filename: f.filename}));
     kids.owner = req.user._id;
     await kids.save();
+    console.log(kids);
     req.flash('success', 'Dodałaś zdjęcie');
     // req.flash('success', 'Brawo! Stworzyłaś nową sesję dziecięcą. Przepiękna!!');
     res.redirect(`/sesja-dziecieca/${kids._id}`)
@@ -45,7 +46,7 @@ module.exports.showKidsPshoot = async (req, res) => {
     const kids = await Kid.findById(id).populate('owner');
     if(!kids) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/dzieci');
+        return res.redirect('/sesja-dziecieca');
     }
     res.render('sesja-dziecieca/show', { kids, 
                                          style: 'photo-gallery', 

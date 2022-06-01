@@ -7,7 +7,7 @@
             <section class="d-flex h-100">
                 <% if(currentUser && kids.owner.equals(currentUser._id)) { %>
                     <a class="btn btn-warning mx-2" href="/sesja-dziecieca/<%=kids._id%>/edit">Edytuj zdjęcie</a>
-                    <form action="/sesja-dzecieca/<%=kids._id%>?_method=DELETE" method="POST">
+                    <form action="/sesja-dziecieca/<%=kids._id%>?_method=DELETE" method="POST">
                         <button class="btn btn-danger">Skasuj zdjęcie</button>
                     </form>
             </section>
