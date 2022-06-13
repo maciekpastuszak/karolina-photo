@@ -1,13 +1,13 @@
 <% layout('layouts/boilerplate')%>
+
     <div class="row">
         <h3 class="text-center">Edytuj sesję</h3>
         <div class="col-6 offset-3">
             <form action="/sesja-dziecieca/<%= kids._id%>?_method=PUT " method="POST" novalidate class="validated-form"
                 enctype="multipart/form-data">
                 <div class="mb-3">
-                    <label class="form-label" for="title">Nazwa sesji</label>
-                    <input class="form-control" type="text" id="title" name="kids[title]" value="<%= kids.title %>"
-                        >
+                    <label class="form-label" for="title">Nazwa sesji (opcjonalnie)</label>
+                    <input class="form-control" type="text" id="title" name="kids[title]" value="<%= kids.title %>">
                     <div class="valid-feedback"> Jest OK! </div>
                 </div>
                 <div class="mb-3">
@@ -16,35 +16,17 @@
                 </div>
 
                 <h5> Delete Images </h5>
-                <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
+                <div class="container" id="sortable">
                 <% kids.images.forEach((image, i) => { %>
-                    <div class="col">
-                        <div class="card">
-                            <img class="card-img" src="<%= image.thumbnail %>" alt="" draggable="true">
-                            <div class="card-img-overlay text-end pt-1 pe-2">
-                                <label class="visually-hidden" for="image-<%= i %>">Delete Image</label>
-                                <input class="form-check-input" type="checkbox" name="deleteImages[]" value="<%= image.filename %>"  id="image-<%= i %>">
-                            </div>
-                        </div>
-                    </div>
+                    <img class="m-2 zdjecie" src="<%= image.thumbnail %>" alt="" draggable="true">
+                        <!-- <div class="card-img-overlay text-end pt-1 pe-2">
+                            <label class="visually-hidden" for="image-<%= i %>">Delete Image</label>
+                            <input class="form-check-input" type="checkbox" name="deleteImages[]"
+                                        value="<%= image.filename %>" id="image-<%= i %>">
+                        </div> -->
                 <% }) %>
             </div>
 
-
-                <!-- <p>Usuń wybrane zdjęcia:</p>
-                <div class="row row-cols-1 row-cols-md-4 g-4 mb-3">
-                    <% kids.images.forEach((image, i)=> { %> <div class="col">
-                            <div class="card">
-                                <img class="card-img" src="<%= image.thumbnail %>" alt="">
-                                <div class="card-img-overlay text-end pt-1 pe-2">
-                                    <label class="visually-hidden" for="image-<%= i %>">Delete Image</label>
-                                    <input class="form-check-input" type="checkbox" name="deleteImages[]"
-                                        value="<%= image.filename %>" id="image-<%= i %>">
-                                </div>
-                            </div>
-                        </div>
-                        <% }) %>
-                </div> -->
                 <div class="mb-3">
                     <button class="btn btn-success">Edytuj sesję</button>
                 </div>
@@ -55,3 +37,5 @@
             </div>
         </div>
     </div>
+
+    <script src="/javascripts/gallery.js" defer></script>

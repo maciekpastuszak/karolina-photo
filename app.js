@@ -27,6 +27,10 @@ const mongoSanitize = require('express-mongo-sanitize');
 
 const MongoStore = require('connect-mongo');
 
+const { JSDOM } = require( "jsdom" );
+const { window } = new JSDOM( "" );
+const $ = require( "jquery" )( window );
+
 // connect to db
 const dbUrl = process.env.DB_URL2;
 mongoose.connect(dbUrl, { 
@@ -99,7 +103,8 @@ const scriptSrcUrls = [
     "https://ssl.google-analytics.com",
     "*.facebook.net",
     "https://static.hotjar.com",
-    "https://script.hotjar.com"
+    "https://script.hotjar.com",
+    "https://ajax.googleapis.com"
 ];
 
 const styleSrcUrls = [
