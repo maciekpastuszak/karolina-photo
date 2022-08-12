@@ -18,12 +18,8 @@
                 <h5> Delete Images </h5>
                 <div class="container" id="sortable">
                 <% kids.images.forEach((image, i) => { %>
-                    <img class="m-2 zdjecie" src="<%= image.thumbnail %>" alt="" draggable="true">
-                        <!-- <div class="card-img-overlay text-end pt-1 pe-2">
-                            <label class="visually-hidden" for="image-<%= i %>">Delete Image</label>
-                            <input class="form-check-input" type="checkbox" name="deleteImages[]"
-                                        value="<%= image.filename %>" id="image-<%= i %>">
-                        </div> -->
+                    <img class="m-2" src="<%= image.thumbnail %>" alt="" draggable="true" id="img_<%=i%>">
+                        
                 <% }) %>
             </div>
 

@@ -48,6 +48,7 @@ module.exports.showKidsPshoot = async (req, res) => {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
         return res.redirect('/sesja-dziecieca');
     }
+
     res.render('sesja-dziecieca/show', { kids, 
                                          style: 'photo-gallery', 
                                          title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko",
@@ -83,13 +84,13 @@ module.exports.editKidsPshoot = async (req, res) => {
     const imgs = req.files.map(f => ({url: f.path, filename: f.filename}));
     kids.images.push(...imgs);
     await kids.save();
-    if (req.body.deleteImages) {
-        for(let filename of req.body.deleteImages){
-            await cloudinary.uploader.destroy(filename);
-        }
-        await kids.updateOne({$pull: {images: {filename: {$in: req.body.deleteImages}}}})
-        console.log(kids) 
-    }
+    // if (req.body.deleteImages) {
+    //     for(let filename of req.body.deleteImages){
+    //         await cloudinary.uploader.destroy(filename);
+    //     }
+    //     await kids.updateOne({$pull: {images: {filename: {$in: req.body.deleteImages}}}})
+    //     console.log(kids) 
+    // }
     req.flash('success', 'Super! Zaktualizowałaś tą sesję')
     res.redirect(`${kids._id}`)
 };
@@ -108,4 +109,3 @@ module.exports.deleteKidsPshoot = async (req, res) => {
     // req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
     res.redirect('/sesja-dziecieca')
 };
-

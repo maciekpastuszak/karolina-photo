@@ -1,7 +1,37 @@
-$( function() {
-  $( "#sortable" ).sortable();
-  $( "#sortable" ).disableSelection();
-} );
+
+$(function() {
+  $("#sortable").sortable({
+    update: function(event, ui) {
+      var sorted = $(this).sortable("serialize");
+      var sortedIDs = $(this).sortable("toArray");
+      var urls = null;
+      $('#sortable img').each(function() {
+        urls = $(this).attr("src");
+        console.log(urls)
+      });
+      var url = '/sesja-dziecieca/6294bd5e98fe0345ada2168e';
+      axios.get(url)
+      .then(res => {
+        console.log("RESPONSE: ", res)
+      })
+      
+    }
+  });
+  $("#sortable").disableSelection();
+});
+
+
+
+// $("#sortable").sortable({
+//   stop: function(event, ui) {
+//       $(this).children("li").each(function(index) {
+//           $(this).attr("value", index);
+//       });
+//   }
+// });
+
+
+
 
 // const draggables = document.querySelectorAll('.draggable')
 // const containers = document.querySelectorAll('.card-draggable')
