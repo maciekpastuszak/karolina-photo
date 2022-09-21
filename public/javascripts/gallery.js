@@ -1,4 +1,5 @@
 
+
 $(function() {
   $("#sortable").sortable({
     update: function(event, ui) {
@@ -7,13 +8,16 @@ $(function() {
       var urls = null;
       $('#sortable img').each(function() {
         urls = $(this).attr("src");
-        console.log(urls)
+        // console.log(urls)
       });
       var url = '/sesja-dziecieca/6294bd5e98fe0345ada2168e';
-      axios.get(url)
-      .then(res => {
-        console.log("RESPONSE: ", res)
-      })
+      // $.ajax({
+      //   type: "POST",
+      //   url: url,
+      //   data: {
+
+      //   }
+      // });
       
     }
   });

@@ -83,6 +83,7 @@ module.exports.editKidsPshoot = async (req, res) => {
     const kids = await Kid.findByIdAndUpdate(id, { ...req.body.kids });
     const imgs = req.files.map(f => ({url: f.path, filename: f.filename}));
     kids.images.push(...imgs);
+    console.log(imgs);
     await kids.save();
     // if (req.body.deleteImages) {
     //     for(let filename of req.body.deleteImages){
