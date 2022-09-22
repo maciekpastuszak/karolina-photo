@@ -28,11 +28,13 @@ const Family = mongoose.model('Family', photoShootSchema);
 const Tummy = mongoose.model('Tummy', photoShootSchema);
 const Newborn = mongoose.model('Newborn', photoShootSchema);
 const Communion = mongoose.model('Communion', photoShootSchema);
+const Christmass = mongoose.model('Christmas', photoShootSchema);
 
 module.exports = {
     Kid,
     Family,
     Tummy,
     Newborn,
-    Communion
+    Communion,
+    Christmas
 }
