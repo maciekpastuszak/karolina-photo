@@ -28,7 +28,7 @@ module.exports.createChristmasPshoot = async (req, res, next) => {
     res.redirect(`/sesja-swiateczna/${christmas._id}`)
 };
 
-// Render a new kids photoshoot page
+// Render a new christmas photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
                                         res.render('sesja-swiateczna/new', { style: 'photo-gallery', 

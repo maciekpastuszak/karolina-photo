@@ -57,3 +57,10 @@ module.exports.communionSchema = Joi.object({
     }).required(),
     deleteImages: Joi.array()
 });
+
+module.exports.christmasSchema = Joi.object({
+    christmas: Joi.object({
+        title: Joi.string().required().escapeHTML(),
+    }).required(),
+    deleteImages: Joi.array()
+});

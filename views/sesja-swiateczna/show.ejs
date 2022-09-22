@@ -2,12 +2,12 @@
     <div class="container pt-3">
         <div class="d-flex justify-content-between">
             <h2 class="pshoot-header">
-                <%= tummy.title %>
+                <%= christmas.title %>
             </h2>
             <section class="d-flex h-100">
-                <% if(currentUser && tummy.owner.equals(currentUser._id)) { %>
-                    <a class="btn btn-warning mx-2" href="/sesja-brzuszkowa/<%=tummy._id%>/edit">Edytuj sesję</a>
-                    <form action="/sesja-brzuszkowa/<%=tummy._id%>?_method=DELETE" method="POST">
+                <% if(currentUser && christmas.owner.equals(currentUser._id)) { %>
+                    <a class="btn btn-warning mx-2" href="/sesja-swiateczna/<%=christmas._id%>/edit">Edytuj sesję</a>
+                    <form action="/sesja-swiateczna/<%=christmas._id%>?_method=DELETE" method="POST">
                         <button class="btn btn-danger">Skasuj sesję</button>
                     </form>
             </section>
@@ -16,7 +16,7 @@
         <section class="gallery pt-3">
             <div class="container-lg d-flex flex-column align-items-center">
                 <!-- <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3"> -->
-                <% for(let img of tummy.images) { %>
+                <% for(let img of christmas.images) { %>
                     <div class="col d-flex justify-content-center my-3 pe-2">
                         <img src="<%= img.url %> " alt="" class="gallery-item " alt="gallery">
                     </div>
@@ -39,6 +39,6 @@
             </div>
         </div> -->
         <footer class="footer my-3 py-2 text-center">
-            <a href="/sesja-brzuszkowa">Wróć do wszytkich sesji</a>
+            <a href="/sesja-siwateczna">Wróć do wszytkich sesji</a>
         </footer>
     </div>

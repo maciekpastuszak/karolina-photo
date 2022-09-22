@@ -12,6 +12,7 @@ const familyRoutes = require('./routes/family');
 const tummyRoutes = require('./routes/tummy');
 const newbornRoutes = require('./routes/newborn');
 const communionRoutes = require('./routes/communion');
+const christmasRoutes = require('./routes/christmas');
 const usersRoutes = require('./routes/users');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
@@ -88,76 +89,76 @@ const sessionConfig = {
 }
 app.use(session(sessionConfig));
 app.use(flash());
-// app.use(helmet());
+app.use(helmet());
 
-// const scriptSrcUrls = [
-//     "https://stackpath.bootstrapcdn.com/",
-//     "https://api.tiles.mapbox.com/",
-//     "https://api.mapbox.com/",
-//     "https://fonts.googleapis.com/",
-//     "https://fonts.gstatic.com",
-//     "https://cdnjs.cloudflare.com/",
-//     "https://cdn.jsdelivr.net",
-//     "https://www.googletagmanager.com",
-//     "https://www.google-analytics.com",
-//     "https://ssl.google-analytics.com",
-//     "*.facebook.net",
-//     "https://static.hotjar.com",
-//     "https://script.hotjar.com",
-//     "https://ajax.googleapis.com"
-// ];
+const scriptSrcUrls = [
+    "https://stackpath.bootstrapcdn.com/",
+    "https://api.tiles.mapbox.com/",
+    "https://api.mapbox.com/",
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com",
+    "https://cdnjs.cloudflare.com/",
+    "https://cdn.jsdelivr.net",
+    "https://www.googletagmanager.com",
+    "https://www.google-analytics.com",
+    "https://ssl.google-analytics.com",
+    "*.facebook.net",
+    "https://static.hotjar.com",
+    "https://script.hotjar.com",
+    "https://ajax.googleapis.com"
+];
 
-// const styleSrcUrls = [
-//     "https://fonts.googleapis.com/",
-//     "https://api.mapbox.com/",
-//     "https://api.tiles.mapbox.com/",
-//     "https://fonts.googleapis.com/",
-//     "https://fonts.gstatic.com",
-//     "https://use.fontawesome.com/",
-//     "https://cdn.jsdelivr.net",
-// ];
-// const connectSrcUrls = [
-//     "https://api.mapbox.com/",
-//     "https://a.tiles.mapbox.com/",
-//     "https://b.tiles.mapbox.com/",
-//     "https://events.mapbox.com/",
-//     "https://www.googletagmanager.com",
-//     "https://www.google-analytics.com",
-//     "www.facebook.com",
-//     "*.hotjar.com",
-//     "wss://*.hotjar.com",
-//     "*.hotjar.io"
-// ];
-// const fontSrcUrls = [
-//     "https://fonts.gstatic.com",
-//     "https://fonts.googleapis.com/",
-//     "script.hotjar.com"
-// ];
-// app.use(
-//     helmet.contentSecurityPolicy({
-//         useDefaults: true,
-//         directives: {
-//             defaultSrc: ["'self'"],
-//             connectSrc: ["'self'", ...connectSrcUrls],
-//             scriptSrc: ["'self'", `'nonce-${nonce}'`, ...scriptSrcUrls],
-//             styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-//             workerSrc: ["'self'", "blob:"],
-//             objectSrc: [],
-//             frameSrc: ["vars.hotjar.com"],
-//             imgSrc: [
-//                 "'self'",
-//                 "blob:",
-//                 "data:",
-//                 "https://res.cloudinary.com/dqcadja0y/",
-//                 "https://images.unsplash.com/",
-//                 "https://www.google-analytics.com",
-//                 "www.facebook.com",
-//                 "script.hotjar.com"
-//             ],
-//             fontSrc: ["'self'", ...fontSrcUrls],
-//         },
-//     })
-// );
+const styleSrcUrls = [
+    "https://fonts.googleapis.com/",
+    "https://api.mapbox.com/",
+    "https://api.tiles.mapbox.com/",
+    "https://fonts.googleapis.com/",
+    "https://fonts.gstatic.com",
+    "https://use.fontawesome.com/",
+    "https://cdn.jsdelivr.net",
+];
+const connectSrcUrls = [
+    "https://api.mapbox.com/",
+    "https://a.tiles.mapbox.com/",
+    "https://b.tiles.mapbox.com/",
+    "https://events.mapbox.com/",
+    "https://www.googletagmanager.com",
+    "https://www.google-analytics.com",
+    "www.facebook.com",
+    "*.hotjar.com",
+    "wss://*.hotjar.com",
+    "*.hotjar.io"
+];
+const fontSrcUrls = [
+    "https://fonts.gstatic.com",
+    "https://fonts.googleapis.com/",
+    "script.hotjar.com"
+];
+app.use(
+    helmet.contentSecurityPolicy({
+        useDefaults: true,
+        directives: {
+            defaultSrc: ["'self'"],
+            connectSrc: ["'self'", ...connectSrcUrls],
+            scriptSrc: ["'self'", `'nonce-${nonce}'`, ...scriptSrcUrls],
+            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
+            workerSrc: ["'self'", "blob:"],
+            objectSrc: [],
+            frameSrc: ["vars.hotjar.com"],
+            imgSrc: [
+                "'self'",
+                "blob:",
+                "data:",
+                "https://res.cloudinary.com/dqcadja0y/",
+                "https://images.unsplash.com/",
+                "https://www.google-analytics.com",
+                "www.facebook.com",
+                "script.hotjar.com"
+            ],
+            fontSrc: ["'self'", ...fontSrcUrls],
+        },
+    })
+);
 
 
 app.use(passport.initialize());
@@ -183,6 +184,8 @@ app.use('/sesja-rodzinna', familyRoutes);
 app.use('/sesja-brzuszkowa', tummyRoutes);
 app.use('/sesja-noworodkowa', newbornRoutes);
 app.use('/sesja-komunijna', communionRoutes);
+app.use('/sesja-noworodkowa', newbornRoutes);
+app.use('/sesja-swiateczna', christmasRoutes);
 
 app.get('/', (req, res) => {
     res.render('index', { style: 'app', 

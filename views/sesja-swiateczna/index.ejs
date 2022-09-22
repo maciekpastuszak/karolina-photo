@@ -3,49 +3,53 @@
         <div class="d-flex justify-content-between">
             <div></div>
             <div>
-                <h2 class="pshoot-header">Sesja brzuszkowa</h2>
+                <h2 class="pshoot-header">Dziecięce Mini Sesje Świąteczne</h2>
             </div>
            
           
             <div>
                 <% if(currentUser) { %>
-                    <a class="btn btn-warning" href="/sesja-brzuszkowa/new">Dodaj zdjęcie</a>
+                    <a class="btn btn-warning" href="/sesja-swiateczna/new">Dodaj zdjęcie</a>
                     <% } %>
             </div>
         </div>
         <div class="fade_rule"></div>
         <br>
         
-        <p class="card-text shootIntro">Kobieta w ciąży promienieje, wygląda piękniej niż kiedykolwiek i zachwycająco wychodzi na zdjęciach. Dlatego fotografia ciążowa jest mi szczególnie bliska. Sesje przebiegają idealnie, a efekty są za każdym razem olśniewające.</p>    
-        <p class="card-text shootIntro">Posiadam suknie ciążowe, które pięknie podkreślą atuty przyszłej Mamy i sprawią, że poczuje się wyjątkowo. Podczas takiej sesji zawsze proszę o zabranie rekwizytów takich jak malutkie skarpeteczki, buciki lub zdjęcie USG. Można zabrać również pluszaka lub body. W sesji ciążowej udział może wziąć również przyszły Tata i rodzeństwo Maleństwa.</p>    
-        <p class="card-text shootIntro">Zdaję sobie sprawę z tego, że część przyszłych Mam może czuć się opuchnięta i dostrzega dodatkowe kilogramy. Uwierzcie mi - wyglądacie przepięknie i obiektyw Was pokocha.</p>    
-        <p class="card-text shootIntro">Kiedy byłam w pierwszej ciąży niezbyt dobrze się czułam, z trudem łapałam oddech, sapałam jak parowóz i miałam rwę kulszową i wiecie co? Na zdjęciach z mojej sesji ciążowej żadnej z tych rzeczy nie było widać. Wyglądałam lepiej niż kiedykolwiek i bardzo lubię wracać do tych zdjęć.</p>    
-        <p><strong>Sesja ciążowa ma uwidocznić emocje - oczekiwanie, rodzącą się więź, miłość.</strong></p>
+        <p class="card-text shootIntro">Boże Narodzenie to wyjątkowy czas, na który co roku czekają zarówno dzieci jak i dorośli. To czas pełen magii i radości, mieniący się milionami światełek i pachnący choinką.</p>    
+        <p class="card-text shootIntro">Co prawda na święta przyjdzie nam jeszcze poczekać, ale już dziś serdecznie zapraszam na bajkowe sesje zdjęciowe, które przeniosą Was w świąteczny klimat.</p>    
+       <p>Pakiet zawiera: </p>
+       <ul>
+        <li>40 minut sesji</li>
+        <li>5 wybranych kadrów w wersji elektronicznej</li>
+        <li>5 odbitek w formacie 15x21cm</li>
+        <li>dodatkowe ujęcie w cenie 30 zł/szt.</li>
+        <li>koszt 250 zł</li>
+       </ul>
+       
+    <br>
+
+       <ul>
+        <li>Rezerwacja terminu następuje po wpłacie 50 zł bezzwrotnej opłaty rezerwacyjnej.</li>
+        <li>Pozostała kwota płatna podczas sesji</li>
+        <li>W sesji może wziąć udział tylko jedna rodzina z dzieckiem lub rodzeństwem.</li>
+        <li>Rodzice zapewniają stroje dla siebie i dla dzieci.</li>
+       </ul>
             
-        <div class="container">
-            <div class="row justify-content-start">
-                <% for (let tum of tummy) { %>
-                    <div class="col-xs-12 col-md-6 px-3 py-3">
-                        <div class="pshoot-card card mb-4">
-                            <div class="card-body p-0">
-                                <% if(currentUser) { %>
-                                    <a href="sesja-brzuszkowa/<%=tum._id%>">link</a>
-                                    <% } %>
-                                <div>
-                                    <% if(tum.images.length) {%>
-                                        <img class="card-img-top" src="<%= tum.images[0].url %>" alt="card-img"
-                                            id="pshoot-img">
-                                        <% } else {%>
-                                            <img class="card-img-top"
-                                                src="https://res.cloudinary.com/dqcadja0y/image/upload/v1617459271/sample.jpg"
-                                                alt="card-img" id="pshoot-img">
-                                            <% } %>
-                                            
-                                            </div>
-                            </div>
-                        </div>
-                    </div>
-                    <% } %>
-            </div>
-        </div>
+       <div class="container">
+        <% for (let i of christmas) {%>
+         <% if(currentUser) {%>
+             <a class="btn btn-warning my-2" href="/sesja-swiateczna/<%=i._id%>/edit">Edytuj galerię</a>
+         <%} %>
+         <div class="d-flex justify-content-between">
+             <div class="row">
+             <% for(let img of i.images) { %>
+                         <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 px-2">
+                         <img src="<%= img.url %> " alt="" class="gallery-item w-100 shadow-1-strong rounded mb-4" alt="gallery">
+                     </div>
+                 <% } %>
+             </div>
+         </div>
+         <% } %>
+     </div>
     </div>
