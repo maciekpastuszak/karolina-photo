@@ -17,8 +17,27 @@
         gtag('js', new Date());
         gtag('config', 'UA-201805386-1');
     </script>
+
+<!-- Meta Pixel Code -->
+<script nonce="<%=nonce%>">
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '642559594199494');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=642559594199494&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
     <!-- Facebook Pixel Code -->
-    <script nonce="<%=nonce%>">
+    <!-- <script>
         setTimeout(function(){
                 !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -32,10 +51,10 @@
             fbq('track', 'PageView');
         }, 3000);
     </script>
-    <noscript><img height="1" width="1" class="pixel" src="https://www.facebook.com/tr?id=905358433505591&ev=PageView&noscript=1"/></noscript>
+    <noscript><img height="1" width="1" class="pixel" src="https://www.facebook.com/tr?id=905358433505591&ev=PageView&noscript=1"/></noscript> -->
     <!-- End Facebook Pixel Code -->
     <!-- Hotjar Tracking Code for https://karolinapastuszak.pl -->
-    <!-- <script nonce="<%=nonce%>">
+    <script nonce="<%=nonce%>">
         setTimeout(function(){
             (function(h,o,t,j,a,r){
                 h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -46,7 +65,7 @@
                 a.appendChild(r);
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
         }, 3000);
-    </script> -->
+    </script>
     <link nonce="<%=nonce%>" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link nonce="<%=nonce%>" rel="preconnect" href="https://fonts.gstatic.com">
     <link nonce="<%=nonce%>" href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;800&display=swap" rel="stylesheet">
