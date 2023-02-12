@@ -33,7 +33,7 @@ const { window } = new JSDOM( "" );
 const $ = require( "jquery" )( window );
 
 // connect to db
-const dbUrl = process.env.DB_URL2;
+const dbUrl = process.env.DB_URL1;
 mongoose.connect(dbUrl, { 
     useNewUrlParser: true,
     useCreateIndex: true,
