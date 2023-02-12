@@ -3,8 +3,9 @@ const { familySchema } = require('./schemas.js');
 const { tummySchema } = require('./schemas.js');
 const { newbornSchema } = require('./schemas.js');
 const { christmasSchema } = require('./schemas.js');
+const { easterSchema } = require('./schemas.js');
 const ExpressError = require('./utils/ExpressError');
-const { Kid, Family, Tummy, Newborn, Christmas } = require('./models/photoshoot');
+const { Kid, Family, Tummy, Newborn, Christmas, Easter } = require('./models/photoshoot');
 
 module.exports.isLoggedIn = (req,res,next) => {
     if(!req.isAuthenticated()){
@@ -75,6 +76,16 @@ module.exports.validateChristmas = (req, res, next) => {
     }
 }
 
+module.exports.validateEaster = (req, res, next) => {
+    const { error } = easterSchema.validate(req.body);
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',')
+        throw new ExpressError(msg, 400)
+    } else {
+        next()
+    }
+}
+
 module.exports.isOwnerKids = async (req, res, next) => {
     const {id} = req.params;
     const kids = await Kid.findById(id)
@@ -132,6 +143,16 @@ module.exports.isOwnerChristmas = async (req, res, next) => {
     if (!christmas.owner.equals(req.user._id)) {
         req.flash ('error', 'nie możesz tego zrobić - nie jesteś właścicielem')
         return res.redirect(`/sesja-swiateczna/${christmas._id}`);
+}
+next()
+}
+
+module.exports.isOwnerEaster = async (req, res, next) => {
+    const {id} = req.params;
+    const easter = await Easter.findById(id)
+    if (!easter.owner.equals(req.user._id)) {
+        req.flash ('error', 'nie możesz tego zrobić - nie jesteś właścicielem')
+        return res.redirect(`/sesja-wielkanocna/${easter._id}`);
 }
 next()
 }
