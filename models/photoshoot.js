@@ -29,6 +29,7 @@ const Tummy = mongoose.model('Tummy', photoShootSchema);
 const Newborn = mongoose.model('Newborn', photoShootSchema);
 const Communion = mongoose.model('Communion', photoShootSchema);
 const Christmas = mongoose.model('Christmas', photoShootSchema);
+const Easter = mongoose.model('Easter', photoShootSchema);
 
 module.exports = {
     Kid,
@@ -36,5 +37,6 @@ module.exports = {
     Tummy,
     Newborn,
     Communion,
-    Christmas
+    Christmas,
+    Easter
 }
