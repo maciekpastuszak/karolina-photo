@@ -1,0 +1,55 @@
+<% layout('layouts/boilerplate')%>
+    <div class="container pt-3">
+        <div class="d-flex justify-content-between">
+            <div></div>
+            <div>
+                <h1 class="pshoot-header">Sesja wielkanocna w Bielsku-Białej</h2>
+            </div>
+
+
+            <div>
+                <% if(currentUser) { %>
+                    <a class="btn btn-warning" href="/sesja-wielkanocna/new">Dodaj zdjęcie</a>
+                    <% } %>
+            </div>
+        </div>
+        <div class="fade_rule"></div>
+        <br>
+
+        <p class="card-text shootIntro">Sesja wielkanocna to dla mnie wstęp do wiosny. Pastelowe kolory, morze kwiatów i
+            puchate zajączki wprowadzają do mojego studia niesamowity klimat i gwarantują dobry humor – zwłaszcza u
+            odwiedzających mnie dzieci  Mottem przewodnim jest „dobra zabawa” i moi najmłodsi modele świetnie się w nim
+            odnajdują. Wielkanocna sesja zdjęciowa to jednak nie tylko świetna zabawa, ale także niepowtarzalna pamiątka
+            dla całej rodziny.</p>
+        <h2>Oferta sesji wielkanocnej</h2>
+        <p>Wielkanoc zawsze kojarzyła mi się z pierwszymi ciepłymi dniami, kwitnącymi miłkami wiosennymi i pyszną babką
+            piaskową. Dzięki tym skojarzeniom z dzieciństwa budowanie scenki było dla mnie prawdziwą przyjemnością  A
+            co dokładnie jest w tegorocznej ofercie?
+            - sesja wielkanocna rodzinna
+            - sesja wielkanocna dzieci
+            - sesja wielkanocna niemowlaka / noworodka
+
+            Zapraszam do współpracy Przedszkola  Mam doświadczenie w przeprowadzaniu sesji zarówno w Przedszkolach jak
+            i w Żłobkach.
+
+            Scenka jest kompleksowo przygotowana, dominują pastelowe kolory, a przygotowane rekwizyty z pewnością
+            przypadną do gustu dzieciom – od filcowych marchewek, po kolorowe jajka w wielu rozmiarach.
+        </p>
+        <div class="container">
+            <% for (let i of easter) {%>
+                <% if(currentUser) {%>
+                    <a class="btn btn-warning my-2" href="/sesja-wielkanocna/<%=i._id%>/edit">Edytuj galerię</a>
+                    <%} %>
+                        <div class="d-flex justify-content-between">
+                            <div class="row">
+                                <% for(let img of i.images) { %>
+                                    <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 px-2">
+                                        <img src="<%= img.url %> " alt=""
+                                            class="gallery-item w-100 shadow-1-strong rounded mb-4" alt="gallery">
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
+                        <% } %>
+        </div>
+    </div>
