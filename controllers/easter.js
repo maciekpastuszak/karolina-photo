@@ -9,7 +9,7 @@ module.exports.index = async (req, res) => {
     res.render('sesja-wielkanocna/index', { easter, 
                                           style: 'photo-gallery', 
                                           title:"Sesja wielkanocna w Bielsku-Białej | Fotograf Bielsko", 
-                                          metaDescription: "Sesja wielkanocna to dla mnie wstęp do wiosny. Pastelowe kolory, morze kwiatów i puchate zajączki wprowadzają do mojego  studia niesamowity klimat i gwarantują dobry humor – zwłaszcza u odwiedzających mnie dzieci.",
+                                          metaDescription: "Mini sesja wielkanocna w studio w Bielsku-Białej. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie.",
                                           metaKeywords: "fotograf bielsko, cennik sesji zdjęciowej, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja dziecięca, sesje dziecięce, sesja wielkanocna", 
                                           canonicalTag:"https://karolinapastuszak.pl/sesja-wielkanocna",
                                           nonce: nonce });
@@ -33,7 +33,7 @@ module.exports.createEasterPshoot = async (req, res, next) => {
 module.exports.renderNewPshoot = (req, res) => {
                                         res.render('sesja-wielkanocna/new', { style: 'photo-gallery', 
                                         title:"Sesja wielkanocna w Bielsku-Białej | Fotograf Bielsko", 
-                                        metaDescription: "Sesja wielkanocna to dla mnie wstęp do wiosny. Pastelowe kolory, morze kwiatów i puchate zajączki wprowadzają do mojego  studia niesamowity klimat i gwarantują dobry humor – zwłaszcza u odwiedzających mnie dzieci.",
+                                        metaDescription: "Mini sesja wielkanocna w studio w Bielsku-Białej. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie.",
                                         metaKeywords: "fotograf bielsko, cennik sesji zdjęciowej, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja dziecięca, sesje dziecięce, sesja wielkanocna", 
                                         canonicalTag:"https://karolinapastuszak.pl/sesja-wielkanocna",
                                         nonce: nonce });
@@ -51,7 +51,7 @@ module.exports.showEasterPshoot = async (req, res) => {
 
     res.render('sesja-wielkanocna/show', { easter, style: 'photo-gallery',
                                             title:"Sesja wielkanocna w Bielsku-Białej | Fotograf Bielsko", 
-                                            metaDescription: "Sesja wielkanocna to dla mnie wstęp do wiosny. Pastelowe kolory, morze kwiatów i puchate zajączki wprowadzają do mojego  studia niesamowity klimat i gwarantują dobry humor – zwłaszcza u odwiedzających mnie dzieci.",
+                                            metaDescription: "Mini sesja wielkanocna w studio w Bielsku-Białej. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie.",
                                             metaKeywords: "fotograf bielsko, cennik sesji zdjęciowej, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja dziecięca, sesje dziecięce, sesja wielkanocna", 
                                             canonicalTag:"https://karolinapastuszak.pl/sesja-wielkanocna",
                                             nonce: nonce });
@@ -69,7 +69,7 @@ module.exports.renderEditPshoot = async (req, res) => {
     res.render('sesja-wielkanocna/edit', { easter, 
                                         style: 'photo-gallery', 
                                         title:"Sesja wielkanocna w Bielsku-Białej | Fotograf Bielsko", 
-                                        metaDescription: "Sesja wielkanocna to dla mnie wstęp do wiosny. Pastelowe kolory, morze kwiatów i puchate zajączki wprowadzają do mojego  studia niesamowity klimat i gwarantują dobry humor – zwłaszcza u odwiedzających mnie dzieci.",
+                                        metaDescription: "Mini sesja wielkanocna w studio w Bielsku-Białej. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie.",
                                         metaKeywords: "fotograf bielsko, cennik sesji zdjęciowej, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja dziecięca, sesje dziecięce, sesja wielkanocna", 
                                         canonicalTag:"https://karolinapastuszak.pl/sesja-wielkanocna",
                                         nonce: nonce });

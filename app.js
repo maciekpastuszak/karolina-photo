@@ -13,6 +13,7 @@ const tummyRoutes = require('./routes/tummy');
 const newbornRoutes = require('./routes/newborn');
 const communionRoutes = require('./routes/communion');
 const christmasRoutes = require('./routes/christmas');
+const easterRoutes = require('./routes/easter');
 const usersRoutes = require('./routes/users');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
@@ -186,6 +187,7 @@ app.use('/sesja-noworodkowa', newbornRoutes);
 app.use('/sesja-komunijna', communionRoutes);
 app.use('/sesja-noworodkowa', newbornRoutes);
 app.use('/sesja-swiateczna', christmasRoutes);
+app.use('/sesja-wielkanocna', easterRoutes);
 
 app.get('/', (req, res) => {
     res.render('index', { style: 'app', 
