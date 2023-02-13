@@ -79,7 +79,7 @@ module.exports.renderEditPshoot = async (req, res) => {
 
 module.exports.editEasterPshoot = async (req, res) => {
     const { id } = req.params;
-    const christmas = await Easter.findByIdAndUpdate(id, { ...req.body.easter });
+    const easter = await Easter.findByIdAndUpdate(id, { ...req.body.easter });
     const imgs = req.files.map(f => ({url: f.path, filename: f.filename}));
     christmas.images.push(...imgs);
     console.log(imgs);
