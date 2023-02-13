@@ -3,6 +3,12 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
+.pshoot-header2 {
+  font-family: "Allura", cursive;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 2rem;
+}
+
 .pshoot-card {
   box-shadow: 3px 3px 15px 3px rgba(0, 0, 0, 0.2);
   /* transition: 0.4s; */
