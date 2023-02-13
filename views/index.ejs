@@ -1,58 +1,74 @@
 <% layout('layouts/boilerplate')%>
 
-<div class="mainPage mx-auto">
-   
+    <div class="mainPage mx-auto">
+
         <h1 id="mainPageHeader">Fotograf Bielsko</h1>
-   
-    <div id="carousel" class="carousel slide carousel-fade mx-auto" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="3000">
-                <img src="/images/sesja-ciazowa.jpg" class="d-block w-100" alt="sesja ciążowa">
+
+        <div id="carousel" class="carousel slide carousel-fade mx-auto" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="/images/sesja-ciazowa.jpg" class="d-block w-100" alt="sesja ciążowa">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="/images/sesja-dziecieca.jpg" class="d-block w-100" alt="sesja dziecięca">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="/images/sesja-brzuszkowa.jpg" class="d-block w-100" alt="sesja brzuszkowa">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="/images/sesja-dziecieca-w-plenerze.jpg" class="d-block w-100"
+                        alt="sesja dziecięca w plenerze">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="/images/sesja-ciazowa-w-plenerze.jpg" class="d-block w-100"
+                        alt="sesja ciążowa w plenerze">
+                </div>
             </div>
-            <div class="carousel-item" data-bs-interval="3000">
-                <img src="/images/sesja-dziecieca.jpg" class="d-block w-100" alt="sesja dziecięca">
-            </div>
-            <div class="carousel-item" data-bs-interval="3000">
-                <img src="/images/sesja-brzuszkowa.jpg" class="d-block w-100" alt="sesja brzuszkowa">
-            </div>
-            <div class="carousel-item" data-bs-interval="3000">
-                <img src="/images/sesja-dziecieca-w-plenerze.jpg" class="d-block w-100" alt="sesja dziecięca w plenerze">
-            </div>
-            <div class="carousel-item" data-bs-interval="3000">
-                <img src="/images/sesja-ciazowa-w-plenerze.jpg" class="d-block w-100" alt="sesja ciążowa w plenerze">
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Poprzednie</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Następne</span>
+            </button>
+        </div>
+
+        <div class="my-5 horizontalLine">
+            <img src="images/line.png" alt="linia rozdzielająca">
+        </div>
+
+        <div class="container d-flex-row my-3">
+            <div class="row justify-content-center" id="aboutMeSection">
+                <div class="col-xs-12 col-md-4" id="aboutMePhoto">
+                    <section class="card"><img src="images/karolinapastuszak.jpg" class="img-fluid"
+                            alt="karolina pastuszak photography">
+                    </section>
+                </div>
+                <div class="col-xs-12 col-md-8" id="aboutMeText">
+                    <article>
+                        <p>Jestem fotografką z Bielska-Białej, prowadzę swoje studio fotograficzne w samym sercu miasta
+                            w Kamienicy pod Orłem. Do swojej pracy podchodzą z ogromną pasją, a najważniejsze jest dla
+                            mnie zadowolenie klientów. </p>
+                        <p>Zaczynałam od robienia zdjęć do magazynów, ale zawsze marzyłam o założeniu własnego studia. W
+                            końcu nadszedł dzień w którym postanowiłam przestać żyć marzeniami i wziąć się do dzieła.
+                            Teraz mam niewątpliwą przyjemność zaprosić Państwa do wspólnej przygody podczas sesji
+                            zdjęciowej. Zapraszam do zapoznania się z moim <a href="/sesja-dziecieca">portfolio</a>.</p>
+                        <p>Umawiając się do mnie na sesję zdjęciową mają Państwo gwarancję usługi na najwyższym poziomie
+                            – posiadam profesjonalny sprzęt fotograficzny, a dodatkowo jestem retuszerem, dzięki czemu
+                            każde zdjęcie poddane zostanie starannej obróbce graficznej. Posiadam również ogromną ilość
+                            rekwizytów – od strojów noworodkowych po efektowne suknie dla kobiet w ciąży. Więcej
+                            szczegółów w sekcji <a href="/studio">studio</a>.</p>
+                        <p>Zawsze staram się dopasować do wizji Klienta, doradzam i podpowiadam. Dbam o to, aby
+                            atmosfera była luźna, a fotografowane osoby czuły się swobodnie i komfortowo. Na zdjęciach
+                            staram się uchwycić ich emocje, bo to one są najważniejsze. Zachęcam do zapoznania się z
+                            poradami w sekcji <a href="przed-sesja">przed sesją</a>.</p>
+                        <p>Specjalizuję się w fotografii noworodkowej, ciążowej, rodzinnej, kobiecej i okolicznościowych
+                            plenerach (sesje ślubne, komunijne). Organizuję również sesje świąteczne – zarówno
+                            bożonarodzeniowe jak i wielkanocne.</p>
+                        <p>Zapraszam do <a href="/kontakt">kontaktu</a>!</p>
+                    </article>
+                </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Poprzednie</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Następne</span>
-        </button>
     </div>
-
-    <div class="my-5 horizontalLine">
-        <img src="images/line.png" alt="linia rozdzielająca">
-    </div>
-
-    <div class="container d-flex-row my-3">
-        <div class="row justify-content-center" id="aboutMeSection">
-            <div class="col-xs-12 col-md-4" id="aboutMePhoto">
-                <section class="card"><img src="images/karolinapastuszak.jpg" class="img-fluid" alt="karolina pastuszak photography">
-                </section>
-            </div>
-            <div class="col-xs-12 col-md-8" id="aboutMeText">
-                <article>
-                    <p>Jestem fotografką z Bielska-Białej, prowadzę swoje studio fotograficzne w samym sercu miasta w Kamienicy pod Orłem. Do swojej pracy podchodzą z ogromną pasją, a najważniejsze jest dla mnie zadowolenie klientów. </p>
-                    <p>Zaczynałam od robienia zdjęć do magazynów, ale zawsze marzyłam o założeniu własnego studia. W końcu nadszedł dzień w którym postanowiłam przestać żyć marzeniami i wziąć się do dzieła. Teraz mam niewątpliwą przyjemność zaprosić Państwa do wspólnej przygody podczas sesji zdjęciowej. Zapraszam do zapoznania się z moim <a href="/sesja-dziecieca">portfolio</a>.</p>
-                    <p>Umawiając się do mnie na sesję zdjęciową mają Państwo gwarancję usługi na najwyższym poziomie – posiadam profesjonalny sprzęt fotograficzny, a dodatkowo jestem retuszerem, dzięki czemu każde zdjęcie poddane zostanie starannej obróbce graficznej. Posiadam również ogromną ilość rekwizytów – od strojów noworodkowych po efektowne suknie dla kobiet w ciąży. Więcej szczegółów w sekcji <a href="/studio">studio</a>.</p>
-                    <p>Zawsze staram się dopasować do wizji Klienta, doradzam i podpowiadam. Dbam o to, aby atmosfera była luźna, a fotografowane osoby czuły się swobodnie i komfortowo. Na zdjęciach staram się uchwycić ich emocje, bo to one są najważniejsze. Zachęcam do zapoznania się z poradami w sekcji <a href="przed-sesja">przed sesją</a>.</p>
-                    <p>Specjalizuję się w fotografii noworodkowej, ciążowej, rodzinnej, kobiecej i okolicznościowych plenerach (sesje ślubne, komunijne). Organizuję również sesje świąteczne – zarówno bożonarodzeniowe jak i wielkanocne.</p>
-                    <p>Współpracuję z profesjonalną wizażystką Anną Bier, która na życzenie może wyczarować efektowny make-up dopasowany do stylu sesji. Jej prace można obejrzeć klikając w <a href="https://www.instagram.com/aniabier_mua/">link</a> </p>
-                    <p>Zapraszam do <a href="/kontakt">kontaktu</a>!</p>
-                </article>
-            </div>
-        </div>
-    </div>
-</div>
