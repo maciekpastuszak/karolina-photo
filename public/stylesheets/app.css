@@ -206,6 +206,11 @@ text-align: center;
   padding-right: 20px;
 }
 
+.footerCol {
+  line-height: 1rem;
+}
+
+
 #aboutMePhoto {
   padding: 0;
 }
@@ -215,6 +220,9 @@ text-align: center;
   justify-content: center;
 }
 
+#footerLogo {
+  width: 200px;
+}
 
 /* @media */
 
