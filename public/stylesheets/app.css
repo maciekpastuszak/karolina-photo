@@ -207,7 +207,22 @@ text-align: center;
 }
 
 .footerCol {
-  line-height: 1rem;
+  line-height: 1.3rem;
+  font-size: .9rem;
+}
+
+.footerCol li {
+  list-style-type: none;
+}
+
+.footerCol li:first-child {
+  font-weight: 800;
+  margin-bottom: 5px;
+  font-size: .9rem;
+}
+
+#footer hr {
+  display: none;
 }
 
 
@@ -247,6 +262,10 @@ text-align: center;
   #logoMale{
     margin-top:10px;
     color: rgba(0, 0, 0, 0.5);
+  }
+
+  .footerHr {
+    display: block;
   }
 
   /* #aboutMePhoto, #aboutMeText  {
