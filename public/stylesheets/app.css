@@ -207,8 +207,14 @@ text-align: center;
 }
 
 .footerCol {
+  flex-direction: row;
   line-height: 1.3rem;
   font-size: .9rem;
+  padding-top: 24px;
+}
+
+.footerCol:first-child {
+  padding-top: 8px;
 }
 
 .footerCol li {
@@ -266,6 +272,10 @@ text-align: center;
 
   .footerHr {
     display: block;
+  }
+
+  .footerCol {
+    padding-top: 0;
   }
 
   /* #aboutMePhoto, #aboutMeText  {
