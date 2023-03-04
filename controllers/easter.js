@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.index = async (req, res) => {
     const easter = await Easter.find({});
-    res.render('sesja-wielkanocna/index', { easter, 
+    res.render('sesje/sesja-wielkanocna/index', { easter, 
                                           style: 'photo-gallery', 
                                           title:"Sesja wielkanocna w Bielsku-Białej | Fotograf Bielsko", 
                                           metaDescription: "Mini sesja wielkanocna w studio w Bielsku-Białej. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie.",
@@ -25,13 +25,13 @@ module.exports.createEasterPshoot = async (req, res, next) => {
 
     req.flash('success', 'Dodałaś zdjęcie');
     // req.flash('success', 'Brawo! Stworzyłaś nową sesję dziecięcą. Przepiękna!!');
-    res.redirect(`/sesja-wielkanocna/${easter._id}`)
+    res.redirect(`/sesje//sesja-wielkanocna/${easter._id}`)
 };
 
 // Render a new easter photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-                                        res.render('sesja-wielkanocna/new', { style: 'photo-gallery', 
+    res.render('sesje/sesja-wielkanocna/new', { style: 'photo-gallery', 
                                         title:"Sesja wielkanocna w Bielsku-Białej | Fotograf Bielsko", 
                                         metaDescription: "Mini sesja wielkanocna w studio w Bielsku-Białej. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie.",
                                         metaKeywords: "fotograf bielsko, cennik sesji zdjęciowej, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja dziecięca, sesje dziecięce, sesja wielkanocna", 
@@ -46,10 +46,10 @@ module.exports.showEasterPshoot = async (req, res) => {
     const easter = await Easter.findById(id).populate('owner');
     if(!easter) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/sesja-wielkanocna');
+        return res.redirect('/sesje/sesja-wielkanocna');
     }
 
-    res.render('sesja-wielkanocna/show', { easter, style: 'photo-gallery',
+    res.render('sesje/sesja-wielkanocna/show', { easter, style: 'photo-gallery',
                                             title:"Sesja wielkanocna w Bielsku-Białej | Fotograf Bielsko", 
                                             metaDescription: "Mini sesja wielkanocna w studio w Bielsku-Białej. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie.",
                                             metaKeywords: "fotograf bielsko, cennik sesji zdjęciowej, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja dziecięca, sesje dziecięce, sesja wielkanocna", 
@@ -64,9 +64,9 @@ module.exports.renderEditPshoot = async (req, res) => {
     const easter = await Easter.findById(id);
     if(!easter) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/sesja-wielkanocna');
+        return res.redirect('sesje/sesja-wielkanocna');
     }
-    res.render('sesja-wielkanocna/edit', { easter, 
+    res.render('sesje/sesja-wielkanocna/edit', { easter, 
                                         style: 'photo-gallery', 
                                         title:"Sesja wielkanocna w Bielsku-Białej | Fotograf Bielsko", 
                                         metaDescription: "Mini sesja wielkanocna w studio w Bielsku-Białej. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie.",
@@ -107,5 +107,5 @@ module.exports.deleteEasterPshoot = async (req, res) => {
         };
     req.flash('success', 'Usunęłaś zdjęcie')
     // req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
-    res.redirect('/sesja-wielkanocna')
+    res.redirect('/sesje/sesja-wielkanocna')
 };

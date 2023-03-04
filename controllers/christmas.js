@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.index = async (req, res) => {
     const christmas = await Christmas.find({});
-    res.render('sesja-swiateczna/index', { christmas, 
+    res.render('sesje/sesja-swiateczna/index', { christmas, 
                                           style: 'photo-gallery', 
                                           title:"Dziecięce Mini Sesje Świąteczne | Fotograf Bielsko", 
                                           metaDescription: "Boże Narodzenie to wyjątkowy czas, na który co roku czekają zarówno dzieci jak i dorośli. Zdjęcia świąteczne to piękna pamiątka, do której będziemy mogli wracać przez całe życie.",
@@ -25,7 +25,7 @@ module.exports.createChristmasPshoot = async (req, res, next) => {
 
     req.flash('success', 'Dodałaś zdjęcie');
     // req.flash('success', 'Brawo! Stworzyłaś nową sesję dziecięcą. Przepiękna!!');
-    res.redirect(`/sesja-swiateczna/${christmas._id}`)
+    res.redirect(`/sesje/sesja-swiateczna/${christmas._id}`)
 };
 
 // Render a new christmas photoshoot page
@@ -46,10 +46,10 @@ module.exports.showChristmasPshoot = async (req, res) => {
     const christmas = await Christmas.findById(id).populate('owner');
     if(!christmas) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/sesja-swiateczna');
+        return res.redirect('/sesje/sesja-swiateczna');
     }
 
-    res.render('sesja-swiateczna/show', { christmas, style: 'photo-gallery',
+    res.render('sesje/sesja-swiateczna/show', { christmas, style: 'photo-gallery',
                                         title:"Dziecięce Mini Sesje Świąteczne | Fotograf Bielsko", 
                                         metaDescription: "Boże Narodzenie to wyjątkowy czas, na który co roku czekają zarówno dzieci jak i dorośli. Zdjęcia świąteczne to piękna pamiątka, do której będziemy mogli wracać przez całe życie.",
                                         metaKeywords: "fotograf bielsko, cennik sesji zdjęciowej, fotografia bielsko, fotograf bielsko-biała, sesja studyjna, sesja w plenerze, sesja zdjęciowa, sesja dziecięca, sesje dziecięce, sesja świąteczna", 
@@ -64,9 +64,9 @@ module.exports.renderEditPshoot = async (req, res) => {
     const christmas = await Christmas.findById(id);
     if(!christmas) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/sesja-swiateczna');
+        return res.redirect('sejse//sesja-swiateczna');
     }
-    res.render('sesja-swiateczna/edit', { christmas, 
+    res.render('sesje/sesja-swiateczna/edit', { christmas, 
                                         style: 'photo-gallery', 
                                         title:"Dziecięce Mini Sesje Świąteczne | Fotograf Bielsko", 
                                         metaDescription: "Boże Narodzenie to wyjątkowy czas, na który co roku czekają zarówno dzieci jak i dorośli. Zdjęcia świąteczne to piękna pamiątka, do której będziemy mogli wracać przez całe życie.",
@@ -107,5 +107,5 @@ module.exports.deleteChristmasPshoot = async (req, res) => {
         };
     req.flash('success', 'Usunęłaś zdjęcie')
     // req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
-    res.redirect('/sesja-swiateczna')
+    res.redirect('/sesje/sesja-swiateczna')
 };

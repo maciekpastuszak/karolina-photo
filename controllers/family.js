@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.indexFamily = async (req, res) => {
     const family = await Family.find({});
-    res.render('sesja-rodzinna/index', { family, 
+    res.render('sesje/sesja-rodzinna/index', { family, 
                                          style: 'photo-gallery', 
                                          title: "Sesja rodzinna - w studio i w plenerze | Fotograf Bielsko", 
                                          metaDescription: "Sesja rodzinna to nie tylko wspaniała pamiątka, ale również prawdziwa przygoda, którą przeżyjecie razem. Zdjęcia rodzinne można zaplanować w studio lub w plenerze.",
@@ -24,13 +24,13 @@ module.exports.createFamilyPshoot = async (req, res) => {
     await family.save();
     req.flash('success', 'Dodałaś zdjęcie!!');
     // req.flash('success', 'Brawo! Stworzyłaś rodzinną. Przepiękna!!');
-    res.redirect(`/sesja-rodzinna/${family._id}`)
+    res.redirect(`/sesje/sesja-rodzinna/${family._id}`)
 };
 
 // Render a new family photoshoot page
 
 module.exports.renderNewFamilyPshoot = (req, res) => {
-    res.render('sesja-rodzinna/new', { style: 'photo-gallery',
+    res.render('sesje/sesja-rodzinna/new', { style: 'photo-gallery',
                                        title: "Sesje rodzinne", 
                                        metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography",
                                        metaKeywords: "", 
@@ -45,9 +45,9 @@ module.exports.showFamilyPshoot = async (req, res) => {
     const family = await Family.findById(id).populate('owner');
     if(!family) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/rodzinne');
+        return res.redirect('/sesje/sesja-rodzinna');
     }
-    res.render('sesja-rodzinna/show', { family,
+    res.render('sesje/sesja-rodzinna/show', { family,
                                         style: 'photo-gallery',
                                         title: "Sesje rodzinne", 
                                         metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography",
@@ -63,9 +63,9 @@ module.exports.renderEditFamilyPshoot = async (req, res) => {
     const family = await Family.findById(id);
     if(!family) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/rodzinne');
+        return res.redirect('/sesje/sesja-rodzinna');
     }
-    res.render('sesja-rodzinna/edit', { family,
+    res.render('sesje/sesja-rodzinna/edit', { family,
                                         style: 'photo-gallery', 
                                         title: "Sesje rodzinne", 
                                         metaDescription: "Sesje rodzinne | Karolina Pastuszak Photography",
@@ -105,6 +105,6 @@ module.exports.deleteFamilyPshoot = async (req, res) => {
         };
     req.flash('success', 'Usunęłaś zdjęcie')
     // req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
-    res.redirect('/sesja-rodzinna')
+    res.redirect('/sesje/sesja-rodzinna')
 };
 

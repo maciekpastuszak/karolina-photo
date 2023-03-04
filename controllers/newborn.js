@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.index = async (req, res) => {
     const newborn = await Newborn.find({});
-    res.render('sesja-noworodkowa/index', { newborn, 
+    res.render('sesje/sesja-noworodkowa/index', { newborn, 
                                             style: 'photo-gallery', 
                                             title:"Sesja noworodkowa - co warto wiedzieć? | Fotograf Bielsko", 
                                             metaDescription: "Sesję noworodkową najlepiej jest zarezerwować będąc w ciąży. Przyjęło się, że wykonywana jest maksymalnie do 21 dnia życia Maluszka.", 
@@ -23,13 +23,13 @@ module.exports.createNewbornPshoot = async (req, res) => {
     newborn.owner = req.user._id;
     await newborn.save();
     req.flash('success', 'Brawo! Dodałaś zdjęcie');
-    res.redirect(`/sesja-noworodkowa/${newborn._id}`)
+    res.redirect(`/sesje/sesja-noworodkowa/${newborn._id}`)
 };
 
 // Render a new newborn photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('sesja-noworodkowa/new', { style: 'photo-gallery', 
+    res.render('sesje/sesja-noworodkowa/new', { style: 'photo-gallery', 
                                           title:"Sesje noworodkowe", 
                                           metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", 
                                           metaKeywords: "fotograf bielsko, fotografia dziecięca, sesja noworodkowa śląsk, sesja noworodkowa Bielsko-Biała, sesja niemowlęca", 
@@ -44,9 +44,9 @@ module.exports.showNewbornPshoot = async (req, res) => {
     const newborn = await Newborn.findById(id).populate('owner');
     if(!newborn) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/noworodki');
+        return res.redirect('/sesje/sesja-noworodkowa');
     }
-    res.render('sesja-noworodkowa/show', { newborn, 
+    res.render('sesje/sesja-noworodkowa/show', { newborn, 
                                            style: 'photo-gallery', 
                                            title:"Sesje noworodkowe", 
                                            metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", 
@@ -62,9 +62,9 @@ module.exports.renderEditPshoot = async (req, res) => {
     const newborn = await Newborn.findById(id);
     if(!newborn) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/noworodki');
+        return res.redirect('/sesje/sesja-noworodkowa');
     }
-    res.render('sesja-noworodkowa/edit', { newborn, 
+    res.render('sesje/sesja-noworodkowa/edit', { newborn, 
                                            style: 'photo-gallery', 
                                            title:"Sesje noworodkowe", 
                                            metaDescription: "Sesje noworodkowe | Karolina Pastuszak Photography", 
@@ -103,6 +103,6 @@ module.exports.deleteNewbornPshoot = async (req, res) => {
           }
         };
     req.flash('success', 'Usunęłaś zdjęcie!')
-    res.redirect('/sesja-noworodkowa')
+    res.redirect('/sesje/sesja-noworodkowa')
 };
 

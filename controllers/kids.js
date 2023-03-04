@@ -6,7 +6,7 @@ const nonce = require('../utils/nonce');
 
 module.exports.index = async (req, res) => {
     const kids = await Kid.find({});
-    res.render('sesja-dziecieca/index', { kids, 
+    res.render('sesje/sesja-dziecieca/index', { kids, 
                                           style: 'photo-gallery', 
                                           title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", 
                                           metaDescription: "Sesja dziecięca jest niepowtarzalną możliwością na uchwycenie ulotnych momentów. Zdjęcia to piękna pamiątka, do której będziemy mogli wracać przez całe życie.",
@@ -31,7 +31,7 @@ module.exports.createKidsPshoot = async (req, res, next) => {
 // Render a new kids photoshoot page
 
 module.exports.renderNewPshoot = (req, res) => {
-    res.render('sesja-dziecieca/new', { style: 'photo-gallery', 
+    res.render('sesje/sesja-dziecieca/new', { style: 'photo-gallery', 
                                         title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", 
                                         metaDescription: "", 
                                         metaKeywords: "", 
@@ -46,10 +46,10 @@ module.exports.showKidsPshoot = async (req, res) => {
     const kids = await Kid.findById(id).populate('owner');
     if(!kids) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/sesja-dziecieca');
+        return res.redirect('sesje/sesja-dziecieca');
     }
 
-    res.render('sesja-dziecieca/show', { kids, 
+    res.render('sesje/sesja-dziecieca/show', { kids, 
                                          style: 'photo-gallery', 
                                          title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko",
                                         metaDescription: "", 
@@ -65,9 +65,9 @@ module.exports.renderEditPshoot = async (req, res) => {
     const kids = await Kid.findById(id);
     if(!kids) {
         req.flash('error', 'Oj coś nie działa, nie mogę znaleźć takiej sesji');
-        return res.redirect('/dzieci');
+        return res.redirect('sesje/sesja-dziecieca');
     }
-    res.render('sesja-dziecieca/edit', { kids, 
+    res.render('sesje/sesja-dziecieca/edit', { kids, 
                                         style: 'photo-gallery', 
                                         title:"Fotografia dziecięca - sesja roczkowa | Fotograf Bielsko", 
                                         metaDescription: "", 
@@ -108,5 +108,5 @@ module.exports.deleteKidsPshoot = async (req, res) => {
         };
     req.flash('success', 'Usunęłaś zdjęcie')
     // req.flash('success', 'Usunęłaś sesję dziecięcą. I dobrze!')
-    res.redirect('/sesja-dziecieca')
+    res.redirect('/sesje/sesja-dziecieca')
 };
