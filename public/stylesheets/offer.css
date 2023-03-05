@@ -19,3 +19,7 @@
     background-color: white;
     opacity: 75%;
 }
+
+#oferta-brzuszkowa li {
+    list-style-type: circle;
+}
