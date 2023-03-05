@@ -6,4 +6,8 @@ const catchAsync = require('../utils/catchAsync');
 router.route('/oferta-brzuszkowa')
     .get(catchAsync(offer.tummyOffer))
 
+router.route('/oferta-ciazowa-rodzinna')
+    .get(catchAsync(offer.tummyFamilyOffer))
+
+    
     module.exports = router
