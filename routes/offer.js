@@ -9,5 +9,7 @@ router.route('/oferta-brzuszkowa')
 router.route('/oferta-ciazowa-rodzinna')
     .get(catchAsync(offer.tummyFamilyOffer))
 
+router.route('/oferta-dziecieca')
+    .get(catchAsync(offer.kidsOffer))
     
     module.exports = router
