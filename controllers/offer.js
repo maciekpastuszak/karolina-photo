@@ -35,3 +35,12 @@ module.exports.communionOffer = (req, res) => {
                                           canonicalTag:"https://karolinapastuszak.pl/oferta/sesja-komunijna",
                                           nonce: nonce });
 };
+
+module.exports.mothersDayOffer = (req, res) => {
+    res.render('oferta/oferta-na-dzien-mamy', {    style: 'offer', 
+                                          title:"Sesja na Dzień Mamy w Bielsku-Białej | Karolina Pastuszak", 
+                                          metaDescription: "Sesja na Dzień Mamy w studio lub w plenerze. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
+                                          metaKeywords: "fotograf bielsko, Dzień Matki", 
+                                          canonicalTag:"https://karolinapastuszak.pl/oferta/sesja-na-dzien-mamy",
+                                          nonce: nonce });
+};

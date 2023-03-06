@@ -14,5 +14,8 @@ router.route('/oferta-dziecieca')
 
 router.route('/oferta-komunijna')
     .get(catchAsync(offer.communionOffer))
+
+router.route('/oferta-na-dzien-mamy')
+    .get(catchAsync(offer.mothersDayOffer))
     
     module.exports = router
