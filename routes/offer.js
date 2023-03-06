@@ -11,5 +11,8 @@ router.route('/oferta-ciazowa-rodzinna')
 
 router.route('/oferta-dziecieca')
     .get(catchAsync(offer.kidsOffer))
+
+router.route('/oferta-komunijna')
+    .get(catchAsync(offer.communionOffer))
     
     module.exports = router

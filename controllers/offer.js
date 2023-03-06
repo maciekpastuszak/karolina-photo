@@ -26,3 +26,12 @@ module.exports.kidsOffer = (req, res) => {
                                           canonicalTag:"https://karolinapastuszak.pl/oferta/sesja-dziecieca",
                                           nonce: nonce });
 };
+
+module.exports.communionOffer = (req, res) => {
+    res.render('oferta/oferta-komunijna', {    style: 'offer', 
+                                          title:"Sesja komunijna Bielsko-Biała | Karolina Pastuszak", 
+                                          metaDescription: "Sesja komunijna w studio lub w plenerze. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
+                                          metaKeywords: "fotograf bielsko, sesja komunijna", 
+                                          canonicalTag:"https://karolinapastuszak.pl/oferta/sesja-komunijna",
+                                          nonce: nonce });
+};
