@@ -1,25 +1,25 @@
-#oferta-brzuszkowa h1{
+.h1_oferta{
     text-align: center;
     font-family: "Allura", cursive;
 }
 
-.h2_brzuszkowa {
+.h2_oferta {
     font-size: 1.5rem;
     text-align: center;
     margin-top: 30px;
 }
 
-.h3_brzuszkowa {
+.h3_oferta {
     font-size: 1.3rem;
     text-align: center;
     margin-top: 30px;
 }
 
-#oferta-brzuszkowa .card {
+.oferta .card {
     background-color: white;
     opacity: 75%;
 }
 
-#oferta-brzuszkowa li {
+.oferta li {
     list-style-type: circle;
 }
