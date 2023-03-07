@@ -57,8 +57,17 @@ module.exports.newbornFamilyOffer = (req, res) => {
 module.exports.familyOffer = (req, res) => {
     res.render('oferta/oferta-rodzinna', {    style: 'offer', 
                                           title:"Sesja rodzinna w Bielsku-Białej | Karolina Pastuszak", 
-                                          metaDescription: "Sesja zdjęciowa rodzinna w studio lub w plenerze. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
+                                          metaDescription: "Sesja zdjęciowa rodzinna w profesjonalnym studio. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
                                           metaKeywords: "fotograf bielsko, sesja zdjęciowa rodzinna", 
                                           canonicalTag:"https://karolinapastuszak.pl/oferta/sesja-rodzinna",
+                                          nonce: nonce });
+};
+
+module.exports.familyOutdoorOffer = (req, res) => {
+    res.render('oferta/oferta-rodzinna-w-plenerze', {    style: 'offer', 
+                                          title:"Sesja rodzinna w Bielsku-Białej | Karolina Pastuszak", 
+                                          metaDescription: "Sesja zdjęciowa rodzinna w plenerze. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
+                                          metaKeywords: "fotograf bielsko, sesja zdjęciowa rodzinna", 
+                                          canonicalTag:"https://karolinapastuszak.pl/oferta/sesja-rodzinna-w-plenerze",
                                           nonce: nonce });
 };

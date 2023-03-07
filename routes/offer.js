@@ -24,4 +24,7 @@ router.route('/oferta-noworodkowa-rodzinna')
 router.route('/oferta-rodzinna')
     .get(catchAsync(offer.familyOffer))
     
-    module.exports = router
+router.route('/oferta-rodzinna-w-plenerze')
+.get(catchAsync(offer.familyOffer))
+
+module.exports = router
