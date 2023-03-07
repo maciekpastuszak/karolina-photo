@@ -33,4 +33,7 @@ router.route('/oferta-rodzinna-w-plenerze')
 router.route('/oferta-sesja-w-przedszkolu')
     .get(catchAsync(offer.preschoolOffer))
 
+router.route('/oferta-wielkanocna')
+    .get(catchAsync(offer.easterOffer))
+
 module.exports = router

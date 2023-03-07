@@ -89,3 +89,12 @@ module.exports.preschoolOffer = (req, res) => {
                                           canonicalTag:"https://karolinapastuszak.pl/oferta/sesja-w-przedszkolu",
                                           nonce: nonce });
 };
+
+module.exports.easterOffer = (req, res) => {
+    res.render('oferta/oferta-wielkanocna', {    style: 'offer', 
+                                          title:"Sesja wielkanocna Bielsko-Biała | Karolina Pastuszak", 
+                                          metaDescription: "Mini sesja wielkanocna w studio w Bielsku-Białej. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
+                                          metaKeywords: "fotograf bielsko, sesja wielkanocna", 
+                                          canonicalTag:"https://karolinapastuszak.pl/oferta/sesja-wielkanocna",
+                                          nonce: nonce });
+};
