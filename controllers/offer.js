@@ -80,3 +80,12 @@ module.exports.familyOutdoorOffer = (req, res) => {
                                           canonicalTag:"https://karolinapastuszak.pl/oferta/sesja-rodzinna-w-plenerze",
                                           nonce: nonce });
 };
+
+module.exports.preschoolOffer = (req, res) => {
+    res.render('oferta/oferta-w-przedszkolu', {    style: 'offer', 
+                                          title:"Sesja w przedszkolu Bielsko-Biała | Karolina Pastuszak", 
+                                          metaDescription: "Sesja w przedszkolu – Bielsko-Biała, Cieszyn, Żywiec, Pszczyna, Czechowice-Dziedzice. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
+                                          metaKeywords: "fotograf bielsko, sesja przedszkolna, sesja w przedszkolu", 
+                                          canonicalTag:"https://karolinapastuszak.pl/oferta/sesja-w-przedszkolu",
+                                          nonce: nonce });
+};
