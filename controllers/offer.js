@@ -45,6 +45,15 @@ module.exports.mothersDayOffer = (req, res) => {
                                           nonce: nonce });
 };
 
+module.exports.newbornOffer = (req, res) => {
+    res.render('oferta/oferta-noworodkowa', {    style: 'offer', 
+                                          title:"Sesja noworodkowa w Bielsku-Białej | Karolina Pastuszak", 
+                                          metaDescription: "Sesja noworodkowa w profesjonalnym studio. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
+                                          metaKeywords: "fotograf bielsko, sesja noworodkowa", 
+                                          canonicalTag:"https://karolinapastuszak.pl/oferta/sesja-noworodkowa",
+                                          nonce: nonce });
+};
+
 module.exports.newbornFamilyOffer = (req, res) => {
     res.render('oferta/oferta-noworodkowa-rodzinna', {    style: 'offer', 
                                           title:"Sesja noworodkowa rodzinna w Bielsku-Białej | Karolina Pastuszak", 
