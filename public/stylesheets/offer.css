@@ -23,3 +23,15 @@
 .oferta li {
     list-style-type: circle;
 }
+
+.oferta_kontakt {
+    font-size: 1.3rem;
+    text-align: center;
+    margin-top: 30px;
+    text-decoration: none;
+}
+
+.oferta_kontakt a {
+    text-decoration: none;
+    color: black;
+}
