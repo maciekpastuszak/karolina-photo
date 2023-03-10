@@ -1,6 +1,6 @@
 const nonce = require('../utils/nonce');
 
-module.exports.tummyOffer = (req, res) => {
+module.exports.tummyOffer = async (req, res) => {
     res.render('oferta/oferta-brzuszkowa', {    style: 'offer', 
                                           title:"Fotografia brzuszkowa | Karolina Pastuszak", 
                                           metaDescription: "Sesja brzuszkowa w studio lub w plenerze. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie.",
@@ -9,7 +9,7 @@ module.exports.tummyOffer = (req, res) => {
                                           nonce: nonce });
 };
 
-module.exports.tummyFamilyOffer = (req, res) => {
+module.exports.tummyFamilyOffer = async (req, res) => {
     res.render('oferta/oferta-ciazowa-rodzinna', {    style: 'offer', 
                                           title:"Fotografia ciążowa rodzinna | Karolina Pastuszak", 
                                           metaDescription: "Sesja ciążowa sesja zdjęciowa w studio lub w plenerze. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie.",
@@ -18,7 +18,7 @@ module.exports.tummyFamilyOffer = (req, res) => {
                                           nonce: nonce });
 };
 
-module.exports.kidsOffer = (req, res) => {
+module.exports.kidsOffer = async (req, res) => {
     res.render('oferta/oferta-dziecieca', {    style: 'offer', 
                                           title:"Sesja dziecięca Bielsko-Biała | Karolina Pastuszak", 
                                           metaDescription: "Dziecięca sesja zdjęciowa w studio lub w plenerze. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
@@ -27,7 +27,7 @@ module.exports.kidsOffer = (req, res) => {
                                           nonce: nonce });
 };
 
-module.exports.communionOffer = (req, res) => {
+module.exports.communionOffer = async (req, res) => {
     res.render('oferta/oferta-komunijna', {    style: 'offer', 
                                           title:"Sesja komunijna Bielsko-Biała | Karolina Pastuszak", 
                                           metaDescription: "Sesja komunijna w studio lub w plenerze. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
@@ -36,7 +36,7 @@ module.exports.communionOffer = (req, res) => {
                                           nonce: nonce });
 };
 
-module.exports.mothersDayOffer = (req, res) => {
+module.exports.mothersDayOffer = async (req, res) => {
     res.render('oferta/oferta-na-dzien-mamy', {    style: 'offer', 
                                           title:"Sesja na Dzień Mamy w Bielsku-Białej | Karolina Pastuszak", 
                                           metaDescription: "Sesja na Dzień Mamy w studio lub w plenerze. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
@@ -45,7 +45,7 @@ module.exports.mothersDayOffer = (req, res) => {
                                           nonce: nonce });
 };
 
-module.exports.newbornOffer = (req, res) => {
+module.exports.newbornOffer = async (req, res) => {
     res.render('oferta/oferta-noworodkowa', {    style: 'offer', 
                                           title:"Sesja noworodkowa w Bielsku-Białej | Karolina Pastuszak", 
                                           metaDescription: "Sesja noworodkowa w profesjonalnym studio. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
@@ -54,7 +54,7 @@ module.exports.newbornOffer = (req, res) => {
                                           nonce: nonce });
 };
 
-module.exports.newbornFamilyOffer = (req, res) => {
+module.exports.newbornFamilyOffer = async (req, res) => {
     res.render('oferta/oferta-noworodkowa-rodzinna', {    style: 'offer', 
                                           title:"Sesja noworodkowa rodzinna w Bielsku-Białej | Karolina Pastuszak", 
                                           metaDescription: "Rodzinna sesja noworodkowa w studio lub w plenerze. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
@@ -63,7 +63,7 @@ module.exports.newbornFamilyOffer = (req, res) => {
                                           nonce: nonce });
 };
 
-module.exports.familyOffer = (req, res) => {
+module.exports.familyOffer = async (req, res) => {
     res.render('oferta/oferta-rodzinna', {    style: 'offer', 
                                           title:"Sesja rodzinna w Bielsku-Białej | Karolina Pastuszak", 
                                           metaDescription: "Sesja zdjęciowa rodzinna w profesjonalnym studio. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
@@ -72,7 +72,7 @@ module.exports.familyOffer = (req, res) => {
                                           nonce: nonce });
 };
 
-module.exports.familyOutdoorOffer = (req, res) => {
+module.exports.familyOutdoorOffer = async (req, res) => {
     res.render('oferta/oferta-rodzinna-w-plenerze', {    style: 'offer', 
                                           title:"Sesja rodzinna w Bielsku-Białej | Karolina Pastuszak", 
                                           metaDescription: "Sesja zdjęciowa rodzinna w plenerze. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
@@ -81,7 +81,7 @@ module.exports.familyOutdoorOffer = (req, res) => {
                                           nonce: nonce });
 };
 
-module.exports.preschoolOffer = (req, res) => {
+module.exports.preschoolOffer = async (req, res) => {
     res.render('oferta/oferta-w-przedszkolu', {    style: 'offer', 
                                           title:"Sesja w przedszkolu Bielsko-Biała | Karolina Pastuszak", 
                                           metaDescription: "Sesja w przedszkolu – Bielsko-Biała, Cieszyn, Żywiec, Pszczyna, Czechowice-Dziedzice. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",
@@ -90,7 +90,7 @@ module.exports.preschoolOffer = (req, res) => {
                                           nonce: nonce });
 };
 
-module.exports.easterOffer = (req, res) => {
+module.exports.easterOffer = async (req, res) => {
     res.render('oferta/oferta-wielkanocna', {    style: 'offer', 
                                           title:"Sesja wielkanocna Bielsko-Biała | Karolina Pastuszak", 
                                           metaDescription: "Mini sesja wielkanocna w studio w Bielsku-Białej. Zapraszam do zapoznania się z ofertą. Spraw sobie oraz bliskim Ci osobom pamiątkę na całe życie",

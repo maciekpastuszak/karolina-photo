@@ -9,49 +9,35 @@
         </div>
         <div class="fade_rule"></div>
         <br>
-        <p class="card-text shootIntro">Sesja dziecięca jest niepowtarzalną możliwością na uchwycenie ulotnych momentów. Zdjęcia to piękna pamiątka, do której będziemy mogli wracać przez całe życie. Z własnego doświadczenia wiem, że dzieci rosną stanowczo zbyt szybko. Czas ulatuje jak przez palce i nie wiadomo kiedy z raczkującego brzdąca wyrasta młody człowiek, który idzie do szkoły, ma przyjaciół, zainteresowania i swój własny świat. Czasu nie da się cofnąć, ale można spróbować uchwycić to, co nieuchwytne. </p>    
-        <p class="card-text shootIntro">Ogromną popularnością cieszą się sesje noworodkowe, niemowlęce i roczkowe - te ostatnie można zorganizować zarówno w studio jak i w plenerze. Wiosną jest prawdziwy boom na plenerowe sesje komunijne – ten ważny moment zdecydowanie wart jest uwiecznienia.</p>    
-        <p class="card-text shootIntro">Mój dom pełen jest fotografii, z których spoglądają na mnie roześmiane buzie moich dzieci. Triumfalny uśmiech, kiedy mój młodszy syn stawiał pierwsze kroki i pełen przejęcia uśmiech, kiedy starszy syn jechał metrem (tak, metro to była jego wielka miłość i jako rodowity Warszawiak jeździł nim wielokrotnie, zawsze z taką samą pasją &#128521  ). Wspomnienia blakną i zanikają, a zdjęcia pozwalają nam przenieść się do przeszłości i przeżywać radosne chwile po raz kolejny. Dla mnie to bezcenne.</p>    
+        <p class="card-text shootIntro">Sesja dziecięca jest niepowtarzalną możliwością na uchwycenie ulotnych momentów.
+            Zdjęcia to piękna pamiątka, do której będziemy mogli wracać przez całe życie. Z własnego doświadczenia wiem,
+            że dzieci rosną stanowczo zbyt szybko. Czas ulatuje jak przez palce i nie wiadomo kiedy z raczkującego
+            brzdąca wyrasta młody człowiek, który idzie do szkoły, ma przyjaciół, zainteresowania i swój własny świat.
+            Czasu nie da się cofnąć, ale można spróbować uchwycić to, co nieuchwytne. </p>
+        <p class="card-text shootIntro">Ogromną popularnością cieszą się sesje noworodkowe, niemowlęce i roczkowe - te
+            ostatnie można zorganizować zarówno w studio jak i w plenerze. Wiosną jest prawdziwy boom na plenerowe sesje
+            komunijne – ten ważny moment zdecydowanie wart jest uwiecznienia.</p>
+        <p class="card-text shootIntro">Mój dom pełen jest fotografii, z których spoglądają na mnie roześmiane buzie
+            moich dzieci. Triumfalny uśmiech, kiedy mój młodszy syn stawiał pierwsze kroki i pełen przejęcia uśmiech,
+            kiedy starszy syn jechał metrem (tak, metro to była jego wielka miłość i jako rodowity Warszawiak jeździł
+            nim wielokrotnie, zawsze z taką samą pasją &#128521 ). Wspomnienia blakną i zanikają, a zdjęcia pozwalają
+            nam przenieść się do przeszłości i przeżywać radosne chwile po raz kolejny. Dla mnie to bezcenne.</p>
 
         <div class="container">
-           <% for (let kid of kids) {%>
-            <% if(currentUser) {%>
-                <a class="btn btn-warning my-2" href="/sesja-dziecieca/<%=kid._id%>/edit">Edytuj galerię</a>
-            <%} %>
-            <div class="d-flex justify-content-between">
-                <div class="row">
-                <% for(let img of kid.images) { %>
-                            <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 px-2">
-                            <img src="<%= img.url %> " alt="" class="gallery-item w-100 shadow-1-strong rounded mb-4" alt="gallery">
+            <% for (let kid of kids) {%>
+                <% if(currentUser) {%>
+                    <a class="btn btn-warning my-2" href="/sesja-dziecieca/<%=kid._id%>/edit">Edytuj galerię</a>
+                    <%} %>
+                        <div class="d-flex justify-content-between">
+                            <div class="row">
+                                <% for(let img of kid.images) { %>
+                                    <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 px-2">
+                                        <img src="<%= img.url %> " alt=""
+                                            class="gallery-item w-100 shadow-1-strong rounded mb-4" alt="gallery">
+                                    </div>
+                                    <% } %>
+                            </div>
                         </div>
-                    <% } %>
-                </div>
-            </div>
-            <% } %>
+                        <% } %>
         </div>
     </div>
-
-
-
-<!-- 
-    <div class="col-xs-12 col-md-6 px-2 py-2">
-        <div class="pshoot-card card mb-3">
-            <div class="card-body p-0">
-                <%# if(currentUser) { %>
-                <a href="sesja-dziecieca/<%#=kid._id%>">link</a>
-                <%# } %>
-                <div>
-                    <%# if(kid.images.length) {%>
-                        <img class="card-img-top" src="<%#= kid.images[0].url %>" alt="card-img"
-                            id="pshoot-img">
-                        <%# } else {%>
-                            <img class="card-img-top"
-                                src="https://res.cloudinary.com/dqcadja0y/image/upload/v1617459271/sample.jpg"
-                                alt="card-img" id="pshoot-img">
-                            <%# } %>
-                               
-                </div>
-                    
-            </div>
-        </div>
-    </div> -->
