@@ -1,0 +1,51 @@
+<% layout('layouts/boilerplate')%>
+    <div class="container pt-3">
+        <div class="d-flex justify-content-between">
+            <div></div>
+            <div>
+                <h2 class="pshoot-header">Sesja brzuszkowa</h2>
+            </div>
+           
+          
+            <div>
+                <% if(currentUser) { %>
+                    <a class="btn btn-warning" href="/sesja-brzuszkowa/new">Dodaj zdjęcie</a>
+                    <% } %>
+            </div>
+        </div>
+        <div class="fade_rule"></div>
+        <br>
+        
+        <p class="card-text shootIntro">Kobieta w ciąży promienieje, wygląda piękniej niż kiedykolwiek i zachwycająco wychodzi na zdjęciach. Dlatego fotografia ciążowa jest mi szczególnie bliska. Sesje przebiegają idealnie, a efekty są za każdym razem olśniewające.</p>    
+        <p class="card-text shootIntro">Posiadam suknie ciążowe, które pięknie podkreślą atuty przyszłej Mamy i sprawią, że poczuje się wyjątkowo. Podczas takiej sesji zawsze proszę o zabranie rekwizytów takich jak malutkie skarpeteczki, buciki lub zdjęcie USG. Można zabrać również pluszaka lub body. W sesji ciążowej udział może wziąć również przyszły Tata i rodzeństwo Maleństwa.</p>    
+        <p class="card-text shootIntro">Zdaję sobie sprawę z tego, że część przyszłych Mam może czuć się opuchnięta i dostrzega dodatkowe kilogramy. Uwierzcie mi - wyglądacie przepięknie i obiektyw Was pokocha.</p>    
+        <p class="card-text shootIntro">Kiedy byłam w pierwszej ciąży niezbyt dobrze się czułam, z trudem łapałam oddech, sapałam jak parowóz i miałam rwę kulszową i wiecie co? Na zdjęciach z mojej sesji ciążowej żadnej z tych rzeczy nie było widać. Wyglądałam lepiej niż kiedykolwiek i bardzo lubię wracać do tych zdjęć.</p>    
+        <p><strong>Sesja ciążowa ma uwidocznić emocje - oczekiwanie, rodzącą się więź, miłość.</strong></p>
+            
+        <div class="container">
+            <div class="row justify-content-start">
+                <% for (let tum of tummy) { %>
+                    <div class="col-xs-12 col-md-6 px-3 py-3">
+                        <div class="pshoot-card card mb-4">
+                            <div class="card-body p-0">
+                                <% if(currentUser) { %>
+                                    <a href="sesja-brzuszkowa/<%=tum._id%>">link</a>
+                                    <% } %>
+                                <div>
+                                    <% if(tum.images.length) {%>
+                                        <img class="card-img-top" src="<%= tum.images[0].url %>" alt="card-img"
+                                            id="pshoot-img">
+                                        <% } else {%>
+                                            <img class="card-img-top"
+                                                src="https://res.cloudinary.com/dqcadja0y/image/upload/v1617459271/sample.jpg"
+                                                alt="card-img" id="pshoot-img">
+                                            <% } %>
+                                            
+                                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <% } %>
+            </div>
+        </div>
+    </div>
