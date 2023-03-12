@@ -6,12 +6,18 @@
 .portfolioGallery {
   flex: 1;
   display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: start;
+  width: 100%;
+  padding: 0;
+  max-height: 6000px;
 }
 
 .portfolioGallery img {
-  width: 100%;
+  width: 32%;
+  padding-bottom: 10px;
 }
 
 

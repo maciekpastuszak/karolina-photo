@@ -17,18 +17,14 @@
                 <% } %>
         </div>
 
-        <div class="container portfolioGallery">
-            <div class="row">
-                <% for (let tum of tummy) { %>
-                    <div class="d-flex col-md-4">
-                        <% if(tum.images.length) {%>
-                            <img src="<%= tum.images[0].url %>" alt="card-img">
-                            <% } else {%>
-                                <img src="https://res.cloudinary.com/dqcadja0y/image/upload/v1617459271/sample.jpg"
-                                    alt="card-img">
-                                <% } %>
-                    </div>
-                    <% } %>
-            </div>
+        <div class="container-fluid portfolioGallery">
+            <% for (let tum of tummy) { %>
+                <% if(tum.images.length) {%>
+                    <img src="<%= tum.images[0].url %>" alt="card-img">
+                    <% } else {%>
+                        <img src="https://res.cloudinary.com/dqcadja0y/image/upload/v1617459271/sample.jpg"
+                            alt="card-img">
+                        <% } %>
+                            <% } %>
         </div>
     </div>
