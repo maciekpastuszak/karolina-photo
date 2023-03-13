@@ -84,6 +84,6 @@ flex-direction: column;
 @media screen and (min-width:992px) {
   .gallery {
     max-width: 1116px;
-    max-height:3000px;
+    max-height:6000px;
   }
 }

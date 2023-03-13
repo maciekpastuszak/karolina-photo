@@ -1,0 +1,25 @@
+<% layout('layouts/boilerplate')%>
+    <div class="container pt-3">
+        <div class="d-flex justify-content-center">
+            <h2 class="pshoot-header">Sesje brzuszkowe</h2>
+        </div>
+        <div class="fade_rule"></div>
+
+        <div class="my-3 d-flex justify-content-center shootIntro">
+            <p class="card-text">Kobieta w ciąży promienieje, wygląda piękniej niż kiedykolwiek i
+                zachwycająco wychodzi na zdjęciach. Dlatego fotografia ciążowa jest mi szczególnie bliska. Sesje
+                przebiegają idealnie, a efekty są za każdym razem olśniewające.</p>
+        </div>
+
+        <div class="my-3 d-flex justify-content-center">
+            <% if(currentUser) { %>
+                <a class="btn btn-warning" href="/sesja-brzuszkowa/new">Dodaj zdjęcia</a>
+                <% } %>
+        </div>
+
+        <div class="gallery">
+            <% for (let tum of tummy) { %>
+                <img src="<%= tum.images[0].url %>" alt="card-img">
+                <% } %>
+        </div>
+    </div>
