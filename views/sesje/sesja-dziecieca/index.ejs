@@ -24,20 +24,30 @@
             nam przenieść się do przeszłości i przeżywać radosne chwile po raz kolejny. Dla mnie to bezcenne.</p>
 
         <div class="container">
-            <% for (let kid of kids) {%>
-                <% if(currentUser) {%>
-                    <a class="btn btn-warning my-2" href="/sesja-dziecieca/<%=i._id%>/edit">Edytuj galerię</a>
-                    <%} %>
-                        <div class="d-flex justify-content-between">
-                            <div class="row">
-                                <% for(let img of kid.images) { %>
-                                    <div class="col-lg-6 col-md-12 mb-4 mb-lg-0 px-2">
-                                        <img src="<%= img.url %> " alt=""
-                                            class="gallery-item w-100 shadow-1-strong rounded mb-4" alt="gallery">
-                                    </div>
+            <div class="row justify-content-start">
+                <% for (let kid of kids) { %>
+                    <div class="col-xs-12 col-md-6 px-3 py-3">
+                        <div class="pshoot-card card mb-4">
+                            <div class="card-body p-0">
+                                <% if(currentUser) { %>
+                                    <a href="sesja-dziecieca/<%=kid._id%>">link</a>
                                     <% } %>
+                                        <div>
+                                            <% if(kid.images.length) {%>
+                                                <img class="card-img-top" src="<%= kid.images[0].url %>" alt="card-img"
+                                                    id="pshoot-img">
+                                                <% } else {%>
+                                                    <img class="card-img-top"
+                                                        src="https://res.cloudinary.com/dqcadja0y/image/upload/v1617459271/sample.jpg"
+                                                        alt="card-img" id="pshoot-img">
+                                                    <% } %>
+
+                                        </div>
                             </div>
                         </div>
-                        <% } %>
+                    </div>
+                    <% } %>
+            </div>
         </div>
+    </div>
     </div>
