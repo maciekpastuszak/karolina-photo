@@ -10,7 +10,6 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: start;
-  width: 100%;
   padding: 0;
   max-height: 6000px;
 }
@@ -21,11 +20,8 @@
 }
 
 
-
-
-
-.shootIntro {
-  text-align: justify;
+.shootIntro p {
+  text-align: center;
 }
 
 .footer a {
@@ -49,3 +45,15 @@ flex-direction: column;
 
 #sortable { list-style-type: none; margin: 0; padding: 0; width: 450px; }
 #sortable li { margin: 3px 3px 3px 0; padding: 1px; float: left; width: 100px; height: 90px; font-size: 4em; text-align: center; }
+
+@media screen and (min-width: 993px) {
+  .portfolioGallery {
+    width: 936px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .portfolioGallery {
+    width: 736px;
+  }
+}
