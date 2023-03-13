@@ -8,63 +8,123 @@
 
 
 <url>
-  <loc>https://karolinapastuszak.pl/</loc>
-  <lastmod>2022-02-08T12:03:24+00:00</lastmod>
+  <loc>http://karolinapastuszak.pl/</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://karolinapastuszak.pl/sesja-dziecieca</loc>
-  <lastmod>2022-02-08T12:03:24+00:00</lastmod>
+  <loc>http://karolinapastuszak.pl/sesja-dziecieca</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://karolinapastuszak.pl/sesja-rodzinna</loc>
-  <lastmod>2022-02-08T12:03:24+00:00</lastmod>
+  <loc>http://karolinapastuszak.pl/sesja-rodzinna</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://karolinapastuszak.pl/sesja-brzuszkowa</loc>
-  <lastmod>2022-02-08T12:03:24+00:00</lastmod>
+  <loc>http://karolinapastuszak.pl/sesja-brzuszkowa</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://karolinapastuszak.pl/sesja-noworodkowa</loc>
-  <lastmod>2022-02-08T12:03:24+00:00</lastmod>
+  <loc>http://karolinapastuszak.pl/sesja-noworodkowa</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://karolinapastuszak.pl/sesja-komunijna</loc>
-  <lastmod>2022-02-08T12:03:24+00:00</lastmod>
+  <loc>http://karolinapastuszak.pl/sesja-komunijna</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://karolinapastuszak.pl/studio</loc>
-  <lastmod>2022-02-08T12:03:24+00:00</lastmod>
+  <loc>http://karolinapastuszak.pl/sesja-swiateczna</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://karolinapastuszak.pl/przed-sesja</loc>
-  <lastmod>2022-02-08T12:03:24+00:00</lastmod>
+  <loc>http://karolinapastuszak.pl/sesja-wielkanocna</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://karolinapastuszak.pl/voucher</loc>
-  <lastmod>2022-02-08T12:03:24+00:00</lastmod>
+  <loc>http://karolinapastuszak.pl/studio</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://karolinapastuszak.pl/cennik</loc>
-  <lastmod>2022-02-08T12:03:24+00:00</lastmod>
+  <loc>http://karolinapastuszak.pl/oferta/oferta-dziecieca</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://karolinapastuszak.pl/kontakt</loc>
-  <lastmod>2022-02-08T12:03:24+00:00</lastmod>
+  <loc>http://karolinapastuszak.pl/oferta/oferta-rodzinna</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://karolinapastuszak.pl/login</loc>
-  <lastmod>2022-02-08T12:03:24+00:00</lastmod>
+  <loc>http://karolinapastuszak.pl/oferta/oferta-rodzinna-w-plenerze</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://karolinapastuszak.pl/oferta/oferta-brzuszkowa</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://karolinapastuszak.pl/oferta/oferta-ciazowa-rodzinna</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://karolinapastuszak.pl/oferta/oferta-noworodkowa</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://karolinapastuszak.pl/oferta/oferta-noworodkowa-rodzinna</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://karolinapastuszak.pl/oferta/oferta-komunijna</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://karolinapastuszak.pl/oferta/oferta-na-dzien-mamy</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://karolinapastuszak.pl/oferta/oferta-sesja-w-przedszkolu</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://karolinapastuszak.pl/oferta/oferta-wielkanocna</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://karolinapastuszak.pl/voucher</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://karolinapastuszak.pl/cennik</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://karolinapastuszak.pl/kontakt</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://karolinapastuszak.pl/przed-sesja</loc>
+  <lastmod>2023-03-13T07:58:11+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 
