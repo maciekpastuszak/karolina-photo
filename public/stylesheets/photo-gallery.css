@@ -48,6 +48,17 @@
   text-align: justify;
 }
 
+.wielkanocna_kontakt {
+  font-size: 1.3rem;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.wielkanocna_kontakt a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.5);
+}
+
 .footer a {
   text-decoration: none;
   color: rgba(0, 0, 0, 0.5);
