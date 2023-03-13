@@ -222,9 +222,10 @@ text-align: center;
 }
 
 .footerCol li:first-child {
-  font-weight: 800;
+  font-family: "Arial", sans-serif;
+  font-weight: 500;
   margin-bottom: 5px;
-  font-size: .9rem;
+  font-size: 1rem;
 }
 
 .footerCol li a {
