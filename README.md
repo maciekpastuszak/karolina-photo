@@ -1,20 +1,9 @@
-#### Hello wanderer!
+# Karolina Pastuszak Photography
 
+## Introduction
+This is my first ever webpage, that I made from scratch. It is a portfolio website for a photographer starting her business activity.
 
-Thank you for visiting my repository.
-
-
-This is my first ever webpage, that I made from scratch.
-
-
-It is a portfolio website for a greenhorn photographer starting her business activity.
-
-The site development covered both **front-end** and **back-end**.
-
-***
-
-For building this 'masterpiece' from a front-side I used a number of technologies:
-
+The site development covered both **front-end** and **back-end**. Among others, this site introduces:
 
 + HTML5
 + CSS3 with Flexbox
@@ -36,3 +25,5 @@ and a whole bunch of npm packages, like Morgan, Passport, Multer and many more
 
 The website has all REST functionalities, authentication, it serves cookies and sessions (mostly for the admin) and many, many more.
 I hope you enjoy it!
+
+### [Live Site](https://karolinapastuszak.pl/)
