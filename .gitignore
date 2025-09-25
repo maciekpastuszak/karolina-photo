@@ -1,7 +1,7 @@
 node_modules
 *.log
 .DS_Store
-/public/images
+# /public/images
 .env
 sitemap.xml
 robots.txt
