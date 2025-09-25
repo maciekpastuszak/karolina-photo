@@ -246,7 +246,7 @@ app.get('/kontakt', (req, res) => {
 });
 
 app.get('/sitemap.xml', (req, res) => {
-    res.sendFile('sitemap.xml', { root: '.' });
+    res.sendFile(path.join(__dirname, 'sitemap.xml'));
     });
 
 app.get('/robots.txt', (req, res) => {
